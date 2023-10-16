@@ -1,0 +1,10 @@
+name: Photo Blog - Theme
+type: theme
+description: 'Photo Blog Gallery'
+version: 0.0.1
+core_version_requirement: ^10
+base theme: stable9 
+
+libraries: 
+  - foto_blog/global-styling
+  - core/normalize

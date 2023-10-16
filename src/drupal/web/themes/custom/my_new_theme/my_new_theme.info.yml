@@ -1,0 +1,22 @@
+name: my_new_theme
+type: theme
+'base theme': stable9
+starterkit: true
+version: VERSION
+libraries:
+  - my_new_theme/base
+  - my_new_theme/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - my_new_theme/user
+  core/drupal.dropbutton:
+    - my_new_theme/dropbutton
+  core/drupal.dialog:
+    - my_new_theme/dialog
+  file/drupal.file:
+    - my_new_theme/file
+  core/drupal.progress:
+    - my_new_theme/progress
+core_version_requirement: ^10
+generator: 'starterkit_theme:10.1.5'
