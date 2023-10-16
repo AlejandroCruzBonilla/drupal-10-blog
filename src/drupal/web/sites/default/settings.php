@@ -861,16 +861,5 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
   include $app_root . '/' . $site_path . '/settings.local.php';
 }
 
-// $databases['default']['default'] = array (
-//   'database' => 'drupal-10-blog-db',
-//   'username' => 'admin',
-//   'password' => 'admin',
-//   'prefix' => '',
-//   'host' => 'drupal-10-blog-db',
-//   'port' => '5432',
-//   'namespace' => 'Drupal\\pgsql\\Driver\\Database\\pgsql',
-//   'driver' => 'pgsql',
-//   'autoload' => 'core/modules/pgsql/src/Driver/Database/pgsql/',
-// );
 
 $settings['config_sync_directory'] = 'sites/default/files/config_87j1XhLaX1eQErkWNAQRH2BRBCBX3Ah1uirdTxwYeWj6QOjrppfpU5Bt-0YrlnIM2Ooy1q39-w/sync';
