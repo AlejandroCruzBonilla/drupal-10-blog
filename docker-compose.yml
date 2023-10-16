@@ -6,8 +6,8 @@ services:
     container_name: drupal-10-blog
     ports:
       - 8080:80
-    # volumes:
-    #   - ./src:/opt
+    volumes:
+      - ./src:/opt
 
   database:
     build: ./docker/db/
