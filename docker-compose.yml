@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  drupal:
+    build: ./docker/drupal/
+    container_name: drupal-10-blog
+    ports:
+      - 8080:80
+    # volumes:
+    #   - ./src:/opt
+
+  database:
+    build: ./docker/db/
+    image: postgres:15.3
+    container_name: drupal-10-blog-db
+    ports:
+      - 5442:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=drupal-10-blog-db
+    volumes:
+      - drupal-10-blog-db:/var/lib/postgresql/data
+
+volumes:
+  drupal-10-blog-db:
