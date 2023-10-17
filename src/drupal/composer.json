@@ -22,6 +22,7 @@
         "drupal/core-recommended": "^10.1",
         "drupal/ctools": "^3.14",
         "drupal/devel": "^5.1",
+        "drupal/ds": "^3.15",
         "drupal/entity_browser": "^2.9",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/metatag": "^2.0",
