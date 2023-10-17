@@ -25,6 +25,7 @@
         "drupal/ds": "^3.15",
         "drupal/entity_browser": "^2.9",
         "drupal/entity_usage": "^2.0@beta",
+        "drupal/field_group": "^3.4",
         "drupal/metatag": "^2.0",
         "drupal/page_manager": "^4.0@RC",
         "drupal/panelizer": "^4.5",
