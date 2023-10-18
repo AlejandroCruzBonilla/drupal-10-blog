@@ -4,8 +4,8 @@ global-styling:
     base:
       css/base/colors.css: {}
       css/base/variables.css: {}
-      css/base/elements.css: {}
       css/base/fonts.css: {}
+      css/base/elements.css: {}
     layout:
       css/layout.css: {}
     component:
