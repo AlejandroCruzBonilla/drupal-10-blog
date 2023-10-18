@@ -32,6 +32,7 @@
         "drupal/panelizer": "^4.5",
         "drupal/panels": "^4.7",
         "drupal/paragraphs": "^1.16",
+        "drupal/redis": "^1.7",
         "drupal/schema_metatag": "^3.0",
         "drupal/search_api": "^1.30",
         "drupal/sfc": "^1.11",
