@@ -32,6 +32,7 @@
         "drupal/panels": "^4.7",
         "drupal/paragraphs": "^1.16",
         "drupal/schema_metatag": "^3.0",
+        "drupal/search_api": "^1.30",
         "drupal/sfc": "^1.11",
         "drupal/token": "^1.12",
         "drupal/xmlsitemap": "^1.5",
