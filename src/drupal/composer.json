@@ -35,6 +35,7 @@
         "drupal/paragraphs": "^1.16",
         "drupal/quicklink": "^2.0",
         "drupal/redis": "^1.7",
+        "drupal/restui": "^1.21",
         "drupal/schema_metatag": "^3.0",
         "drupal/search_api": "^1.30",
         "drupal/sfc": "^1.11",
