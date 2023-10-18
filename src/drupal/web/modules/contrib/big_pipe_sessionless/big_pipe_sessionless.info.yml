@@ -1,0 +1,13 @@
+name: Sessionless BigPipe
+type: module
+description: 'Accelerates Page Cache misses using the BigPipe technique.'
+package: 'Performance and scalability'
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:big_pipe
+  - drupal:page_cache
+
+# Information added by Drupal.org packaging script on 2022-11-18
+version: '2.1.0'
+project: 'big_pipe_sessionless'
+datestamp: 1668775494
