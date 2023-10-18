@@ -1,0 +1,11 @@
+<template>
+  {{ session_status }}
+</template>
+
+<?php
+
+use Symfony\Component\HttpFoundation\Request;
+
+$prepareContext = function (array &$context, Request $request) {
+  $context['session_status'] = $request->getSession()->get('forced', FALSE) ? 'yes session' : 'no session';
+};

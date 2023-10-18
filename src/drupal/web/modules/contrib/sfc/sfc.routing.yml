@@ -1,0 +1,7 @@
+sfc.action:
+  path: '/sfc/action/{component_id}/{action}'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ActionController::perform'
+  requirements:
+    _access: 'TRUE'
+    _csrf_token: 'TRUE'

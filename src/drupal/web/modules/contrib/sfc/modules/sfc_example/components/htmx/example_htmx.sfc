@@ -1,0 +1,25 @@
+<!--
+  Frontend frameworks are a great fit for Components. Here, htmx is used
+  to add interactivity to basic HTML, with no need for a script tag or jQuery.
+  When the dice roll button is clicked, HTML from the "roll" SFC action is
+  fetched and replaced in the target element. "sfc_unique_id" is used here to
+  allow for multiple instances of this component on the same page.
+-->
+
+<template>
+  <div {{ sfc_attributes }}>
+    <button hx-get="{{ sfc_actions.roll }}" hx-trigger="click" hx-target="#{{ sfc_unique_id }}-result">
+      Roll a d20 dice
+    </button>
+    <div id="{{ sfc_unique_id }}-result"></div>
+  </div>
+  {{ attach_library('sfc_example/htmx') }}
+</template>
+
+<?php
+
+use Symfony\Component\HttpFoundation\Response;
+
+$actions['roll'] = function () {
+  return new Response('You rolled ' . rand(1, 20));
+};

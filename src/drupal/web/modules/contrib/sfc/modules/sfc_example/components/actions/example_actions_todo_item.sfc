@@ -1,0 +1,62 @@
+<!--
+  This component represents a todo list item, and contains actions to display
+  an edit form. All operations at the list level happen in ./example_actions_todo.sfc
+-->
+
+<template>
+  <li data-todo-item-id="{{ item.id }}">
+    <div id="{{ item.id }}-content">
+      <div>{{ item.text }}</div>
+      <a href="{{ sfc_actions.open_form }}&item_id={{ item.id }}" class="use-ajax">Edit</a>
+      <a href="{{ move_action }}&direction=up&item_id={{ item.id }}" class="use-ajax">Move up</a>
+      <a href="{{ move_action }}&direction=down&item_id={{ item.id }}" class="use-ajax">Move down</a>
+      <a href="{{ remove_action }}&item_id={{ item.id }}" class="use-ajax">Remove</a>
+    </div>
+    <form id="{{ item.id }}-form" action="{{ sfc_actions.save }}&item_id={{ item.id }}" style="display:none;">
+      <div>
+        <label for="{{ item.id }}-text">Item text</label>
+        <input type="text" name="text" id="{{ item.id }}-text" value="{{ item.text }}" required />
+      </div>
+      <input type="submit" value="Save" class="use-ajax-submit" />
+    </form>
+  </li>
+  {{ sfc_cache('example-todo-' ~ user_id) }}
+</template>
+
+<?php
+
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+use Symfony\Component\HttpFoundation\Request;
+
+$prepareContext = function (array &$context, AccountProxyInterface $current_user) {
+  $context['user_id'] = $current_user->id();
+  $context['remove_action'] = sfc_action_url('example_actions_todo', 'remove');
+  $context['move_action'] = sfc_action_url('example_actions_todo', 'move');
+};
+
+$actions['open_form'] = function (Request $request) {
+  $item_id = (string) $request->query->get('item_id', '');
+  return (new AjaxResponse())
+    ->addCommand(new InvokeCommand('#' . $item_id . '-form', 'show', []))
+    ->addCommand(new InvokeCommand('#' . $item_id . '-content', 'hide', []));
+};
+
+$actions['save'] = function (Request $request, KeyValueFactoryInterface $keyvalue, AccountProxyInterface $current_user) {
+  $item_id = (string) $request->query->get('item_id', '');
+  $text = (string) $request->request->get('text', '') ?: '(Empty)';
+  $items = todo_get_state($keyvalue, $current_user);
+  foreach ($items as &$item) {
+    if ($item['id'] === $item_id) {
+      $item['text'] = $text;
+    }
+  }
+  todo_set_state($keyvalue, $current_user, $items);
+  return (new AjaxResponse())
+    ->addCommand(new InvokeCommand('#' . $item_id . '-content div', 'text', [$text]))
+    ->addCommand(new InvokeCommand('#' . $item_id . '-text', 'val', [$text]))
+    ->addCommand(new InvokeCommand('#' . $item_id . '-form', 'hide', []))
+    ->addCommand(new InvokeCommand('#' . $item_id . '-content', 'show', []));
+};

@@ -1,0 +1,10 @@
+<template>
+<div class="simple-test">{{ message }}</div>
+</template>
+
+<?php
+$prepareContext = function (&$context) {
+  if (!isset($context['message'])) {
+    $context['message'] = t('Default value');
+  }
+};

@@ -1,0 +1,16 @@
+<!--
+  Components can set the "$prepareContext" variable to a callback that modifies
+  template context before it's used.
+-->
+
+<template>
+  Hello {{ name }}!
+</template>
+
+<?php
+
+$prepareContext = function (&$context) {
+  if (!isset($context['name'])) {
+    $context['name'] = \Drupal::currentUser()->getDisplayName();
+  }
+};

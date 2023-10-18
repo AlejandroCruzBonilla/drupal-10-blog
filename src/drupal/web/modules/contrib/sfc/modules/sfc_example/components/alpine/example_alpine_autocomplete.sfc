@@ -1,0 +1,125 @@
+<!--
+  This is a complex but realistic example of how you might use frameworks like
+  Alpine.js and dom-diffing libraries like morphdom to create components that
+  are re-rendered server-side. This example is heavily influenced by Livewire.
+
+  In production, it might make more sense for just the dynamic part of the
+  component to be AJAX-ified, in this case that would probably mean making the
+  autocomplete results their own component. There are lots of ways to do this!
+-->
+
+<template>
+  <div x-data='alpineAutocomplete($el, "{{ sfc_actions.render }}")' class="aautocomplete">
+    <label for="aautocomplete">{{ 'Cat Breed' | t }}</label>
+    <input type="text" x-model="autocomplete" x-on:input.debounce="onInput()" x-on:focus="open = true" x-on:blur.debounce="open = false" id="aautocomplete" autocomplete="false" name="aautocomplete">
+    <div x-show="open" class="aautocomplete__results">
+      {% if results is empty %}
+        <div class="aautocomplete__empty">No results.</div>
+      {% endif %}
+      {% for result in results %}
+        <a @click="onResult($event)" class="aautocomplete__result">{{ result }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</template>
+
+<script>
+  function alpineAutocomplete($el, render_action) {
+    return {
+      autocomplete: "",
+      open: false,
+      render_action: render_action,
+      onResult: function($event) {
+        // Update our model when a result is selected.
+        this.autocomplete = $event.target.innerText
+      },
+      onInput: function() {
+        // Clear results if there's no text.
+        if (this.autocomplete.length == 0) {
+          $el.children[2].innerHTML = '';
+          return;
+        }
+        // Fetch newly rendered element. This generically works with all
+        // components and could be abstracted.
+        fetch(this.render_action + '&autocomplete=' + this.autocomplete)
+          .then(function (response) {
+            if (!response.ok) {
+              return;
+            }
+            response.text().then(function (text) {
+              // Use morphdom to apply patch of changes.
+              morphdom($el, text, {
+                 onBeforeElUpdated: function(fromEl, toEl) {
+                  if (fromEl.isEqualNode(toEl)) {
+                      return false;
+                  }
+                  return true;
+                }
+              });
+            });
+          });
+      }
+    }
+  }
+</script>
+
+<style>
+  .aautocomplete {
+    position: relative;
+  }
+  .aautocomplete__results {
+    max-height: 200px;
+    min-width: 200px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    overflow-y: scroll;
+  }
+  .aautocomplete__result {
+    cursor: pointer;
+    display: block;
+  }
+</style>
+
+<?php
+
+use Drupal\Core\Render\HtmlResponse;
+use Drupal\Core\Render\RendererInterface;
+use Symfony\Component\HttpFoundation\Request;
+
+$prepareContext = function (&$context) {
+  // Since "autocomplete" is user controlled, we need some validation.
+  if (!empty($context['autocomplete']) && is_string($context['autocomplete'])) {
+    $cat_breeds = _sfc_example_get_cat_breeds();
+    $context['results'] = array_filter($cat_breeds, function ($cat_breed) use ($context) {
+      return strpos(strtoupper($cat_breed), strtoupper($context['autocomplete'])) !== FALSE;
+    });
+  }
+};
+
+$definition['group'] = 'Example - Alpine';
+
+$actions['render'] = function (RendererInterface $renderer, Request $request) {
+  $build = [
+    'component' => [
+      '#type' => 'sfc',
+      '#component_id' => 'example_alpine_autocomplete',
+      '#context' => [
+        'autocomplete' => $request->query->get('autocomplete', ''),
+      ],
+    ],
+  ];
+  $response = new HtmlResponse();
+  $renderer->renderRoot($build);
+  // Remove HTML comments which can break dom diffing.
+  $build['#markup'] = preg_replace('/<!--(.*)-->/Uis', '', $build['#markup']);
+  $response->setContent($build);
+  return $response;
+};
+
+$dependencies = [
+  'sfc_example/alpine',
+  'sfc_example/morphdom',
+];
+
+$library['header'] = TRUE;

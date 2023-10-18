@@ -1,0 +1,25 @@
+<!--
+  Components can provide JavaScript in a "script" tag.
+
+  If the "data-type" attribute is present and either set to "attach" or
+  "detach", the JS is wrapped in a Drupal behavior that automatically attaches
+  to [data-sfc-id="<plugin_id>"] elements on the page. If you want to customize
+  the selector your code attaches to, you can define the "$selector" variable.
+
+  If the "data-type" attribute is not present, the JS is global.
+-->
+
+<template>
+  <div class="example-js" data-sfc-id="example_js">Clicked 0 times</div>
+</template>
+
+<script data-type="attach">
+  var count = 0;
+  $(this).on('click.example_js', function () {
+    $(this).text('Clicked ' + ++count + ' times');
+  });
+</script>
+
+<script data-type="detach">
+  $(this).off('click.example_js');
+</script>

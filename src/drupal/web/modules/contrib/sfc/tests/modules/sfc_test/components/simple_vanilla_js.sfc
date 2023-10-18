@@ -1,0 +1,7 @@
+<script data-type="attach" data-vanilla>
+  alert('foo');
+</script>
+
+<template>
+  <div class="foo">Hello world!</div>
+</template>

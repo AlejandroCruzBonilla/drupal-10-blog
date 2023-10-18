@@ -1,0 +1,35 @@
+<!--
+  Components can provide layouts by adding the "layout" key to their
+  definition, which maps to an array of layout definition values.
+-->
+
+<template>
+  <div{{ attributes.addClass('two-column') }}>
+    <div{{ region_attributes.left.addClass('left') }}>
+      {{ content.left }}
+    </div>
+    <div{{ region_attributes.right.addClass('right') }}>
+      {{ content.right }}
+    </div>
+  </div>
+</template>
+
+<style>
+  .two-column {
+    display: flex;
+  }
+  .two-column .left {
+    margin-right: 10px;
+  }
+</style>
+
+<?php
+
+$definition['layout'] = [
+  'label' => 'Two column',
+  'regions' => [
+    'left' => ['label' => 'Left'],
+    'right' => ['label' => 'Right'],
+  ],
+  'icon_map' => [['left', 'right']],
+];

@@ -1,0 +1,18 @@
+<!--
+  If a component has library dependencies, it can define them with the
+  "$dependencies" variable.
+-->
+
+<template>
+  <div data-sfc-id="example_dependencies">Dialog text</div>
+</template>
+
+<script data-type="attach">
+  $(this).dialog();
+</script>
+
+<?php
+
+$dependencies = [
+  'core/jquery.ui.dialog',
+];

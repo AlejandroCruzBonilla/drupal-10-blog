@@ -1,0 +1,11 @@
+<!--
+  If a CSS or JS file exists in the same directory as a component with the same
+  filename, they will automatically be loaded. This allows you to split up
+  CSS/JS into separate without defining $library.
+-->
+
+<template>
+  <div class="example_local_assets">
+    Click me to make sure local CSS/JS is still working!
+  </div>
+</template>

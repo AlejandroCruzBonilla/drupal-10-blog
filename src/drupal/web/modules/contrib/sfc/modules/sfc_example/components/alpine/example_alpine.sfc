@@ -1,0 +1,25 @@
+<!--
+  Frontend frameworks are a great fit for Components. Here, Alpine.js is used
+  to add interactivity to basic HTML, with no need for a script tag or jQuery.
+  You can also see that "count" provided by Twig context is passed to Alpine.js
+  with the "json_encode()" Twig filter. You can pass complex context this way
+  without using drupalSettings.
+-->
+
+<template>
+  <div x-data="{ count: {{ count|default(0)|json_encode() }} }">
+    <button @click="++count">
+      Clicked <span x-text="count"></span> times
+    </button>
+  </div>
+</template>
+
+<?php
+
+$definition['group'] = 'Example - Alpine';
+
+$dependencies = [
+  'sfc_example/alpine',
+];
+
+$library['header'] = TRUE;

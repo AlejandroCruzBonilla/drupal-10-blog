@@ -1,0 +1,28 @@
+<style>
+  .foo {
+    color: blue;
+    background: url(assets/image.jpg);
+  }
+</style>
+
+<script>
+  alert('foo');
+</script>
+
+<script data-type="attach">
+  alert('bar');
+</script>
+
+<script data-type="detach">
+  alert('baz');
+</script>
+
+<template>
+  <div class="foo">Hello world!</div>
+</template>
+
+<?php
+$selector = '.foo';
+$dependencies = [
+  'foo/bar',
+];

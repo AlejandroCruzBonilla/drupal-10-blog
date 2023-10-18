@@ -1,0 +1,7 @@
+main:
+  version: VERSION
+  js:
+    js/sfc_dev.js: {}
+  dependencies:
+  - core/drupal.ajax
+  - core/once

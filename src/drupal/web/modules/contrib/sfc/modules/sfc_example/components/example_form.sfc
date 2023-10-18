@@ -1,0 +1,37 @@
+<!--
+  Component can provide form methods to configure context values passed to
+  their templates. This is useful when using the component library, or when
+  providing a block, layout, or field formatter.
+-->
+
+<template>
+  <p class="example-form">You rolled a {{ roll }}!</p>
+</template>
+
+<style>
+  .example-form {
+    font-size: 20px;
+  }
+</style>
+
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+$buildContextForm = function (array $form, FormStateInterface $form_state, array $default_values = []) {
+  $form['sides'] = [
+    '#type' => 'number',
+    '#title' => $this->t('Sides'),
+    '#description' => $this->t('The number of sides for the die.'),
+    '#required' => TRUE,
+    '#default_value' => isset($default_values['sides']) ? $default_values['sides'] : 6,
+    '#min' => 2,
+  ];
+  return $form;
+};
+
+$prepareContext = function (&$context) {
+  $context['cache'] = ['#cache' => ['max-age' => 0]];
+  $context['sides'] = isset($context['sides']) ? $context['sides'] : 6;
+  $context['roll'] = rand(1, $context['sides']);
+};

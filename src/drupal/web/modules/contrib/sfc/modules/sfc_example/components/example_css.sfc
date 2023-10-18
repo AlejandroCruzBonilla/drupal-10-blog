@@ -1,0 +1,17 @@
+<!--
+  Components can provide CSS in a style tag. This will automatically get
+  output to a file, added to a library, and then that library will be included
+  anytime your template is rendered.
+
+  Relative url() paths will be relative to the module root.
+-->
+
+<template>
+  <div class="example-css">I'm so big!</div>
+</template>
+
+<style>
+  .example-css {
+    font-size: 30px;
+  }
+</style>

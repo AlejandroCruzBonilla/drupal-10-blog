@@ -1,0 +1,97 @@
+<!--
+  In this version of the todo list, Alpine.js is used with only one action that
+  updates the entire state of the form. Much simpler than using Drupal's AJAX
+  API, but some security controls are missing (JSON schema validation).
+-->
+
+<template>
+  <div x-data="alpineTodo({{ init_data|json_encode() }})" x-init="$watch('items', value => update(value))">>
+    <h2>Todo list</h2>
+    <ul>
+      <template x-for="(item, index) in items">
+        <li>
+          <div x-show="!showForm[item.id]">
+            <div x-text="item.text"></div>
+            <a @click="showForm[item.id] = true">Edit</a>
+            <a @click="items.splice(index, 1)">Remove</a>
+            <a @click="swap(index, index-1)" x-show="index > 0">Move up</a>
+            <a @click="swap(index, index+1)" x-show="index < items.length-1">Move down</a>
+          </div>
+          <form :id="$id('todo-form')" @submit.prevent="showForm[item.id] = false" x-show="showForm[item.id]">
+            <div x-id="['todo-item-text']">
+              <label :for="$id('todo-item-text')">Item text</label>
+              <input type="text" name="text" :id="$id('todo-item-text')" :value="item.text" x-model.debounce="item.text" required />
+            </div>
+            <input type="submit" value="Save" />
+          </form>
+        </li>
+      </template>
+    </ul>
+    <form id="todo-form" @submit.prevent="addItem">
+      <div x-id="['todo-add-text']">
+        <label for="$id('todo-add-text')">Item text</label>
+        <input type="text" name="text" id="$id('todo-add-text')" required x-model="addText" />
+      </div>
+      <input type="submit" value="Add" />
+    </form>
+  </div>
+  {{ attach_library('sfc_example/alpine') }}
+  {{ sfc_cache('example-todo-' ~ user_id) }}
+</template>
+
+<script>
+  function alpineTodo(init_data) {
+    return {
+      items: init_data.items || [],
+      showForm: {},
+      addText: '',
+      swap: function(from, to) {
+        var swap = this.items[to]
+        this.items[to] = this.items[from]
+        this.items[from] = swap
+      },
+      addItem: function () {
+        this.items.push({
+          id: Math.random().toString(36).substr(2, 9),
+          text: this.addText,
+        })
+        this.addText =  ''
+      },
+      update: function() {
+        fetch(init_data.updateUrl, {
+          method: 'POST',
+          body: JSON.stringify(this.items),
+        })
+      }
+    }
+  }
+</script>
+
+<?php
+
+use Drupal\Component\Uuid\UuidInterface;
+use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+
+$prepareContext = function (array &$context, KeyValueFactoryInterface $keyvalue, AccountProxyInterface $current_user) {
+  $context['init_data'] = [
+    'items' => todo_get_state($keyvalue, $current_user),
+    'updateUrl' => $context['sfc_actions']['update']->setAbsolute()->toString(),
+  ];
+  $context['user_id'] = $current_user->id();
+};
+
+$actions['update'] = function (Request $request, KeyValueFactoryInterface $keyvalue, AccountProxyInterface $current_user, UuidInterface $uuid) {
+  // Ideally would do a schema check here too.
+  $items = json_decode($request->getContent(), TRUE);
+  if (!$items) {
+    throw new BadRequestHttpException('Unable to parse JSON');
+  }
+  todo_set_state($keyvalue, $current_user, $items);
+  return new JsonResponse(['status' => 'ok']);
+};
+
+$library['header'] = TRUE;

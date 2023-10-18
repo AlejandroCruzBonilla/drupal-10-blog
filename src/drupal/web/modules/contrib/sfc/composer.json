@@ -1,0 +1,13 @@
+{
+  "name": "drupal/sfc",
+  "type": "drupal-module",
+  "description": "Enables modules to provide single file components.",
+  "homepage": "http://drupal.org/project/sfc",
+  "license": "GPL-2.0+",
+  "require": {
+    "drupal/core": "^8.7 || ^9 || ^10"
+  },
+  "require-dev": {
+    "drush/drush": "^9.7 || ^10.2 || ^11"
+  }
+}

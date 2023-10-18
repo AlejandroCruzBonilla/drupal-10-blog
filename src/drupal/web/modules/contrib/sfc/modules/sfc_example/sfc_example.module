@@ -1,0 +1,151 @@
+<?php
+
+/**
+ * @file
+ * Contains hooks for the Single File Components Example module.
+ */
+
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+
+/**
+ * Returns an array of cat breeds, for testing purposes.
+ *
+ * @return array
+ *   An array of cat breeds.
+ */
+function _sfc_example_get_cat_breeds() {
+  return [
+    'Abyssinian',
+    'Aegean',
+    'American Curl',
+    'American Bobtail',
+    'American Shorthair',
+    'American Wirehair',
+    'Arabian Mau',
+    'Australian Mist',
+    'Asian',
+    'Asian Semi-longhair',
+    'Balinese',
+    'Bambino',
+    'Bengal',
+    'Birman',
+    'Bombay',
+    'Brazilian Shorthair',
+    'British Semi-longhair',
+    'British Shorthair',
+    'British Longhair',
+    'Burmese',
+    'Burmilla',
+    'California Spangled',
+    'Chantilly-Tiffany',
+    'Chartreux',
+    'Chausie',
+    'Cheetoh',
+    'Colorpoint Shorthair',
+    'Cornish Rex',
+    'Cymric',
+    'Cyprus',
+    'Devon Rex',
+    'Donskoy',
+    'Dragon Li',
+    'Dwarf cat',
+    'Egyptian Mau',
+    'European Shorthair',
+    'Exotic Shorthair',
+    'Foldex',
+    'German Rex',
+    'Havana Brown',
+    'Highlander',
+    'Himalayan',
+    'Japanese Bobtail',
+    'Javanese',
+    'Karelian Bobtail',
+    'Khao Manee',
+    'Korat',
+    'Korean Bobtail',
+    'Korn Ja',
+    'Kurilian Bobtail',
+    'LaPerm',
+    'Lykoi',
+    'Maine Coon',
+    'Manx',
+    'Mekong Bobtail',
+    'Minskin',
+    'Munchkin',
+    'Nebelung',
+    'Napoleon',
+    'Norwegian Forest cat',
+    'Ocicat',
+    'Ojos Azules',
+    'Oregon Rex',
+    'Oriental Bicolor',
+    'Oriental Shorthair',
+    'Oriental Longhair',
+    'PerFold',
+    'Persian (Modern Persian Cat)',
+    'Persian (Traditional Persian Cat)',
+    'Peterbald',
+    'Pixie-bob',
+    'Raas',
+    'Ragamuffin',
+    'Ragdoll',
+    'Russian Blue',
+    'Russian White, Black and Tabby',
+    'Sam Sawet',
+    'Savannah',
+    'Scottish Fold',
+    'Selkirk Rex',
+    'Serengeti',
+    'Serrade petit',
+    'Siamese',
+    'Siberian',
+    'Singapura',
+    'Snowshoe',
+    'Sokoke',
+    'Somali',
+    'Sphynx',
+    'Suphalak',
+    'Thai',
+    'Thai Lilac',
+    'Tonkinese',
+    'Toyger',
+    'Turkish Angora',
+    'Turkish Van',
+    'Ukrainian Levkoy',
+  ];
+}
+
+/**
+ * Helper function for components to read from the todo list state.
+ *
+ * @param \Drupal\Core\KeyValueStore\KeyValueFactoryInterface $key_value
+ *   The key value factory.
+ * @param \Drupal\Core\Session\AccountProxyInterface $current_user
+ *   The current user.
+ *
+ * @return array
+ *   An array of todo list items.
+ */
+function todo_get_state(KeyValueFactoryInterface $key_value, AccountProxyInterface $current_user) {
+  $store = $key_value->get('sfc_example_todo');
+  $items = $store->get($current_user->id(), []);
+  return $items;
+};
+
+/**
+ * Helper function for components to write to the todo list state.
+ *
+ * @param \Drupal\Core\KeyValueStore\KeyValueFactoryInterface $key_value
+ *   The key value factory.
+ * @param \Drupal\Core\Session\AccountProxyInterface $current_user
+ *   The current user.
+ * @param array $items
+ *   An array of todo list items.
+ */
+function todo_set_state(KeyValueFactoryInterface $key_value, AccountProxyInterface $current_user, array $items) {
+  $store = $key_value->get('sfc_example_todo');
+  $store->set($current_user->id(), $items);
+  Cache::invalidateTags(['example-todo-' . $current_user->id()]);
+};

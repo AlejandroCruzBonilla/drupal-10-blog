@@ -1,0 +1,83 @@
+<!--
+  Here's an example for how you may build a styleguide for your components.
+
+  A route is used for this component and it is available at /example-styleguide
+-->
+
+<template>
+  <div class="sg-components">
+    <h2 class="sg-components__title">{{ 'Example components' | t }}</h2>
+    <div class="sg-components__description">
+      {{ 'Components used for documented Single File Component features' | t }}
+    </div>
+    {% include 'sfc--example-styleguide-component' with {
+      'title': 'example_aliases',
+      'description': 'This component documents how aliases can be used on your site.' | t,
+      'context': {
+        'name': 'The name to say hello to.' | t,
+      },
+      'usage': [
+        {
+          'title': 'Basic usage' | t,
+          'description': 'Say hello to a user by providing their name.' | t,
+          'twig': '{% include "sfc--example-aliases" with {"name": "Sam"} %}',
+        },
+      ],
+    } %}
+    {% include 'sfc--example-styleguide-component' with {
+      'title': 'example_css',
+      'description': 'This component demonstrates how CSS can be included with components.' | t,
+      'usage': [
+        {
+          'title': "It's really big, and has no context." | t,
+          'twig': '{% include "sfc--example-css" %}',
+        },
+      ],
+    } %}
+    {% include 'sfc--example-styleguide-component' with {
+      'title': 'example_styleguide_component',
+      'description': 'This component allows components to be documented in the styleguide. So meta.' | t,
+      'context': {
+        'title': 'The component title or ID' | t,
+        'description': 'A description for the component.' | t,
+        'context': 'An associative array mapping context names to descriptions.' | t,
+        'usage': 'An array of associative arrays that document example usages.' | t,
+        'usage[].title': 'The title of the example.' | t,
+        'usage[].description': 'A description for the example.' | t,
+        'usage[].twig': 'The Twig snippet for the example.' | t,
+      },
+      'usage': [{
+          "title": "Basic usage" | t,
+          "description": "Display information for a hypothetical component." | t,
+          "twig": '{% include "sfc--example-styleguide-component" with {
+  "title": "my_component",
+  "description": "A description for the component",
+  "context": {
+    "variable": "A context variable",
+  },
+  "usage": [
+    {
+      "title": "Basic usage",
+      "description": "Some description for this example",
+      "twig": "{% include \'sfc--example-aliases\' with {\'name\': \'Sam\'} %}",
+    },
+  ],
+} %}'}],
+    } %}
+  </div>
+</template>
+
+<style>
+  .sg-components {
+    font-family: sans-serif;
+  }
+  .sg-components__title {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  .sg-components__description {
+    font-size: .8rem;
+  }
+</style>

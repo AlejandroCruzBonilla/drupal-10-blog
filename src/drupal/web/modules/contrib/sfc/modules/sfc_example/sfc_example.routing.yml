@@ -1,0 +1,56 @@
+sfc_example.hello:
+  path: '/hello/{name}'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'example_controller'
+  requirements:
+    _access: 'TRUE'
+sfc_example.styleguide:
+  path: '/example-styleguide'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'example_styleguide'
+  requirements:
+    _access: 'TRUE'
+sfc_example.alpine_autocomplete:
+  path: '/alpine-autocomplete'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'example_alpine_autocomplete'
+  requirements:
+    _access: 'TRUE'
+sfc_example.alpine_json:
+  path: '/alpine-json'
+  defaults:
+    _controller: '\Drupal\sfc_example\Controller\ExampleController::randomCatBreed'
+  requirements:
+    _access: 'TRUE'
+sfc_example.actions:
+  path: '/example-actions-render'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'example_actions_render'
+    anon_session: 'TRUE'
+  requirements:
+    _access: 'TRUE'
+sfc_example.actions_todo:
+  path: '/example-actions-todo'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'example_actions_todo'
+  requirements:
+    _access: 'TRUE'
+sfc_example.actions_form:
+  path: '/example-actions-form'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'example_actions_form'
+  requirements:
+    _access: 'TRUE'
+sfc_example.actions-todo_alpine:
+  path: '/example-actions-todo-alpine'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'example_actions_todo_alpine'
+  requirements:
+    _access: 'TRUE'

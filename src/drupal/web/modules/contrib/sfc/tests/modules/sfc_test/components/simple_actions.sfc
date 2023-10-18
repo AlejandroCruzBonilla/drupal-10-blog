@@ -1,0 +1,23 @@
+<template>Hello</template>
+
+<?php
+
+use Drupal\Core\Session\AccountProxyInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
+
+$actions['return_query'] = function (Request $request) {
+  return $request->query->get('hello');
+};
+
+$actions['user_id'] = function (AccountProxyInterface $current_user) {
+  return $current_user->id();
+};
+
+$actions['json_response'] = function () {
+  return new JsonResponse(['hello' => 'world']);
+};
+
+$actions['render_response'] = function () {
+  return ['#plain_text' => 'Hello world!'];
+};

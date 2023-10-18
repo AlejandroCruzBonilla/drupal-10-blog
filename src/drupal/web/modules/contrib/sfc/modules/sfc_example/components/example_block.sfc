@@ -1,0 +1,14 @@
+<!--
+  Components can provide blocks by adding the "block" key to their definition,
+  which maps to an array of block definition values.
+-->
+
+<template>
+  Wow I'm a block.
+</template>
+
+<?php
+
+$definition['block'] = [
+  'admin_label' => 'Blog Component Block',
+];

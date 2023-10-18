@@ -1,0 +1,11 @@
+<!--
+  This is the most minimal single file component you can define - the
+  "template" tag is always required.
+
+  You can use this component from Twig with an include like:
+  {% include "sfc--example-minimal.html.twig" with {"name": "Sam"} %}
+-->
+
+<template>
+  Hello {{ name }}!
+</template>

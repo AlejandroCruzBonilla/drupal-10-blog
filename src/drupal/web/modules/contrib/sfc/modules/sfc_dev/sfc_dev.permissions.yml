@@ -1,0 +1,3 @@
+use sfc dev:
+  title: 'Use Single File Components development tools'
+  restrict access: true

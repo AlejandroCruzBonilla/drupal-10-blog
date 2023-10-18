@@ -1,0 +1,14 @@
+services:
+  plugin.manager.single_file_component:
+    class: Drupal\sfc\ComponentPluginManager
+    arguments: ['@container.namespaces', '@cache.discovery', '@module_handler', '@theme_handler']
+  sfc.twig_extension:
+    class: Drupal\sfc\TwigExtension
+    arguments: ['@plugin.manager.single_file_component', '@renderer']
+    tags:
+      - { name: twig.extension }
+  sfc.twig_loader:
+    class: Drupal\sfc\TwigComponentLoader
+    arguments: ['@plugin.manager.single_file_component']
+    tags:
+      - { name: twig.loader }

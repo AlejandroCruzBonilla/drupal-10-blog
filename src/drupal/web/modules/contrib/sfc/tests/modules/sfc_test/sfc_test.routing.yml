@@ -1,0 +1,53 @@
+sfc_test.say_hello_default:
+  path: '/sfc_test/say_hello_default'
+  defaults:
+    _controller: '\Drupal\sfc_test\Controller\TestController:sayHelloDefault'
+  requirements:
+    _access: 'TRUE'
+
+sfc_test.say_hello_name:
+  path: '/sfc_test/say_hello_name'
+  defaults:
+    _controller: '\Drupal\sfc_test\Controller\TestController:sayHelloName'
+  requirements:
+    _access: 'TRUE'
+
+sfc_test.render_component:
+  path: '/sfc_test/render_component/{plugin_id}'
+  defaults:
+    _controller: '\Drupal\sfc_test\Controller\TestController:renderComponent'
+  requirements:
+    _access: 'TRUE'
+
+sfc_test.homepage:
+  path: '/homepage'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'homepage'
+  requirements:
+    _access: 'TRUE'
+
+sfc_test.hello:
+  path: '/hello/{name}'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'hello_page'
+  requirements:
+    _access: 'TRUE'
+
+sfc_test.no_anon_session:
+  path: '/no_anon_session'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'anon_session'
+  requirements:
+    _access: 'TRUE'
+
+sfc_test.anon_session:
+  path: '/anon_session'
+  defaults:
+    _controller: '\Drupal\sfc\Controller\ComponentController::build'
+    component_id: 'anon_session'
+    anon_session: 'TRUE'
+  requirements:
+    _access: 'TRUE'

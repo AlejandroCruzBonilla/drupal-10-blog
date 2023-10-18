@@ -1,0 +1,22 @@
+<!--
+  Tailwind CSS lets you style elements using common classes, and can be used
+  with Single File Components. Using a Gulp task, Tailwind's .css output is
+  pruned to only include classes that are used. This results in a much smaller
+  output file.
+
+  See ../../gulpfile.js and ../../tailwind.config.js for reference.
+-->
+
+<template>
+  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    {{ 'Click me' | t }}
+  </button>
+</template>
+
+<?php
+
+$definition['group'] = 'Example - Tailwind';
+
+$dependencies = [
+  'sfc_example/tailwind',
+];

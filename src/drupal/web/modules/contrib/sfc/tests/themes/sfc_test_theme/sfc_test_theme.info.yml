@@ -1,0 +1,10 @@
+name: Test Single File Components Theme
+type: theme
+description: 'Theme for testing single file components'
+base theme: stark
+core_version_requirement: ^9 || ^10
+
+# Information added by Drupal.org packaging script on 2023-04-09
+version: '8.x-1.11'
+project: 'sfc'
+datestamp: 1681065789

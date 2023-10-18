@@ -1,0 +1,18 @@
+<!--
+  Components can provide aliases to make Twig includes easier to handle.
+  For example, you can include this component with {% include "hello" %}.
+-->
+
+<template>
+  Hello {{ name }}!
+</template>
+
+<?php
+
+$definition = [
+  'aliases' => [
+    'example_aliases',
+    'sfc_example/example_aliases',
+    'hello',
+  ],
+];

@@ -1,0 +1,25 @@
+<!--
+  Components can override existing theme hooks to take over their template.
+  Note that theme hooks use underlines, not dashes like theme provided Twig
+  template overrides.
+
+  If the current theme also overrides this theme hook, its template will be
+  preferred.
+-->
+
+<template>
+  <span{{ attributes.addClass(classes) }}>
+    Article:&nbsp;
+    {%- for item in items -%}
+      {{ item.content }}
+    {%- endfor -%}
+  </span>
+</template>
+
+<?php
+
+$definition = [
+  'overrides' => [
+    'field__node__title__article',
+  ],
+];

@@ -1,0 +1,10 @@
+name: Test Single File Components Sub-Theme
+type: theme
+description: 'Sub-theme for testing single file components'
+base theme: sfc_test_theme
+core_version_requirement: ^9 || ^10
+
+# Information added by Drupal.org packaging script on 2023-04-09
+version: '8.x-1.11'
+project: 'sfc'
+datestamp: 1681065789

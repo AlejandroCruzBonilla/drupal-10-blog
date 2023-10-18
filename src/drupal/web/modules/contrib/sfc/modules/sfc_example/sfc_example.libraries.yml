@@ -1,0 +1,20 @@
+alpine:
+  version: VERSION
+  js:
+    //unpkg.com/alpinejs@3.10.2: {type: external, minified: true}
+
+morphdom:
+  version: VERSION
+  js:
+    //unpkg.com/morphdom@2.6.1/dist/morphdom-umd.js: {type: external}
+
+tailwind:
+  version: VERSION
+  css:
+    theme:
+      css/dist/tailwind.css: {}
+
+htmx:
+  version: VERSION
+  js:
+    //unpkg.com/htmx.org@1.8.2: {type: external, minified: true}

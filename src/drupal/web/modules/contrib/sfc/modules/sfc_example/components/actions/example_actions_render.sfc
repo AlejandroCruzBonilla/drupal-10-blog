@@ -1,0 +1,32 @@
+<!--
+  This component uses actions to re-render itself when the "Roll again" link is
+  clicked. Because of core's AJAX APIs, no JavaScript is needed.
+-->
+
+<template>
+  <div {{ sfc_attributes }}>
+    <div>You rolled {{ random(0, 20) }}!</div>
+    <a href="{{ sfc_actions.render }}" class="use-ajax">
+      Roll again
+    </a>
+  </div>
+  {{ attach_library('core/drupal.ajax') }}
+  {{ sfc_cache(0, 'max-age') }}
+</template>
+
+<?php
+
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\ReplaceCommand;
+use Symfony\Component\HttpFoundation\Request;
+
+$actions['render'] = function (Request $request) {
+  $unique_id = (string) $request->query->get('sfc_unique_id', '');
+  return (new AjaxResponse())->addCommand(new ReplaceCommand('[data-sfc-unique-id="' . $unique_id . '"]', [
+    '#type' => 'sfc',
+    '#component_id' => 'example_actions_render',
+    '#context' => [
+      'sfc_unique_id' => $unique_id,
+    ],
+  ]));
+};

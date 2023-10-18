@@ -1,0 +1,10 @@
+<template>
+  <div{{ attributes.addClass('two-column') }}>
+    <div{{ region_attributes.left.addClass('left') }}>
+      {{ content.left }}
+    </div>
+    <div{{ region_attributes.right.addClass('right') }}>
+      {{ content.right }}
+    </div>
+  </div>
+</template>

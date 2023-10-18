@@ -1,0 +1,21 @@
+<template>
+  <template>foo</template>
+  bar
+  <script>alert(`baz`)</script>
+</template>
+
+<script>
+  var foo = '<script>alert(`bar`)</script>';
+  var template = '<template>baz</template>';
+</script>
+
+<script data-type="attach">
+  alert(`foo`);
+</script>
+
+<style>
+  .foo {
+    bar: "</script>";
+    baz: "</template>"
+  }
+</style>

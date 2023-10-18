@@ -1,0 +1,18 @@
+<!--
+  If you prefer to keep CSS/JS in separate files, you can define the "$library"
+  variable, which is structured the same as a .libraries.yml definition.
+-->
+
+<template>
+  <div class="example-library">I use a separate library</div>
+</template>
+
+<?php
+
+$library = [
+  'css' => [
+    'base' => [
+      'css/example_library.css' => [],
+    ],
+  ],
+];

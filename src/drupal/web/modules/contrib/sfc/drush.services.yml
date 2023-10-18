@@ -1,0 +1,6 @@
+services:
+  sfc.commands:
+    class: \Drupal\sfc\Commands\ComponentCommands
+    arguments: ['@plugin.manager.single_file_component', 'public://sfc_watch_file.txt', '@library.discovery']
+    tags:
+      - { name: drush.command }

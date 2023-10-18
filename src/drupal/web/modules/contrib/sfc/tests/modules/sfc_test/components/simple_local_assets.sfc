@@ -1,0 +1,8 @@
+<template>
+  Hello world!
+</template>
+
+<?php
+
+$library['dependencies'][] = 'core/sortable';
+$library['css']['base']['main.css'] = [];

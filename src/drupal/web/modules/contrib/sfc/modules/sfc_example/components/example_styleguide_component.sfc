@@ -1,0 +1,99 @@
+<!--
+  Used by example_styleguide.sfc to display a styleguide for one component.
+
+  Remember that this is just an example and should not be used directly on real
+  projects - but feel free to copy this and customize it as needed!
+-->
+
+<template>
+  <div class="sg-component" data-component-id="{{ title }}">
+    <h3 class="sg-component__title">{{ title }}</h3>
+    <div class="sg-component__description">{{ description }}</div>
+    {% if context %}
+      <h4 class="sg-component__context-heading">{{ 'Available context' | t }}</h4>
+      <div class="sg-component__context">
+      {% for name, description in context %}
+        <div class="sg-context">
+          <h5 class="sg-context__title">{{ name }}</h5>
+          <div class="sg-context__description">{{ description }}</div>
+        </div>
+      {% endfor %}
+      </div>
+    {% endif %}
+    {% if usage %}
+    <h4 class="sg-component__usage-heading">{{ 'Example usage' | t }}</h4>
+    <div class="sg-component__usage">
+      {% for example in usage %}
+      <div class="sg-usage">
+        <h5 class="sg-usage__title">{{ example.title }}</h5>
+        <div class="sg-usage__description">{{ example.description }}</div>
+        <div class="sg-usage__twig">{{ example.twig }}</div>
+        {# Note: never do this with untrusted data. #}
+        <div class="sg-usage__build">{{ {'#type': 'inline_template', '#template': example.twig} }}</div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</template>
+
+<style>
+  .sg-component {
+    margin: 25px 0;
+    padding: 10px 20px 10px 20px;
+    border-left: 2px solid #767676;
+    max-width: 800px;
+  }
+  .sg-component__title {
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    margin: 0;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-family: monospace;
+  }
+  .sg-component__description {
+    font-size: .8rem;
+    font-style: italic;
+  }
+  .sg-component__context-heading,
+  .sg-component__usage-heading {
+    font-size: .9rem;
+    line-height: .9rem;
+    margin: 20px 0 10px 0;
+    font-weight: bold;
+  }
+  .sg-context__title,
+  .sg-usage__title {
+    font-size: .8rem;
+    line-height: .8rem;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+  .sg-usage__description,
+  .sg-context__description {
+    font-size: .8rem;
+    font-style: italic;
+  }
+  .sg-usage {
+    margin: 10px 0;
+  }
+  .sg-context,
+  .sg-usage {
+    padding-left: 10px;
+  }
+  .sg-usage__twig {
+    padding: 10px 20px;
+    font-family: monospace;
+    background: #f6f6f6;
+    margin: 10px 0;
+    white-space: pre;
+  }
+  .sg-usage__build {
+    padding: 10px 20px;
+    margin: 10px 0;
+    border: 1px dotted black;
+  }
+</style>

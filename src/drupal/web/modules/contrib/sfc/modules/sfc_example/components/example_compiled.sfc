@@ -1,0 +1,23 @@
+<!--
+  This component uses modern JavaScript and Sass, which is compiled by this
+  module's Gulp configuration.
+  The source is at ../components_src/example_compiled.sfc
+-->
+
+<template>
+  <div class="example-compiled blue" data-sfc-id="example_compiled">Click me</div>
+</template>
+
+<script data-type="attach">var _this = this;
+
+$(this).on('click', function () {
+  $(_this).toggleClass('blue');
+  $(_this).toggleClass('green');
+});</script>
+
+<style>.example-compiled.blue {
+  color: blue; }
+
+.example-compiled.green {
+  color: green; }
+</style>

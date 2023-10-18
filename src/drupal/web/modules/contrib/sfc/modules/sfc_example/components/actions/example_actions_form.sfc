@@ -1,0 +1,22 @@
+<!--
+  This component uses actions to display text back to the user, using a simple
+  form and render array response.
+-->
+
+<template>
+  <form id="example-actions-form" action="{{ sfc_actions.submit }}" method="post">
+    <label for="example-actions-text">Text</label>
+    <input type="text" name="text" id="example-actions-text" required />
+    <input type="submit" value="Submit" />
+  </form>
+</template>
+
+<?php
+
+use Symfony\Component\HttpFoundation\Request;
+
+$actions['submit'] = function (Request $request) {
+  return [
+    '#plain_text' => 'You submitted: ' . $request->request->get('text', ''),
+  ];
+};

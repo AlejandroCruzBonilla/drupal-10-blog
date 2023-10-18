@@ -1,0 +1,17 @@
+<!--
+  Components can provide field formatters by adding the "field_formatter" key
+  to their definition, which maps to an array of field formatter definition
+  values.
+-->
+
+<template>
+  {{ item.value }}!!!
+</template>
+
+<?php
+
+$definition['field_formatter'] = [
+  'label' => 'Exclamation formatter',
+  'description' => 'Adds exclamation marks to text',
+  'field_types' => ['string'],
+];

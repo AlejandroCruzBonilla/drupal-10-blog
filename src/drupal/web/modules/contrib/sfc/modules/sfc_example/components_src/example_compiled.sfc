@@ -1,0 +1,27 @@
+<!--
+  To use modern JavaScript and Sass, you'll need a build step like the Gulp
+  configuration used by this module.
+-->
+
+<template>
+  <div class="example-compiled blue" data-sfc-id="example_compiled">Click me</div>
+</template>
+
+<script data-type="attach">
+  $(this).on('click', () => {
+    $(this).toggleClass('blue');
+    $(this).toggleClass('green');
+  });
+</script>
+
+<style>
+  .example-compiled {
+    &.blue {
+       color: blue;
+    }
+
+    &.green {
+       color: green;
+    }
+  }
+</style>

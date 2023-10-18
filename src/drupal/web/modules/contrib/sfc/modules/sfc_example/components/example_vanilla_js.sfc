@@ -1,0 +1,28 @@
+<!--
+  Components can use vanilla JS instead of jQuery when using data-type="...".
+
+  To do so, set "data-vanilla" on any script tag. Note that this will make both
+  data-type="attach" and data-type="detach" use vanilla JS. The default
+  selector used for the "once()" call added around your code is
+  [data-sfc-id="<plugin_id>"]. If you want to customize the selector your code
+  attaches to, you can define the "$selector" variable.
+
+  Instead of "this", use "element" to reference the current DOM node.
+
+  Unlike the jQuery version, if you use data-type="detach" you will need to
+  remove your listeners with removeEventListener, and remove the once() calls
+  with: once.remove('sfcDetach', ...) and once.remove('sfcAttach', ...).
+
+  If the "data-vanilla" attribute is not present, jQuery is used.
+-->
+
+<template>
+  <div data-sfc-id="example_vanilla_js">Clicked 0 times</div>
+</template>
+
+<script data-type="attach" data-vanilla>
+  var count = 0;
+  element.onclick = function () {
+    this.innerText = 'Clicked ' + ++count + ' times';
+  };
+</script>

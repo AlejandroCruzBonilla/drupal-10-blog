@@ -1,0 +1,122 @@
+<!--
+  This complicated example provides an AJAX todo list that uses actions for
+  adding, removing, and re-ordering list items. For a much simpler example, see
+  ./example_actions_form.sfc.
+
+  A lot of the complexity is because AJAX is used, and could be removed if the
+  entire list was re-rendered every time. For a more JavaScript-heavy example,
+  see ./example_actions_todo.alpine.sfc
+-->
+
+<template>
+  <div {{ sfc_attributes }}>
+    <h2>Todo list</h2>
+    <ul>
+      {% for item in items %}
+        {% include 'sfc--example-actions-todo-item.html.twig' with {'item': item} %}
+      {% endfor %}
+    </ul>
+    <form id="{{ sfc_unique_id }}-form" action="{{ sfc_actions.add }}">
+      <div>
+        <label for="{{ sfc_unique_id }}-text">Item text</label>
+        <input type="text" name="text" id="{{ sfc_unique_id }}-text" required />
+      </div>
+      <input type="submit" value="Add" class="use-ajax-submit" />
+    </form>
+  </div>
+  {{ attach_library('core/drupal.ajax') }}
+  {{ attach_library('core/jquery.form') }}
+  {{ sfc_cache('example-todo-' ~ user_id) }}
+</template>
+
+<?php
+
+use Drupal\Component\Uuid\UuidInterface;
+use Drupal\Core\Ajax\AfterCommand;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\AppendCommand;
+use Drupal\Core\Ajax\BeforeCommand;
+use Drupal\Core\Ajax\InvokeCommand;
+use Drupal\Core\Ajax\RemoveCommand;
+use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+use Symfony\Component\HttpFoundation\Request;
+
+$prepareContext = function (array &$context, KeyValueFactoryInterface $keyvalue, AccountProxyInterface $current_user) {
+  $context['items'] = todo_get_state($keyvalue, $current_user);
+  $context['user_id'] = $current_user->id();
+};
+
+$actions['add'] = function (Request $request, KeyValueFactoryInterface $keyvalue, AccountProxyInterface $current_user, UuidInterface $uuid) {
+  $text = (string) $request->request->get('text', '') ?: '(Empty)';
+  $unique_id = (string) $request->query->get('sfc_unique_id', '');
+  $items = todo_get_state($keyvalue, $current_user);
+  $item = [
+    'id' => $uuid->generate(),
+    'text' => $text,
+    'weight' => count($items),
+  ];
+  $items[] = $item;
+  todo_set_state($keyvalue, $current_user, $items);
+  $build = [
+    '#type' => 'sfc',
+    '#component_id' => 'example_actions_todo_item',
+    '#context' => [
+      'item' => $item,
+    ],
+  ];
+  return (new AjaxResponse())
+    ->addCommand(new AppendCommand('[data-sfc-unique-id="' . $unique_id . '"] ul', $build))
+    ->addCommand(new InvokeCommand('#' . $unique_id . '-text', 'val', ['']));
+};
+
+$actions['remove'] = function (Request $request, KeyValueFactoryInterface $keyvalue, AccountProxyInterface $current_user) {
+  $item_id = (string) $request->query->get('item_id', '');
+  $items = todo_get_state($keyvalue, $current_user);
+  foreach ($items as $i => $item) {
+    if ($item['id'] === $item_id) {
+      unset($items[$i]);
+      break;
+    }
+  }
+  todo_set_state($keyvalue, $current_user, array_values($items));
+  return (new AjaxResponse())->addCommand(new RemoveCommand('[data-todo-item-id="' . $item_id . '"]'));
+};
+
+$actions['move'] = function (Request $request, KeyValueFactoryInterface $keyvalue, AccountProxyInterface $current_user) {
+  $item_id = (string) $request->query->get('item_id', '');
+  $direction = $request->query->get('direction', '');
+  $items = todo_get_state($keyvalue, $current_user);
+  $swap_id = FALSE;
+  foreach ($items as $i => $item) {
+    if ($item['id'] === $item_id) {
+      $new_index = $direction === 'up' ? $i - 1 : $i + 1;
+      if (isset($new_index)) {
+        $swap_id = $items[$new_index]['id'];
+        $items[$i] = $items[$new_index];
+        $items[$new_index] = $item;
+      }
+      break;
+    }
+  }
+  if (!$swap_id) {
+    return new AjaxResponse();
+  }
+  todo_set_state($keyvalue, $current_user, $items);
+  $response = new AjaxResponse();
+  $response->addCommand(new RemoveCommand('[data-todo-item-id="' . $item_id . '"]'));
+  $build = [
+    '#type' => 'sfc',
+    '#component_id' => 'example_actions_todo_item',
+    '#context' => [
+      'item' => $item,
+    ],
+  ];
+  if ($direction === 'up') {
+    $response->addCommand(new BeforeCommand('[data-todo-item-id="' . $swap_id . '"]', $build));
+  }
+  else {
+    $response->addCommand(new AfterCommand('[data-todo-item-id="' . $swap_id . '"]', $build));
+  }
+  return $response;
+};

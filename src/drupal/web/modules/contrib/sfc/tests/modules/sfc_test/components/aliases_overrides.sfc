@@ -1,0 +1,14 @@
+<template>
+Hello {{ label }}
+</template>
+
+<?php
+
+$definition['overrides'] = [
+  'node__article',
+];
+
+$definition['aliases'] = [
+  'fancy/aliased',
+  'aliased',
+];

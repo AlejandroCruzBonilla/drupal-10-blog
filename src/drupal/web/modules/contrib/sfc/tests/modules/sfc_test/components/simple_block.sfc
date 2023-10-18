@@ -1,0 +1,39 @@
+<template>
+<div class="simple-block">{{ message }}</div>
+</template>
+
+<?php
+use Drupal\Core\Form\FormStateInterface;
+
+$prepareContext = function (&$context) {
+  if (!isset($context['message'])) {
+    $context['message'] = t('Default value');
+  }
+};
+
+$definition['block'] = [
+  'admin_label' => 'Simple block',
+  'category' => 'Test components',
+];
+
+$buildContextForm = function (array $form, FormStateInterface $form_state, array $default_values = []) {
+  $form['message'] = [
+    '#type' => 'textfield',
+    '#title' => t('Message'),
+    '#description' => t('A message to prompt the user'),
+    '#default_value' => isset($default_values['message']) ? $default_values['message'] : '',
+  ];
+  return $form;
+};
+
+$validateContextForm = function (array $form, FormStateInterface $form_state) {
+  if ($form_state->getValue('message') === 'test') {
+    $form_state->setError($form['message'], t('Test error message'));
+  }
+};
+
+$submitContextForm = function (array $form, FormStateInterface $form_state) {
+  if ($form_state->getValue('message') === 'changeme') {
+    $form_state->setValue('message', 'changed');
+  }
+};

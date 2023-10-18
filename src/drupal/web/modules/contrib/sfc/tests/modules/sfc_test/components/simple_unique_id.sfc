@@ -1,0 +1,3 @@
+<template>
+  {{ sfc_unique_id }}
+</template>

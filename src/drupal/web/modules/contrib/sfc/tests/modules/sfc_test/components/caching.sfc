@@ -1,0 +1,18 @@
+<template>
+  <div>I'm cached!</div>
+  {{ sfc_cache('my_tag') }}
+  {{ sfc_cache(nodes) }}
+  {{ sfc_cache(node) }}
+  {{ sfc_cache(mixed) }}
+  {{ sfc_cache('url.query_args', 'contexts') }}
+  {{ sfc_cache(123, 'max-age') }}
+</template>
+
+<?php
+
+$prepareContext = function (&$context) {
+  $storage = \Drupal::entityTypeManager()->getStorage('node');
+  $context['nodes'] = $storage->loadMultiple([1, 2]);
+  $context['node'] = $storage->load(3);
+  $context['mixed'] = ['other_tag', $storage->load(4)];
+};

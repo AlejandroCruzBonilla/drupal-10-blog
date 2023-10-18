@@ -1,0 +1,11 @@
+<!--
+  Components can be rendered in routes using a controller provided by SFC. This
+  component is available at /hello/{name}, but isn't explicitly aware of its
+  use as a page.
+
+  See ../sfc_example.routing.yml for the implementation details.
+-->
+
+<template>
+  Hello {{ name }}!
+</template>

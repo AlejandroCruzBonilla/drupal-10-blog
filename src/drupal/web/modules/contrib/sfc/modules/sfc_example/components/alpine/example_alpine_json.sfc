@@ -1,0 +1,47 @@
+<!--
+  This example shows how you can use JSON endpoints with Alpine.js.
+-->
+
+<template>
+  <div x-data="alpineRandom({{ init_data|json_encode() }})">
+    <div x-text="breed"></div>
+    <button @click="update">Randomize breed</button>
+  </div>
+</template>
+
+<script>
+  function alpineRandom(init_data) {
+    return {
+      breed: init_data.breed || '',
+      update: function() {
+        var self = this;
+        fetch(Drupal.url('alpine-json'))
+          .then(function (response) {
+            if (!response.ok) {
+              return;
+            }
+            response.json().then(function (data) {
+              self.breed = data.breed;
+            });
+          });
+      }
+    }
+  }
+</script>
+
+<?php
+
+$prepareContext = function (&$context) {
+  $breeds = _sfc_example_get_cat_breeds();
+  $context['init_data'] = [
+    'breed' => $breeds[array_rand($breeds)],
+  ];
+};
+
+$definition['group'] = 'Example - Alpine';
+
+$dependencies = [
+  'sfc_example/alpine',
+];
+
+$library['header'] = TRUE;
