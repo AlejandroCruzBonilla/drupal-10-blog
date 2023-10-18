@@ -38,6 +38,7 @@
         "drupal/restui": "^1.21",
         "drupal/schema_metatag": "^3.0",
         "drupal/search_api": "^1.30",
+        "drupal/seo_checklist": "^5.2",
         "drupal/sfc": "^1.11",
         "drupal/token": "^1.12",
         "drupal/twig_tweak": "^3.2",

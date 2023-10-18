@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54ac79769338a48780beca0e7d172800",
+    "content-hash": "aa9621c513ab157a7fb38b0eca233c17",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1766,6 +1766,70 @@
             "homepage": "https://www.drupal.org/project/big_pipe_sessionless",
             "support": {
                 "source": "https://git.drupalcode.org/project/big_pipe_sessionless"
+            }
+        },
+        {
+            "name": "drupal/checklistapi",
+            "version": "2.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/checklistapi.git",
+                "reference": "2.1.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/checklistapi-2.1.5.zip",
+                "reference": "2.1.5",
+                "shasum": "9d91ecdcba1fc1d4805a6ddc06a6ba5ca8a63fc9"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10",
+                "php": ">=7.3.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "2.1.5",
+                    "datestamp": "1697644052",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                },
+                "drush": {
+                    "services": {
+                        "drush.services.yml": "^10"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Travis Carden",
+                    "homepage": "https://www.drupal.org/user/3550392",
+                    "email": "travis.carden@gmail.com"
+                },
+                {
+                    "name": "Rajeshreeputra",
+                    "homepage": "https://www.drupal.org/user/3418561"
+                },
+                {
+                    "name": "TravisCarden",
+                    "homepage": "https://www.drupal.org/user/236758"
+                },
+                {
+                    "name": "VladimirAus",
+                    "homepage": "https://www.drupal.org/user/673120"
+                }
+            ],
+            "description": "Provides an API for creating fillable, persistent checklists.",
+            "homepage": "http://drupal.org/project/checklistapi",
+            "support": {
+                "source": "https://git.drupalcode.org/project/checklistapi",
+                "issues": "https://www.drupal.org/project/issues/checklistapi"
             }
         },
         {
@@ -3652,6 +3716,83 @@
                 "source": "https://git.drupalcode.org/project/search_api",
                 "issues": "https://www.drupal.org/project/issues/search_api",
                 "irc": "irc://irc.freenode.org/drupal-search-api"
+            }
+        },
+        {
+            "name": "drupal/seo_checklist",
+            "version": "5.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/seo_checklist.git",
+                "reference": "5.2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/seo_checklist-5.2.0.zip",
+                "reference": "5.2.0",
+                "shasum": "648f1322d95da131562f0c8f25d4a7a37b4e2861"
+            },
+            "require": {
+                "drupal/checklistapi": "^2.0",
+                "drupal/core": "^8.8 || ^9 || ^10"
+            },
+            "require-dev": {
+                "drupal/addtoany": "*",
+                "drupal/admin_toolbar": "*",
+                "drupal/advagg": "*",
+                "drupal/cloudflare": "*",
+                "drupal/coffee": "*",
+                "drupal/diff": "*",
+                "drupal/easy_breadcrumb": "*",
+                "drupal/editor_advanced_link": "*",
+                "drupal/filefield_paths": "*",
+                "drupal/google_tag": "*",
+                "drupal/honeypot": "*",
+                "drupal/hreflang": "*",
+                "drupal/metatag": "*",
+                "drupal/pathauto": "*",
+                "drupal/redirect": "*",
+                "drupal/robotstxt": "*",
+                "drupal/scheduler": "*",
+                "drupal/search404": "*",
+                "drupal/security_review": "*",
+                "drupal/sitemap": "*",
+                "drupal/xmlsitemap": "*",
+                "drupal/yoast_seo": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "5.2.0",
+                    "datestamp": "1687450936",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Ben Finklea",
+                    "homepage": "https://www.drupal.org/user/46676"
+                },
+                {
+                    "name": "TravisCarden",
+                    "homepage": "https://www.drupal.org/user/236758"
+                }
+            ],
+            "description": "Uses best practices to check for proper search engine optimization.",
+            "homepage": "https://www.drupal.org/project/seo_checklist",
+            "keywords": [
+                "SEO"
+            ],
+            "support": {
+                "source": "http://drupalcode.org/seo_checklist",
+                "issues": "https://www.drupal.org/project/issues/seo_checklist"
             }
         },
         {
