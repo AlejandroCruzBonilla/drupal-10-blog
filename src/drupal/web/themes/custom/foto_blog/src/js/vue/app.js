@@ -1,10 +1,10 @@
 import { createApp } from "vue";
 
-import FontAwesomeIcon from "./libraries/fontAwesome";
+import FontAwesomeIcon from "./libraries/fontAwesome.js";
 
-import Page from "./components/Page";
+import Page from "./pages/page.vue";
 
-import Debug from "./components/Debug";
+import Debug from "./components/__debug.vue";
 
 //VueApp
 const appDocument = document.querySelector("#vue-app");
