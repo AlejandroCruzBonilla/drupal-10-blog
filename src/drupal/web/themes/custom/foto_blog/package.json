@@ -18,7 +18,7 @@
     "style-loader": "^3.3.3",
     "terser-webpack-plugin": "^5.3.9",
     "vue": "^3.3.4",
-    "vue-loader": "^15.11.1",
+    "vue-loader": "^17.3.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"

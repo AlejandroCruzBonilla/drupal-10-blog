@@ -1,6 +1,7 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require('path');
+const Webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
@@ -19,8 +20,6 @@ const optimization =
 		}
 		: {}
 
-
-
 const config = {
 	entry: './src/index.js',
 	output: {
@@ -38,6 +37,10 @@ const config = {
 		// Add your plugins here
 		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
 		new VueLoaderPlugin(),
+		new Webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: !isProduction,
+    }),
 	],
 	module: {
 		rules: [

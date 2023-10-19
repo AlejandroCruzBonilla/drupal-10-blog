@@ -1,1 +1,1 @@
-// import './vue/app.js';
+import './vue/app.js';
