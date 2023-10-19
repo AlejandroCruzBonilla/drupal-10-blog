@@ -2,15 +2,7 @@ global-styling:
   version: 0.0.1
   css:
     base:
-      css/base/colors.css: {}
-      css/base/variables.css: {}
-      css/base/fonts.css: {}
-      css/base/elements.css: {}
-    layout:
-      css/layout.css: {}
-    component:
-      css/components/test.css: {}
-    theme:
-      css/theme.css: {}
+      dist/main.css: {}
+
   js:
-    js/app.js: {}
+    dist/main.js: {}

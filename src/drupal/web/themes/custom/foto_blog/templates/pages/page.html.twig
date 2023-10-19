@@ -62,16 +62,19 @@
 	{{ page.hero }}
 
 	{# ! For admin Links #}
-	{{ page.highlighted }} 
-
-
+	{{ page.highlighted }}
 
 	<main role="main">
+		<a id="main-content" tabindex="-1"></a>
+		{# link is in html.html.twig #}
 		<div class="main__wrapper">
+			<VuePage>
+				Gola
+			</VuePage>
 			<div class="layout">
 
 				{% if page.sidebar_left %}
-					<aside class="layout__sidebar--left" role="complementary">
+					<aside class="sidebar sidebar__left" role="complementary">
 						{{ page.sidebar_left }}
 					</aside>
 				{% endif %}
@@ -83,7 +86,6 @@
 							{{ page.content_above }}
 						</div>
 					{% endif %}
-
 
 					<div class="content">
 						{{ page.content }}
@@ -98,7 +100,7 @@
 				</div>
 
 				{% if page.sidebar_left %}
-					<aside class="layout__sidebar--right" role="complementary">
+					<aside class="sidebar sidebar__right" role="complementary">
 						{{ page.sidebar_right }}
 					</aside>
 				{% endif %}

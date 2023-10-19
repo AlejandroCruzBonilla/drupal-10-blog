@@ -23,8 +23,9 @@
  * @see template_preprocess_html()
  */
 #}
+
 <!DOCTYPE html>
-<html{{ html_attributes }}>
+<html {{ html_attributes }}>
   <head>
     <head-placeholder token="{{ placeholder_token }}">
     <title>{{ head_title|safe_join(' | ') }}</title>
@@ -32,8 +33,17 @@
     <js-placeholder token="{{ placeholder_token }}">
   </head>
   <body{{ attributes }}>
+		 {#
+      Keyboard navigation/accessibility link to main content section in
+      page.html.twig.
+    #}
+    <a href="#main-content" class="visually-hidden focusable">
+      {{ 'Skip to main content'|t }}
+    </a>
     {{ page_top }}
-    {{ page }}
+		<div id="vue-app">
+    	{{ page }}
+		</div>
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token }}">
   </body>
