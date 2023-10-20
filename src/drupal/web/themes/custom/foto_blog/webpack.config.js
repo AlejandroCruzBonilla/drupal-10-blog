@@ -1,11 +1,11 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
-const path = require('path');
-const Webpack = require('webpack');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserPlugin = require('terser-webpack-plugin');
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const { VueLoaderPlugin } = require('vue-loader');
+import path  from 'path';
+import Webpack  from 'webpack';
+import MiniCssExtractPlugin  from 'mini-css-extract-plugin';
+import TerserPlugin  from 'terser-webpack-plugin';
+import CssMinimizerPlugin  from "css-minimizer-webpack-plugin";
+import { VueLoaderPlugin }  from 'vue-loader';
 
 const isProduction = process.env.NODE_ENV == 'production';
 
@@ -23,7 +23,7 @@ const optimization =
 const config = {
 	entry: './src/index.js',
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve('./dist'),
 		clean: true
 	},
 	devServer: {
@@ -38,15 +38,20 @@ const config = {
 		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
 		new VueLoaderPlugin(),
 		new Webpack.DefinePlugin({
-      __VUE_OPTIONS_API__: true,
-      __VUE_PROD_DEVTOOLS__: !isProduction,
-    }),
+			__VUE_OPTIONS_API__: true,
+			__VUE_PROD_DEVTOOLS__: !isProduction,
+		}),
 	],
 	module: {
+		
 		rules: [
 			{
 				test: /\.(js|jsx)$/i,
 				loader: 'babel-loader',
+			},
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader',
 			},
 			{
 				test: /\.css$/i,
@@ -58,17 +63,22 @@ const config = {
 							sourceMap: !isProduction,
 						},
 					},
-					// 'postcss-loader'
+					"postcss-loader",
+				],
+			},
+			{
+				test: /\.s[ac]ss$/i,
+				use: [
+					stylesHandler,
+					"css-loader",
+					"postcss-loader",
+					"sass-loader"
 				],
 			},
 			{
 				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
 				type: 'asset',
 			},
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-      },
 			// Add your rules for custom modules here
 			// Learn more about loaders from https://webpack.js.org/loaders/
 		],
@@ -80,7 +90,7 @@ const config = {
 	},
 };
 
-module.exports = () => {
+export default() => {
 	if (isProduction) {
 		config.mode = 'production';
 

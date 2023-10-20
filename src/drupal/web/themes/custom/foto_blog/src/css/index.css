@@ -2,8 +2,3 @@
 @import "./components/index.css";
 @import "./_layout.css";
 @import "./_theme.css";
-
-
-div{
-	background-color: black;
-}
