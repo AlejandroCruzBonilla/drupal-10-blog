@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 
 import FontAwesomeIcon from "./libraries/fontAwesome.js";
+import setPrimeVue from './libraries/primeVue/setPrimeVue.js'
 
 import Page from "./pages/page.vue";
 
@@ -16,6 +17,9 @@ if (appDocument) {
 
 	//FontAwesome
 	app.component("FontAwesomeIcon", FontAwesomeIcon);
+
+	//PrimeVue
+	setPrimeVue(app);
 
 	//Own
 	app.component("DebugComponent", Debug);

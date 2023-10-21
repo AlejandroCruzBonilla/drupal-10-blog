@@ -15,7 +15,9 @@
     "css-minimizer-webpack-plugin": "^5.0.1",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.4.31",
+    "postcss-import": "^15.1.0",
     "postcss-loader": "^7.3.3",
+    "primevue": "^3.37.0",
     "sass": "^1.69.4",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
@@ -30,12 +32,13 @@
   "version": "1.0.0",
   "description": "Drupal Vue Tailwind Theme",
   "name": "vue-tailwind-theme",
-	"license": "ISC",
+  "license": "ISC",
   "type": "module",
   "scripts": {
+    "tw-dev": "tailwindcss -i src/css/libraries/index.css -o dist/tailwind/tailwind.css --watch",
+    "tw-build": "tailwindcss -i src/css/libraries/index.css -o dist/tailwind/tailwind.css --minify",
+    "dev": "webpack --mode=development",
     "build": "webpack --mode=production --node-env=production",
-    "build:dev": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
     "serve": "webpack serve"
   }

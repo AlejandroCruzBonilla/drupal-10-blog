@@ -1,11 +1,21 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
-import path  from 'path';
-import Webpack  from 'webpack';
-import MiniCssExtractPlugin  from 'mini-css-extract-plugin';
-import TerserPlugin  from 'terser-webpack-plugin';
-import CssMinimizerPlugin  from "css-minimizer-webpack-plugin";
-import { VueLoaderPlugin }  from 'vue-loader';
+// const path = require('path');
+// const Webpack = require('webpack');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const TerserPlugin = require('terser-webpack-plugin');
+// const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+// const { VueLoaderPlugin } = require('vue-loader');
+
+import path from 'path';
+import Webpack from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import TerserPlugin from 'terser-webpack-plugin';
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import { VueLoaderPlugin } from 'vue-loader';
+
+import tailwindcss from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 const isProduction = process.env.NODE_ENV == 'production';
 
@@ -24,6 +34,7 @@ const config = {
 	entry: './src/index.js',
 	output: {
 		path: path.resolve('./dist'),
+		// path: path.resolve(__dirname, 'dist'),
 		clean: true
 	},
 	devServer: {
@@ -43,7 +54,7 @@ const config = {
 		}),
 	],
 	module: {
-		
+
 		rules: [
 			{
 				test: /\.(js|jsx)$/i,
@@ -63,16 +74,18 @@ const config = {
 							sourceMap: !isProduction,
 						},
 					},
-					"postcss-loader",
-				],
-			},
-			{
-				test: /\.s[ac]ss$/i,
-				use: [
-					stylesHandler,
-					"css-loader",
-					"postcss-loader",
-					"sass-loader"
+					{
+						loader: "postcss-loader",
+						options: {
+							postcssOptions: {
+								plugins: [
+									['postcss-import'],
+									['tailwindcss'],
+									['autoprefixer'],
+								]
+							}
+						}
+					},
 				],
 			},
 			{
@@ -84,21 +97,21 @@ const config = {
 		],
 	},
 	resolve: {
+		// extensions: ['.js', '.d.ts', '.ts', '.vue'],
 		alias: {
 			vue: "vue/dist/vue.esm-bundler.js",
 		},
 	},
 };
 
-export default() => {
+export default () => {
+	// module.exports = () => {
 	if (isProduction) {
 		config.mode = 'production';
 
 		config.plugins.push(
 			new MiniCssExtractPlugin({ filename: 'main.css' })
 		);
-
-
 	} else {
 		config.mode = 'development';
 		config.devtool = 'eval';

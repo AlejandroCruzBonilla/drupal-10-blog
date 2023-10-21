@@ -48,77 +48,76 @@
  * @see html.html.twig
  */
 #}
-<div class="layout-container">
+<div class="page" id="vue-app">
+	<vue-page>
 
-	<header role="banner">
-		{{ page.header }}
-	</header>
+		{# <pv-button label="Primary"></pv-button> #}
+		<header role="banner">
+			{{ page.header }}
+		</header>
 
-	{{ page.primary_menu }}
-	{{ page.secondary_menu }}
+		{{ page.primary_menu }}
+		{{ page.secondary_menu }}
 
-	{{ page.breadcrumb }}
+		{{ page.breadcrumb }}
 
-	{{ page.hero }}
+		{{ page.hero }}
 
-	{# ! For admin Links #}
-	{{ page.highlighted }}
+		{# ! For admin Links #}
+		{{ page.highlighted }}
 
-	<main role="main">
-		<a id="main-content" tabindex="-1"></a>
-		{# link is in html.html.twig #}
-		<div class="main__wrapper">
-			<vue-page>
-				Gola
-			</vue-page>
-			<div class="layout">
-
-				{% if page.sidebar_left %}
-					<aside class="sidebar sidebar__left" role="complementary">
-						{{ page.sidebar_left }}
-					</aside>
-				{% endif %}
-
-				<div class="layout__content">
-
-					{% if page.content_above %}
-						<div class="content__above">
-							{{ page.content_above }}
-						</div>
+		<main role="main">
+			<a id="main-content" tabindex="-1"></a>
+			{# link is in html.html.twig #}
+			<div class="main__wrapper">
+				<div class="layout">
+					{% if page.sidebar_left %}
+						<aside class="sidebar sidebar__left" role="complementary">
+							{{ page.sidebar_left }}
+						</aside>
 					{% endif %}
 
-					<div class="conten">
-						{{ page.content }}
+					<div class="layout__content">
+
+						{% if page.content_above %}
+							<div class="content__above">
+								{{ page.content_above }}
+							</div>
+						{% endif %}
+
+						<div class="conten">
+							{{ page.content }}
+						</div>
+
+						{% if page.content_below %}
+							<div class="content__below">
+								{{ page.content_below }}
+							</div>
+						{% endif %}
+
 					</div>
 
-					{% if page.content_below %}
-						<div class="content__below">
-							{{ page.content_below }}
-						</div>
+					{% if page.sidebar_left %}
+						<aside class="sidebar sidebar__right" role="complementary">
+							{{ page.sidebar_right }}
+						</aside>
 					{% endif %}
 
 				</div>
-
-				{% if page.sidebar_left %}
-					<aside class="sidebar sidebar__right" role="complementary">
-						{{ page.sidebar_right }}
-					</aside>
-				{% endif %}
-
 			</div>
-		</div>
-	</main>
+		</main>
 
-	<footer role="contentinfo">
-		{% if page.footer %}
-			{{ page.footer_one }}
-		{% endif %}
-		{% if page.footer %}
-			{{ page.footer_two }}
-		{% endif %}
-		{% if page.footer %}
-			{{ page.footer_three }}
-		{% endif %}
-	</footer>
+		<footer role="contentinfo">
+			{% if page.footer %}
+				{{ page.footer_one }}
+			{% endif %}
+			{% if page.footer %}
+				{{ page.footer_two }}
+			{% endif %}
+			{% if page.footer %}
+				{{ page.footer_three }}
+			{% endif %}
+		</footer>
+
+	</vue-page>
 </div>
-{# /.layout-container #}
