@@ -1,0 +1,36 @@
+foto_blog.xs:
+  label: X-Small
+  mediaQuery: '(min-width: 480px)'
+  weight: 0
+  multipliers:
+    - 1x
+foto_blog.sm:
+  label: Small
+  mediaQuery: '(min-width: 640px)'
+  weight: 1
+  multipliers:
+    - 1x
+foto_blog.md:
+  label: Medium
+  mediaQuery: '(min-width: 768px)'
+  weight: 2
+  multipliers:
+    - 1x
+foto_blog.lg:
+  label: Large
+  mediaQuery: '(min-width: 1024px)'
+  weight: 3
+  multipliers:
+    - 1x
+foto_blog.xl:
+  label: X-Large
+  mediaQuery: '(min-width: 1280px)'
+  weight: 4
+  multipliers:
+    - 1x
+foto_blog.2xl:
+  label: 2X-Large
+  mediaQuery: '(min-width: 1400px)'
+  weight: 5
+  multipliers:
+    - 1x

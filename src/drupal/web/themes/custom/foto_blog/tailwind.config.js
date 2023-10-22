@@ -1,9 +1,12 @@
+import plugin from 'tailwindcss/plugin';
 import defaultTheme from "tailwindcss/defaultTheme";
 import colors from "tailwindcss/colors";
 import forms from "@tailwindcss/forms";
 
 
+
 console.log('Tailwind-config');
+// console.log(defaultTheme.fontSize)
 
 export default {
 	// prefix: 'tw-',
@@ -16,47 +19,29 @@ export default {
 		"./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"
 	],
 
-	/* theme: {
-		extend: {
-			colors: {
-				font: {
-					DEFAULT: colors.neutral[950],
-					dark: colors.neutral[950],
-					light: colors.neutral[100],
-					'on-bg-light': colors.neutral[950],
-					'on-bg-dark': colors.neutral[100],
-					'on-accent-light': colors.neutral[950],
-					'on-accent-dark': colors.neutral[100],
-				},
+	theme: {
 
-				background: {
-					dark: colors.neutral,
-					light: colors.neutral,
-				},
-
-				primary: {
-					dark: colors.neutral,
-					light: colors.neutral,
-				},
-
-				accent: colors.teal,
-			},
-			screens: {
-				xs: "320px",
-				sm: "640px",
-				md: "768px",
-				lg: "1024px",
-				xl: "1280px",
-				"2xl": "1440px",
-			},
+		screens: {
+			"xs": "480px",
+			...defaultTheme.screens,
+			"2xl": "1440px",
 		},
-	}, */
 
-	plugins: [
-		forms({
-			strategy: "base", // only generate global styles
-			// strategy: "class", // only generate classes
-		}),
-	],
-};
+		plugins: [
 
+			// plugin(function ({ addBase, config }) {
+			// 	// addBase({
+			// 	// 	html: { fontSize: '10px' },
+			// 	// })
+			// 	// addBase({
+			// 	// 	'html':{ fontSize: config('10px') }
+			// 	// })
+			// }),
+
+			forms({
+				strategy: "base", // only generate global styles
+				// strategy: "class", // only generate classes
+			}),
+		],
+	}
+}
