@@ -12,10 +12,10 @@ import Webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
+import * as sass from 'sass'
 import { VueLoaderPlugin } from 'vue-loader';
 
-import tailwindcss from 'tailwindcss'
-import autoprefixer from 'autoprefixer'
+
 
 const isProduction = process.env.NODE_ENV == 'production';
 
@@ -75,29 +75,26 @@ const config = {
 						},
 					},
 					{
-						loader: "sass-loader",
-            options: {
-              sourceMap: !isProduction,
-            },
-					},
-					{
 						loader: "postcss-loader",
 						options: {
 							postcssOptions: {
-								// plugins: [
-								// 	['postcss-import'],
-								// 	['tailwindcss/nesting']
-								// 	['tailwindcss'],
-								// 	['autoprefixer'],
-								// ]
 								plugins: {
 									'postcss-import': {},
 									'tailwindcss/nesting': {},
 									'tailwindcss': {},
-									'autoprefixer':{},
+									'autoprefixer': {},
 								}
 							}
 						}
+					},
+					{
+						loader: "sass-loader",
+						options: {
+							// implementation: require.resolve("sass"),
+							// implementation: require('sass'),
+							implementation: sass,
+							sourceMap: !isProduction,
+						},
 					},
 				],
 			}
