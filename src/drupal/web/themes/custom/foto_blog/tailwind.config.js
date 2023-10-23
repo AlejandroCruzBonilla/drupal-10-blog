@@ -10,13 +10,14 @@ console.log('Tailwind-config');
 
 export default {
 	// prefix: 'tw-',
-	important: true,
+	// important: true,
 	darkMode: 'class',
 
 	content: [
 		"./templates/**/*.html.twig",
 		"./src/js/**/*.vue",
-		"./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"
+		"./src/js/vue/libraries/primeVue/customTailwindPassThrough.js",
+		// "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"
 	],
 
 	theme: {

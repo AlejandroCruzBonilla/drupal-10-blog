@@ -11,8 +11,11 @@
     "@webpack-cli/generators": "^3.0.7",
     "autoprefixer": "^10.4.16",
     "babel-loader": "^9.1.3",
+    "browser-sync": "^2.29.3",
+    "browser-sync-webpack-plugin": "^2.3.0",
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
+    "cssnano": "^6.0.1",
     "mini-css-extract-plugin": "^2.7.6",
     "postcss": "^8.4.31",
     "postcss-import": "^15.1.0",
@@ -39,7 +42,6 @@
     "tw-build": "tailwindcss -i src/css/libraries/index.css -o dist/tailwind/tailwind.css --minify",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production --node-env=production",
-    "watch": "webpack --watch",
-    "serve": "webpack serve"
+    "watch": "webpack --watch"
   }
 }
