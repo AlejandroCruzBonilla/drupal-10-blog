@@ -28,16 +28,6 @@ export default {
 		},
 
 		plugins: [
-
-			// plugin(function ({ addBase, config }) {
-			// 	// addBase({
-			// 	// 	html: { fontSize: '10px' },
-			// 	// })
-			// 	// addBase({
-			// 	// 	'html':{ fontSize: config('10px') }
-			// 	// })
-			// }),
-
 			forms({
 				strategy: "base", // only generate global styles
 				// strategy: "class", // only generate classes

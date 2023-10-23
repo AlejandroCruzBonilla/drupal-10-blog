@@ -65,7 +65,7 @@ const config = {
 				loader: 'vue-loader',
 			},
 			{
-				test: /\.css$/i,
+				test: /\.s[ac]ss$/i,
 				use: [
 					stylesHandler,
 					{
@@ -75,29 +75,41 @@ const config = {
 						},
 					},
 					{
+						loader: "sass-loader",
+            options: {
+              sourceMap: !isProduction,
+            },
+					},
+					{
 						loader: "postcss-loader",
 						options: {
 							postcssOptions: {
-								plugins: [
-									['postcss-import'],
-									['tailwindcss'],
-									['autoprefixer'],
-								]
+								// plugins: [
+								// 	['postcss-import'],
+								// 	['tailwindcss/nesting']
+								// 	['tailwindcss'],
+								// 	['autoprefixer'],
+								// ]
+								plugins: {
+									'postcss-import': {},
+									'tailwindcss/nesting': {},
+									'tailwindcss': {},
+									'autoprefixer':{},
+								}
 							}
 						}
 					},
 				],
-			},
-			{
-				test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-				type: 'asset',
-			},
+			}
+			// {
+			// 	test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+			// 	type: 'asset',
+			// },
 			// Add your rules for custom modules here
 			// Learn more about loaders from https://webpack.js.org/loaders/
 		],
 	},
 	resolve: {
-		// extensions: ['.js', '.d.ts', '.ts', '.vue'],
 		alias: {
 			vue: "vue/dist/vue.esm-bundler.js",
 		},
