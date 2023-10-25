@@ -1,0 +1,6 @@
+services:
+  big_pipe_sessionless_test.page_cache_request_policy.no_silliness:
+    class: Drupal\big_pipe_sessionless_test\PageCache\RequestPolicy\DenySillyQueryStrings
+    public: false
+    tags:
+      - { name: page_cache_request_policy }

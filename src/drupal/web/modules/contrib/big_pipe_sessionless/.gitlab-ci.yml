@@ -1,0 +1,124 @@
+################
+# Includes
+#
+# Additional configuration can be provided through includes.
+# One advantage of include files is that if they are updated upstream, the changes affect all pipelines using that include.
+#
+# Includes can be overridden by re-declaring anything provided in an include, here in gitlab-ci.yml
+# https://docs.gitlab.com/ee/ci/yaml/includes.html#override-included-configuration-values
+################
+
+include:
+  ################
+  # DrupalCI includes:
+  # As long as you include this, any future includes added by the Drupal Association will be accessible to your pipelines automatically.
+  # View these include files at https://git.drupalcode.org/project/gitlab_templates/
+  ################
+  - project: $_GITLAB_TEMPLATES_REPO
+    ref: $_GITLAB_TEMPLATES_REF
+    file:
+      - '/includes/include.drupalci.main.yml'
+      - '/includes/include.drupalci.variables.yml'
+      - '/includes/include.drupalci.workflows.yml'
+
+################
+# Pipeline configuration variables
+#
+# These are the variables provided to the Run Pipeline form that a user may want to override.
+#
+# Docs at https://git.drupalcode.org/project/gitlab_templates/-/blob/1.0.x/includes/include.drupalci.variables.yml
+################
+variables:
+  SKIP_ESLINT: '1'
+
+composer:
+  parallel:
+    matrix:
+      # Drupal 9 is supported until November 2023.
+      - _TARGET_PHP: [ "7.4" ]
+        _TARGET_CORE: [ $CORE_PREVIOUS_STABLE ]
+      # Drupal 10.
+      - _TARGET_PHP: [$CORE_PHP_MIN]
+        _TARGET_CORE:
+          - $CORE_SECURITY_PREVIOUS_MINOR
+          - $CORE_STABLE
+          - $CORE_NEXT_MINOR
+      # Drupal 10 (max PHP) & 11.
+      - _TARGET_PHP: [$CORE_PHP_MAX]
+        _TARGET_CORE:
+          - $CORE_STABLE
+          - $CORE_MAJOR_DEVELOPMENT
+
+phpcs:
+  # Set allow_failure to false so that the test fails for coding standards faults.
+  allow_failure: false
+  dependencies:
+    - "composer: [$CORE_PHP_MIN, $CORE_STABLE]"
+
+composer-lint:
+  needs:
+    - "composer: [$CORE_PHP_MIN, $CORE_STABLE]"
+
+phpunit:
+  needs:
+    - job: composer
+      parallel:
+        matrix:
+          - _TARGET_PHP: $CORE_PHP_MIN
+            _TARGET_CORE: $CORE_STABLE
+
+phpunit (max PHP version):
+  extends: phpunit
+  needs:
+    - job: composer
+      parallel:
+        matrix:
+          - _TARGET_PHP: $CORE_PHP_MAX
+            _TARGET_CORE: $CORE_STABLE
+  variables:
+    _TARGET_PHP: $CORE_PHP_MAX
+
+phpunit (previous minor):
+  extends: phpunit
+  needs:
+    - job: composer
+      parallel:
+        matrix:
+          - _TARGET_PHP: $CORE_PHP_MIN
+            _TARGET_CORE: $CORE_SECURITY_PREVIOUS_MINOR
+
+phpunit (previous major):
+  extends: phpunit
+  needs:
+    - job: composer
+      parallel:
+        matrix:
+          - _TARGET_PHP: "7.4"
+            _TARGET_CORE: $CORE_PREVIOUS_STABLE
+  variables:
+    _TARGET_PHP: "7.4"
+
+# Future versions, hence breaks may arrive at any time: failure is allowed.
+phpunit (next minor):
+  allow_failure: true
+  extends: phpunit
+  needs:
+    - job: composer
+      parallel:
+        matrix:
+          - _TARGET_PHP: $CORE_PHP_MIN
+            _TARGET_CORE: $CORE_NEXT_MINOR
+phpunit (next major):
+  allow_failure: true
+  extends: phpunit
+  needs:
+    - job: composer
+      parallel:
+        matrix:
+          - _TARGET_PHP: $CORE_PHP_MAX
+            _TARGET_CORE: $CORE_MAJOR_DEVELOPMENT
+  before_script:
+    # If the module already supports Drupal 11, do nothing, otherwise, claim Drupal 11 support for testing purposes.
+    - grep -q "\^11" *.info.yml || (grep -q "\^10" *.info.yml && sed -i "s/\^10/\^10 \|\| ^11/" *.info.yml)
+  variables:
+    _TARGET_PHP: $CORE_PHP_MAX
