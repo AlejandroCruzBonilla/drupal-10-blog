@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0af36562bf5302b8c2a3fc04966397d8",
+    "content-hash": "476f6c77e0232be25ca6aa6140e9d511",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2754,6 +2754,62 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/field_group",
                 "issues": "https://www.drupal.org/project/issues/field_group"
+            }
+        },
+        {
+            "name": "drupal/imagefield_tokens",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/imagefield_tokens.git",
+                "reference": "3.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/imagefield_tokens-3.1.0.zip",
+                "reference": "3.1.0",
+                "shasum": "868bd2a62968dc1cf95654017833301c33fb4914"
+            },
+            "require": {
+                "drupal/core": "^9.3 || ^10",
+                "drupal/token": "^1.5"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.1.0",
+                    "datestamp": "1683723340",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Yaroslav Samoilenko (ysamoylenko)",
+                    "homepage": "https://www.drupal.org/u/ysamoylenko",
+                    "role": "Author"
+                },
+                {
+                    "name": "Deciphered",
+                    "homepage": "https://www.drupal.org/user/103796"
+                },
+                {
+                    "name": "ysamoylenko",
+                    "homepage": "https://www.drupal.org/user/3554629"
+                }
+            ],
+            "description": "Provides new widget type for Image field to allow to use tokens for filling Alt and Title image attributes.",
+            "homepage": "https://drupal.org/project/imagefield_tokens",
+            "support": {
+                "source": "https://cgit.drupalcode.org/imagefield_tokens",
+                "issues": "https://drupal.org/project/issues/imagefield_tokens",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {

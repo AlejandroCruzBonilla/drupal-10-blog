@@ -1,0 +1,13 @@
+name: Image Field Tokens
+type: module
+description: Provides new widget type for Image field to allow to use tokens for filling Alt and Title image attributes.
+core_version_requirement: ^9.3 || ^10
+package: Image
+dependencies:
+  - token:token
+  - drupal:image
+
+# Information added by Drupal.org packaging script on 2023-05-10
+version: '3.1.0'
+project: 'imagefield_tokens'
+datestamp: 1683723343
