@@ -5,7 +5,7 @@ services:
     build: ./docker/drupal/
     container_name: drupal-10-blog
     ports:
-      - 80:80
+      - 8080:80
     volumes:
       - ./src:/opt
 

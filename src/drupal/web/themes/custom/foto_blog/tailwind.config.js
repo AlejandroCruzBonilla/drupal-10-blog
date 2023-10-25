@@ -2,6 +2,7 @@ import plugin from 'tailwindcss/plugin';
 import defaultTheme from "tailwindcss/defaultTheme";
 import colors from "tailwindcss/colors";
 import forms from "@tailwindcss/forms";
+import typography from "@tailwindcss/typography";
 
 
 
@@ -11,7 +12,7 @@ console.log('Tailwind-config');
 export default {
 	// prefix: 'tw-',
 	// important: true,
-	darkMode: 'class',
+	// darkMode: 'class',
 
 	content: [
 		"./templates/**/*.html.twig",
@@ -28,7 +29,33 @@ export default {
 			"2xl": "1440px",
 		},
 
+		extend: {
+			screens:{
+				"3xl": "1600px",
+			},
+
+			colors: {
+				primary: {
+					light: colors.red[300],
+					DEFAULT: colors.red[500],
+					dark: colors.red[700],
+				},
+
+				secondary: {
+					light: colors.cyan[300],
+					DEFAULT: colors.cyan[500],
+					dark: colors.cyan[700],
+				},
+
+				background: {
+					light: colors.gray[200],
+					dark: colors.gray[900],
+				},
+			},
+		},
+
 		plugins: [
+			typography(),
 			forms({
 				strategy: "base", // only generate global styles
 				// strategy: "class", // only generate classes

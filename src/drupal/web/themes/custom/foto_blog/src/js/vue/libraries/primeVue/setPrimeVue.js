@@ -4,9 +4,11 @@ import CustomTailwindPassThrough from './customTailwindPassThrough.js'
 
 //Components
 import Button from 'primevue/button/Button.vue';
+import Sidebar from 'primevue/sidebar/Sidebar.vue';
 
 export default (app) => {
 	app.use(PrimeVue, { unstyled: true, pt: CustomTailwindPassThrough });
 	// app.use(PrimeVue, { unstyled: true});
 	app.component('PvButton', Button);
+	app.component('PvSidebar', Sidebar);
 }

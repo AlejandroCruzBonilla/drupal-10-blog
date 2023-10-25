@@ -3,5 +3,5 @@
 </template>
 
 <script setup>
-console.log('VuePage')
+console.log('VuePage');
 </script>

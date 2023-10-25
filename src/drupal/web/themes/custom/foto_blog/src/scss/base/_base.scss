@@ -7,33 +7,47 @@
 
   h1 {
     /* @apply text-9xl; */
-    @apply text-6xl;
+		font-size: theme('fontSize.6xl');
   }
   h2 {
     /* @apply text-8xl; */
-    @apply text-5xl;
+		font-size: theme('fontSize.5xl');
   }
   h3 {
     /* @apply text-7xl; */
-    @apply text-4xl;
+		font-size: theme('fontSize.4xl');
   }
   h4 {
     /* @apply text-6xl; */
-    @apply text-3xl;
+		font-size: theme('fontSize.3xl');
   }
   h5 {
     /* @apply text-5xl; */
-    @apply text-2xl;
+		font-size: theme('fontSize.2xl');
   }
   h6 {
-    @apply text-xl;
+    // @apply text-xl;
+		font-size: theme('fontSize.xl');
   }
 
 	body {
-		@apply text-lg;
+		font-size: theme('fontSize.lg');
 	}
 
   a {
-    @apply text-blue-600;
+    // @apply text-red-600;
+		color: theme('colors.red.500')
   }
+
+	@media (prefers-color-scheme: light) {
+		// div {
+			// background-color: theme('colors.background.dark');
+		// }
+	}
+
+	@media (prefers-color-scheme: dark) {
+		// div {
+		// 	background-color: theme('colors.background.light');
+		// }
+	}
 }

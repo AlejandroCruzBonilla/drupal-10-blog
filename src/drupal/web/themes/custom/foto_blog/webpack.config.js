@@ -33,14 +33,16 @@ const config = {
 		// Add your plugins here
 		// Learn more about plugins from https://webpack.js.org/configuration/plugins/
 		new VueLoaderPlugin(),
-		// new Webpack.HotModuleReplacementPlugin(),
 		new BrowserSyncPlugin({
+			open: false,
 			host: "localhost",
 			port: 3000,
-			proxy: "localhost",
-			files:[
+			proxy: "localhost:8080",
+			files: [
 				{
-					match:['./**/*.{js,css,twig}']
+					// match:['./**/*.{js,css,twig}']
+					match: ['./dist/*.{js,css}'],
+					match: ['./templates/**/*.twig']
 				}
 			]
 		}),
@@ -79,7 +81,7 @@ const config = {
 									'tailwindcss/nesting': {},
 									'tailwindcss': {},
 									'autoprefixer': {},
-									...isProduction ? { cssnano: {} } : {}
+									...isProduction ? { 'cssnano': {} } : {}
 								}
 							}
 						}
@@ -117,7 +119,7 @@ export default () => {
 		);
 	} else {
 		config.mode = 'development';
-		config.devtool = 'eval';
+		config.devtool = 'eval-cheap-module-source-map';
 	}
 
 	return config;

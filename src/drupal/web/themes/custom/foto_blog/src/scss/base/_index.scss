@@ -1,12 +1,7 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@forward 'tailwind';
+/* @forward 'fonts'; */
+/* @forward 'variables'; */
+/* @forward 'colors'; */
+@forward 'mixins';
+@forward 'base';
 
-// @import 'tailwindcss/base';
-// @import 'tailwindcss/components';
-// @import 'tailwindcss/utilities';
-
-@import 'base';
-/* @import 'fonts'; */
-/* @import 'colors'; */
-/* @import 'variables'; */

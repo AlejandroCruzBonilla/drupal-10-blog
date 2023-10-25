@@ -9,18 +9,11 @@ libraries:
   - foto_blog/global-styling
 
 regions:
-  header: Header
-  primary_menu: Primary menu
-  secondary_menu: Secondary menu
-  breadcrumb: Breadcrumb
   highlighted: Highlighted
-  content_above: Content Above
-  content: Content
-  content_below: Content Below
+  header: Header
+  nav_menu: Nav menu
+  breadcrumb: Breadcrumb
   sidebar_left: Sidebar Left
-  sidebar_right: Sidebar Right
-  footer_one: Footer One
-  footer_two: Footer Two
-  footer_three: Footer Three
-  social_one: Social Bar One
-  social__two: Social Bar Two
+  content: Content
+  footer: Footer
+  admin: Admin tasks

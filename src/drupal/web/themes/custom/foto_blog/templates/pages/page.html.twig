@@ -49,16 +49,14 @@
  */
 #}
 <div class="page" id="vue-app">
+	{# ! For admin Links #}
+	{{ page.highlighted }}
+	{# {{ page.admin }} #}
 	<vue-page>
-		<pv-button label="Primary"></pv-button>
 		<header class="header" role="banner">
 			{{ page.header }}
-			{{ page.primary_menu }}
-			{{ page.secondary_menu }}
+			{{ page.nav_menu }}
 		</header>
-
-		{# ! For admin Links #}
-		{{ page.highlighted }}
 
 		<div class="layout">
 			<div class="layout__wrapper">
@@ -67,58 +65,33 @@
 						{{ page.sidebar_left }}
 					</aside>
 				{% endif %}
-	
+
 				<main
 					class="main" role="main">
 					{# link is in html.html.twig #}
 					<a id="main-content" tabindex="-1"></a>
-	
+
 					<div class="main__wrapper">
 						{{ page.breadcrumb }}
-	
-						{% if page.content_above %}
-							<div class="content content--above">
-								{{ page.content_above }}
-							</div>
-						{% endif %}
-	
+
 						{% if page.content %}
 							<div class="content">
-								{{ page.content }}
+								{# {{ page.content }} #}
 							</div>
 						{% endif %}
-	
-						{% if page.content_below %}
-							<div class="content content--below">
-								{{ page.content_below }}
-							</div>
-						{% endif %}
-	
+
 					</div>
-	
 				</main>
-	
-				{% if page.sidebar_right %}
-					<aside class="sidebar sidebar--right" role="complementary">
-						{{ page.sidebar_right }}
-					</aside>
-				{% endif %}
 			</div>
 		</div>
 
-		<footer class="footer" role="contentinfo">
-			<div class="footer__wrapper">
-				{% if page.footer %}
+		{% if page.footer %}
+			<footer class="footer" role="contentinfo">
+				<div class="footer__wrapper">
 					{{ page.footer_one }}
-				{% endif %}
-				{% if page.footer %}
-					{{ page.footer_two }}
-				{% endif %}
-				{% if page.footer %}
-					{{ page.footer_three }}
-				{% endif %}
-			</div>
-		</footer>
+				</div>
+			</footer>
+		{% endif %}
 
 	</vue-page>
 </div>

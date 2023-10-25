@@ -7,6 +7,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/vue-fontawesome": "^3.0.3",
     "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/typography": "^0.5.10",
     "@vue/compiler-sfc": "^3.3.4",
     "@webpack-cli/generators": "^3.0.7",
     "autoprefixer": "^10.4.16",
@@ -42,6 +43,7 @@
     "tw-build": "tailwindcss -i src/css/libraries/index.css -o dist/tailwind/tailwind.css --minify",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production --node-env=production",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "serve": "webpack serve"
   }
 }
