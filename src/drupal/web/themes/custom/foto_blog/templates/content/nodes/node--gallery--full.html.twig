@@ -70,7 +70,8 @@
 	<article{{ attributes }}>
 	
 		{{ title_prefix }}
-		{% if label and not page %}
+		{# {% if label and not page %} #}
+		{% if label %}
 			<h2{{ title_attributes }}>
 				<a href="{{ url }}" rel="bookmark">{{ label }}</a>
 			</h2>
