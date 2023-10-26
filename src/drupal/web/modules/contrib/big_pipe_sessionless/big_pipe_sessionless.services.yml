@@ -13,6 +13,7 @@ services:
     class: Drupal\big_pipe_sessionless\Render\BigPipeSessionless
     calls:
       - [setPageCacheMiddleware, ['@http_middleware.page_cache']]
+      - [setRequestPolicy, ['@page_cache_request_policy']]
   page_cache_deny_big_pipe_sessionless:
     class: Drupal\big_pipe_sessionless\PageCache\ResponsePolicy\DenyBigPipeSessionlessResponses
     public: false

@@ -26,9 +26,12 @@ class BigPipeSessionlessPageCache extends PageCache {
    *   A response object that should be stored in the page cache.
    *
    * @return bool
+   *   TRUE if the response has been stored successfully, FALSE otherwise.
    */
+  // phpcs:disable
   public function _storeResponse(Request $request, Response $response) {
     return $this->storeResponse($request, $response);
   }
+  // phpcs:enable
 
 }

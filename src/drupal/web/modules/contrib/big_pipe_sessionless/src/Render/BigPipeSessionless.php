@@ -4,6 +4,7 @@ namespace Drupal\big_pipe_sessionless\Render;
 
 use Drupal\big_pipe\Render\BigPipe;
 use Drupal\big_pipe\Render\BigPipeResponse;
+use Drupal\Core\PageCache\RequestPolicyInterface;
 use Drupal\Core\Render\HtmlResponse;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
@@ -33,6 +34,13 @@ class BigPipeSessionless extends BigPipe {
   protected $pageCacheMiddleware;
 
   /**
+   * A policy rule determining the cacheability of a request.
+   *
+   * @var \Drupal\Core\PageCache\RequestPolicyInterface
+   */
+  protected $requestPolicy;
+
+  /**
    * Sets the PageCache middleware.
    *
    * @param \Symfony\Component\HttpKernel\HttpKernelInterface $page_cache_middleware
@@ -40,6 +48,16 @@ class BigPipeSessionless extends BigPipe {
    */
   public function setPageCacheMiddleware(HttpKernelInterface $page_cache_middleware) {
     $this->pageCacheMiddleware = $page_cache_middleware;
+  }
+
+  /**
+   * Sets the page cache request policy.
+   *
+   * @param \Drupal\Core\PageCache\RequestPolicyInterface $request_policy
+   *   A policy rule determining the cacheability of a request.
+   */
+  public function setRequestPolicy(RequestPolicyInterface $request_policy) {
+    $this->requestPolicy = $request_policy;
   }
 
   /**
@@ -63,7 +81,9 @@ class BigPipeSessionless extends BigPipe {
     $this->finalHtmlResponse = new HtmlResponse();
     parent::sendContent($response);
 
-    $this->primePageCache($response);
+    if ($this->requestPolicy->check($this->requestStack->getMainRequest()) === RequestPolicyInterface::ALLOW) {
+      $this->primePageCache($response);
+    }
 
     // Don't keep around any state.
     $this->finalHtmlResponse = NULL;

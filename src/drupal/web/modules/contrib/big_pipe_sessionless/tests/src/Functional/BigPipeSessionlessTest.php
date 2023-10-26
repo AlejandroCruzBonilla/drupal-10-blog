@@ -3,9 +3,10 @@
 namespace Drupal\Tests\big_pipe_sessionless\Functional;
 
 use Drupal\big_pipe\Render\BigPipe;
-use Drupal\Tests\big_pipe\Functional\BigPipeTest;
 use Drupal\Core\Cache\Cache;
+use Drupal\Core\Database\Database;
 use Drupal\Core\Url;
+use Drupal\Tests\big_pipe\Functional\BigPipeTest;
 
 /**
  * Tests BigPipe's sessionless support.
@@ -30,6 +31,21 @@ class BigPipeSessionlessTest extends BigPipeTest {
     'big_pipe_sessionless',
     'big_pipe_sessionless_test',
   ];
+
+  /**
+   * The database connection for testing.
+   *
+   * @var \Drupal\Core\Database\Connection
+   */
+  protected $connection;
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function setUp(): void {
+    parent::setUp();
+    $this->connection = Database::getConnection();
+  }
 
   /**
    * Tests BigPipe-delivered HTML responses for requests with no session.
@@ -102,6 +118,19 @@ class BigPipeSessionlessTest extends BigPipeTest {
       $this->assertSession()->responseContains('<a href="' . base_path() . 'big_pipe_sessionless_test" data-drupal-link-system-path="big_pipe_sessionless_test" class="is-active">This should be marked active</a>');
       $this->assertSession()->responseContains('<a href="' . base_path() . '" data-drupal-link-system-path="&lt;front&gt;">This should be marked inactive</a>');
 
+      // Verify that page cache request policies are respected.
+      // First request: Page Cache miss, streamed response by BigPipe.
+      $page_cache_items_before = array_column($this->connection->query("SELECT * FROM {cache_page};", [], ['fetch' => \PDO::FETCH_ASSOC])->fetchAll(), 'cid');
+      $this->drupalGet(Url::fromRoute('big_pipe_sessionless_test', ['silly' => 'yes']));
+      $this->assertNull($this->getSession()->getResponseHeader('X-Drupal-Cache'), 'Page cache miss.');
+      $page_cache_items_after = array_column($this->connection->query("SELECT * FROM {cache_page};", [], ['fetch' => \PDO::FETCH_ASSOC])->fetchAll(), 'cid');
+      // Repeat request: Page Cache hit, BigPipe not involved.
+      $this->drupalGet(Url::fromRoute('big_pipe_sessionless_test', ['silly' => 'yes']));
+      $this->assertNull($this->getSession()->getResponseHeader('X-Drupal-Cache'), 'Page cache miss.');
+      // Ensure no no Page Cache item was created (not serving it is not
+      // sufficient: it should not even be created).
+      $this->assertSame($page_cache_items_before, $page_cache_items_after);
+
       // Clear the Page Cache. Note that we use a cache tag that exists on this
       // response, despite it being absent from both the Page Cache miss
       // response (because it was streamed) and the Page Cache hit response
@@ -115,7 +144,7 @@ class BigPipeSessionlessTest extends BigPipeTest {
       $this->config('system.logging')->set('error_level', ERROR_REPORTING_DISPLAY_VERBOSE)->save();
       $this->drupalGet(Url::fromRoute('big_pipe_sessionless_test'));
       // The 'edge_case__html_exception' case throws an exception.
-      $this->assertSession()->responseContains('The website encountered an unexpected error. Please try again later');
+      $this->assertSession()->responseContains('The website encountered an unexpected error.');
       $this->assertSession()->responseContains('You are not allowed to say llamas are not cool!');
       // Closing body tag absent: error occurred before then.
       $this->assertSession()->responseNotContains('</body>');

@@ -3,7 +3,7 @@ type: module
 description: 'Support module for BigPipe Sessionless testing.'
 package: Testing
 
-# Information added by Drupal.org packaging script on 2022-11-18
-version: '2.1.0'
+# Information added by Drupal.org packaging script on 2023-10-24
+version: '2.2.0'
 project: 'big_pipe_sessionless'
-datestamp: 1668775494
+datestamp: 1698144934
