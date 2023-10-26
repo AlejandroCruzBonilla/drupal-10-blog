@@ -1,0 +1,6 @@
+fvm.settings_form:
+  route_name: fvm.settings_form
+  title: 'Field View Mode Settings'
+  weight: 2
+  appears_on:
+    - entity.entity_view_mode.collection

@@ -1,0 +1,46 @@
+<?php
+
+/**
+ * @file
+ * Provides hook implementations for Field View modes.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_entity_view_mode_alter().
+ */
+function fvm_entity_view_mode_alter(&$view_mode, EntityInterface $entity, $context) {
+  $fvm_settings = \Drupal::config('fvm.settings')->getRawData();
+  $entity_view_mode = $entity->getEntityTypeId() . '__' . $entity->bundle();
+  if (array_key_exists($entity_view_mode, $fvm_settings)
+  && !empty($entity->view_mode_selection->entity)) {
+    if (!($entity->getEntityTypeId() == 'block_content' && !$fvm_settings['hide_layout_builder_field'])) {
+      $view_mode = explode('.', $entity->view_mode_selection->entity->id())[1];
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function fvm_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $moduleHandler = \Drupal::service('module_handler');
+  // Hide the view mode field as per fvm configuration.
+  if ($moduleHandler->moduleExists('layout_builder') &&
+    ($form_id == 'layout_builder_add_block' || $form_id == 'layout_builder_update_block')) {
+
+    $fvm_settings = \Drupal::config('fvm.settings')->getRawData();
+    if ($fvm_settings['hide_layout_builder_field']) {
+      $form['settings']['view_mode']['#access'] = FALSE;
+    }
+    else {
+      $form['settings']['block_form']['#process'][] = [
+        'Drupal\fvm\Form\FvmSettingsForm',
+        'processBlockForm',
+      ];
+    }
+
+  }
+}

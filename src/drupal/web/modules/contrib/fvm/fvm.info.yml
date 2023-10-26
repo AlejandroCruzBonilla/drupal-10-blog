@@ -1,0 +1,16 @@
+name: Field View Mode
+description: Provides a field which can be used to set view mode per entity.
+package: Custom
+
+type: module
+core_version_requirement: ^8.8 || ^9 || ^10
+
+dependencies:
+  - drupal:field_ui
+
+configure: fvm.settings_form
+
+# Information added by Drupal.org packaging script on 2023-01-11
+version: '2.0.3'
+project: 'fvm'
+datestamp: 1673402420

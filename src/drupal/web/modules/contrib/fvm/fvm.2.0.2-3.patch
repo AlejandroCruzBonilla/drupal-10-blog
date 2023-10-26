@@ -1,0 +1,61 @@
+diff --git a/fvm.info.yml b/fvm.info.yml
+index 3ee613b..baed9fa 100644
+--- a/fvm.info.yml
++++ b/fvm.info.yml
+@@ -3,7 +3,7 @@ description: Provides a field which can be used to set view mode per entity.
+ package: Custom
+ 
+ type: module
+-core_version_requirement: ^8.8 || ^9
++core_version_requirement: ^8.8 || ^9 || ^10
+ 
+ dependencies:
+   - drupal:field_ui
+diff --git a/src/Form/FvmSettingsForm.php b/src/Form/FvmSettingsForm.php
+index 10ea020..e31c5f6 100644
+--- a/src/Form/FvmSettingsForm.php
++++ b/src/Form/FvmSettingsForm.php
+@@ -58,7 +58,7 @@ class FvmSettingsForm extends ConfigFormBase {
+    *   Entity type manager.
+    * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $bundleInfo
+    *   Bundle info.
+-   * @param \Drupal\Core\Entity\EntityDisplayRepository
++   * @param \Drupal\Core\Entity\EntityDisplayRepository $entityDisplayRepository
+    *   Entity Display Repository.
+    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
+    *   The module handler to invoke the alter hook with.
+@@ -154,9 +154,9 @@ class FvmSettingsForm extends ConfigFormBase {
+ 
+       if (!empty($form[$entityId])) {
+         $form[$entityId] = [
+-            '#type' => 'details',
+-            '#title' => (string) $entityType->getLabel(),
+-          ] + $form[$entityId];
++          '#type' => 'details',
++          '#title' => (string) $entityType->getLabel(),
++        ] + $form[$entityId];
+       }
+ 
+       // Additional option to override for custom block entity,
+@@ -168,7 +168,7 @@ class FvmSettingsForm extends ConfigFormBase {
+           '#description' => $this->t('You can either show layout builder
+           view mode field OR FVM view mode field, as both conflicts if used together.
+           By Default, FVM will hide its field.'),
+-          '#default_value' => !empty($config['hide_layout_builder_field']) ? $config['hide_layout_builder_field'] : ''
++          '#default_value' => !empty($config['hide_layout_builder_field']) ? $config['hide_layout_builder_field'] : '',
+         ];
+       }
+     }
+diff --git a/src/Plugin/EntityReferenceSelection/FieldViewMode.php b/src/Plugin/EntityReferenceSelection/FieldViewMode.php
+index e76397c..1fe3693 100644
+--- a/src/Plugin/EntityReferenceSelection/FieldViewMode.php
++++ b/src/Plugin/EntityReferenceSelection/FieldViewMode.php
+@@ -101,6 +101,8 @@ class FieldViewMode extends DefaultSelection {
+    *   The entity type bundle info service.
+    * @param \Drupal\Core\Entity\EntityRepositoryInterface $entity_repository
+    *   The entity repository.
++   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactory
++   *   The configFactory interface.
+    */
+   public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, ModuleHandlerInterface $module_handler, AccountInterface $current_user, EntityFieldManagerInterface $entity_field_manager = NULL, EntityTypeBundleInfoInterface $entity_type_bundle_info = NULL, EntityRepositoryInterface $entity_repository = NULL, ConfigFactoryInterface $configFactory) {
+     parent::__construct($configuration, $plugin_id, $plugin_definition, $entity_type_manager, $module_handler, $current_user, $entity_field_manager, $entity_type_bundle_info, $entity_repository);

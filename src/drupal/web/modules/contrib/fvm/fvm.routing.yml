@@ -1,0 +1,7 @@
+fvm.settings_form:
+  path: '/admin/structure/display-modes/view/fvm'
+  defaults:
+    _form: '\Drupal\fvm\Form\FvmSettingsForm'
+    _title: 'Field View Mode'
+  requirements:
+    _permission: 'administer display modes'

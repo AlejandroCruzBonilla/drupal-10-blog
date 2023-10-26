@@ -28,6 +28,7 @@
         "drupal/entity_browser": "^2.9",
         "drupal/entity_usage": "^2.0@beta",
         "drupal/field_group": "^3.4",
+        "drupal/fvm": "^2.0",
         "drupal/imagefield_tokens": "^3.1",
         "drupal/layout_paragraphs": "^2.0",
         "drupal/manage_display": "^3.0",
