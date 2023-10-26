@@ -16,6 +16,7 @@ export default {
 
 	content: [
 		"./templates/**/*.html.twig",
+		"./layouts/**/*.html.twig",
 		"./src/js/**/*.vue",
 		"./src/js/vue/libraries/primeVue/customTailwindPassThrough.js",
 		// "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"

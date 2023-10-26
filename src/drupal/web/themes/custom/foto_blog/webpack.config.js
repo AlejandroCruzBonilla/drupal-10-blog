@@ -42,7 +42,8 @@ const config = {
 				{
 					// match:['./**/*.{js,css,twig}']
 					match: ['./dist/*.{js,css}'],
-					match: ['./templates/**/*.twig']
+					match: ['./templates/**/*.twig'],
+					match: ['./layouts/**/*.twig'],
 				}
 			]
 		}),
