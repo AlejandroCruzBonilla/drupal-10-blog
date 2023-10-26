@@ -47,6 +47,7 @@
         "drupal/sfc": "^1.11",
         "drupal/token": "^1.12",
         "drupal/twig_tweak": "^3.2",
+        "drupal/view_mode_switch": "^2.0",
         "drupal/xmlsitemap": "^1.5",
         "drush/drush": "^12.3"
     },

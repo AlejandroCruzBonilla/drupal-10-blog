@@ -1,0 +1,16 @@
+{
+  "name": "drupal/view_mode_switch",
+  "description": "Provides a field type that allows editors to switch view modes.",
+  "type": "drupal-module",
+  "homepage": "https://drupal.org/project/view_mode_switch",
+  "support": {
+    "issues": "https://drupal.org/project/view_mode_switch",
+    "source": "https://git.drupalcode.org/project/view_mode_switch"
+  },
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "require-dev": {
+    "drupal/diff": "^1.1",
+    "drupal/paragraphs": "^1.12"
+  }
+}

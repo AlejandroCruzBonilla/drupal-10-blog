@@ -1,0 +1,39 @@
+# Schema for configuration files of the view_mode_switch module.
+
+field.storage_settings.view_mode_switch:
+  type: mapping
+  label: 'View mode switch settings'
+  mapping:
+    origin_view_modes:
+      type: sequence
+      label: 'View modes to switch'
+      orderby: key
+      sequence:
+        type: string
+
+field.field_settings.view_mode_switch:
+  type: mapping
+  label: 'View mode switch settings'
+  mapping:
+    allowed_view_modes:
+      type: sequence
+      label: 'Allowed view modes to switch to'
+      orderby: key
+      sequence:
+        type: string
+
+field.formatter.settings.view_mode_switch_default:
+  type: mapping
+  label: 'View mode switch default formatter settings'
+
+field.formatter.settings.view_mode_switch_machine_name:
+  type: mapping
+  label: 'View mode switch machine-readable name formatter settings'
+
+field.value.view_mode_switch:
+  type: mapping
+  label: 'Default value'
+  mapping:
+    value:
+      type: string
+      label: 'Value'

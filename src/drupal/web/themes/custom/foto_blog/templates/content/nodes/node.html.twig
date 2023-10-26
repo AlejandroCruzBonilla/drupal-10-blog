@@ -68,6 +68,8 @@
  */
 #}
 <article{{ attributes }}>
+
+{{ dump(view_mode) }}
   {{ title_prefix }}
   {% if label and not page %}
     <h2{{ title_attributes }}>

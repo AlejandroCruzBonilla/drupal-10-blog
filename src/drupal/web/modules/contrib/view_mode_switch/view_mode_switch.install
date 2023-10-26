@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for View Mode Switch Field module.
+ */
+
+use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\field_ui\FieldUI;
+
+/**
+ * Implements hook_requirements().
+ */
+function view_mode_switch_requirements(string $phase): array {
+  $requirements = [];
+
+  if ($phase === 'runtime') {
+    /** @var \Drupal\view_mode_switch\Entity\EntityFieldManagerInterface $field_manager */
+    $field_manager = \Drupal::service('view_mode_switch.entity_field_manager');
+
+    // Does any view mode switch field exist?
+    if ($field_manager->getFieldMap()) {
+      /** @var \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info */
+      $entity_type_bundle_info = \Drupal::service('entity_type.bundle.info');
+
+      /** @var \Drupal\Core\Render\RendererInterface $renderer */
+      $renderer = \Drupal::service('renderer');
+
+      $value = t('All fields configured properly');
+      $description = NULL;
+      $severity = REQUIREMENT_OK;
+
+      // Field storages without origin view mode exist?
+      if (($field_storages_without_origin_view_mode = $field_manager->getFieldStorageDefinitionsWithoutOriginViewMode())) {
+        $value = \Drupal::translation()
+          ->formatPlural(count($field_storages_without_origin_view_mode), '1 invalid field storage configuration detected', '@count invalid field storage configurations detected');
+        $description = [
+          'description' => [
+            '#markup' => \Drupal::translation()
+              ->formatPlural(count($field_storages_without_origin_view_mode), 'The following field storage is missing an origin view mode configuration:', 'The following field storages are missing an origin view mode configuration:'),
+          ],
+          'usages' => [
+            '#theme' => 'item_list',
+            '#items' => [],
+          ],
+        ];
+        $severity = REQUIREMENT_ERROR;
+
+        // Process field storages without origin view mode.
+        foreach ($field_storages_without_origin_view_mode as $field_storage) {
+          $entity_type_id = $field_storage->getTargetEntityTypeId();
+          $bundle_info = $entity_type_bundle_info->getBundleInfo($entity_type_id);
+          $usages = [];
+
+          // Register field storage in cache metadata.
+          CacheableMetadata::createFromRenderArray($description)
+            ->addCacheableDependency($field_storage)
+            ->applyTo($description);
+
+          // Determine usages in bundles.
+          foreach ($field_storage->getBundles() as $bundle) {
+            // @todo Remove ignore flag for PHPStan when docblock of
+            //   FieldUI::getOverviewRouteInfo() is correct with additional NULL
+            //   when entity type does not have 'field_ui_base_route' property.
+            // @phpstan-ignore-next-line
+            if ($route_info = FieldUI::getOverviewRouteInfo($entity_type_id, $bundle)) {
+              $usages[] = $route_info->access() ? [
+                '#type' => 'link',
+                '#url' => $route_info,
+                '#title' => $bundle_info[$bundle]['label'],
+              ] : $bundle_info[$bundle]['label'];
+            }
+            else {
+              $usages[] = $bundle_info[$bundle]['label'];
+            }
+          }
+
+          // Prepare usages item list.
+          $usages_list = [
+            '#theme' => 'item_list',
+            '#items' => $usages,
+            '#context' => ['list_style' => 'comma-list'],
+          ];
+
+          // Build description as item list showing field storage IDs with
+          // usages.
+          $description['usages']['#items'][$field_storage->id()] = t('%name (used by @usages)', [
+            '%name' => $field_storage->id(),
+            '@usages' => $renderer->render($usages_list),
+          ]);
+        }
+
+      }
+
+      // View mode switch requirement.
+      $requirements['view_mode_switch'] = [
+        'title' => t('View mode switch'),
+        'value' => $value,
+        'description' => $description,
+        'severity' => $severity,
+      ];
+    }
+  }
+
+  return $requirements;
+}

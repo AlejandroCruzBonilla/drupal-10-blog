@@ -1,0 +1,13 @@
+services:
+  view_mode_switch:
+    class: Drupal\view_mode_switch\ViewModeSwitch
+    arguments: ['@view_mode_switch.entity_field_manager', '@entity_type.manager', '@logger.factory']
+  view_mode_switch.entity_field_manager:
+    class: Drupal\view_mode_switch\Entity\EntityFieldManager
+    arguments: ['@entity_field.manager', '@entity_type.manager']
+  view_mode_switch.entity_view_mode_delete_form_helper:
+    class: Drupal\view_mode_switch\Entity\EntityViewModeDeleteFormHelper
+    arguments: ['@view_mode_switch.view_mode_helper', '@view_mode_switch.entity_field_manager', '@entity_type.manager']
+  view_mode_switch.view_mode_helper:
+    class: Drupal\view_mode_switch\ViewModeHelper
+    arguments: ['@view_mode_switch.entity_field_manager', '@entity_type.manager']
