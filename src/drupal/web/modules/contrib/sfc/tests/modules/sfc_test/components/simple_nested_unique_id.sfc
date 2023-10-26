@@ -1,3 +1,0 @@
-<template>
-  {% include 'sfc--simple-unique-id' %}
-</template>

@@ -1,6 +1,0 @@
-watch_refresh:
-  version: VERSION
-  js:
-    js/watch_refresh.js: {}
-  dependencies:
-  - core/drupalSettings
