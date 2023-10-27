@@ -34,6 +34,7 @@
         "drupal/paragraphs": "^1.16",
         "drupal/pathauto": "^1.12",
         "drupal/quicklink": "^2.0",
+        "drupal/redirect": "^1.9",
         "drupal/redis": "^1.7",
         "drupal/restui": "^1.21",
         "drupal/schema_metatag": "^3.0",
