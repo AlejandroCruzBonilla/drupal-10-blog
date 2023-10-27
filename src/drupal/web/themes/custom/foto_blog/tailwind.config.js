@@ -25,32 +25,38 @@ export default {
 	theme: {
 
 		screens: {
-			"xs": "480px",
 			...defaultTheme.screens,
+			// 'xl': '1200px',
 			"2xl": "1440px",
 		},
 
 		extend: {
-			screens:{
+			screens: {
 				"3xl": "1600px",
+				"4xl": "1800px",
 			},
 
 			colors: {
 				primary: {
-					light: colors.red[300],
-					DEFAULT: colors.red[500],
-					dark: colors.red[700],
+					light: colors.cyan[400],
+					DEFAULT: colors.cyan[500],
+					dark: colors.cyan[600],
 				},
 
 				secondary: {
-					light: colors.cyan[300],
-					DEFAULT: colors.cyan[500],
-					dark: colors.cyan[700],
+					light: colors.emerald[400],
+					DEFAULT: colors.emerald[500],
+					dark: colors.emerald[600],
+				},
+
+				font: {
+					light: colors.stone[200],
+					dark: colors.stone[800],
 				},
 
 				background: {
-					light: colors.gray[200],
-					dark: colors.gray[900],
+					light: colors.stone[100],
+					dark: colors.stone[900],
 				},
 			},
 		},

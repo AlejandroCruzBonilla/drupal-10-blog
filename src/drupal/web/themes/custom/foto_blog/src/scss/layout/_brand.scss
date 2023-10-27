@@ -1,0 +1,28 @@
+@use '../base/colors' as c;
+@use '../base/mixins' as m;
+
+.brand {
+	display: flex;
+	margin-right: 2rem;
+	&__logo {
+		width: 75px;
+		height: 75px;
+		svg {
+			max-width: 100%;
+			height: auto;
+			path {
+				@include m.light-mode{
+					fill: c.$font-dark;
+				}
+				@include m.dark-mode{
+					fill: c.$font-light;
+				}
+			}
+		}
+	}
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}

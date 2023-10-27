@@ -1,0 +1,18 @@
+@use '../base/colors' as c;
+@use '../base/mixins' as m;
+
+.page {
+  .layout {
+    @apply container;
+    margin-inline: auto;
+
+		@include m.theme-mode(
+			$bg-light: c.$background-light,
+			$bg-dark: c.$background-dark,
+		);
+		
+    &__wrapper {
+			@apply px-16 py-12;
+    }
+  }
+}

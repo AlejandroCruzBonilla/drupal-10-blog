@@ -1,0 +1,27 @@
+@mixin light-mode {
+  @media (prefers-color-scheme: light) {
+    @content;
+  }
+}
+@mixin dark-mode {
+  @media (prefers-color-scheme: dark) {
+    @content;
+  }
+}
+
+@mixin theme-mode(
+  $color-dark: inherit,
+  $bg-light: inherit,
+  $color-light: inherit,
+  $bg-dark: inherit
+) {
+  @include light-mode {
+		color: $color-dark;
+    background-color: $bg-light;
+  }
+	
+  @include dark-mode {
+		color: $color-light;
+    background-color: $bg-dark;
+  }
+}

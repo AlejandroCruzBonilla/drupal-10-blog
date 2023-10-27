@@ -10,9 +10,8 @@ libraries:
 
 regions:
   highlighted: Highlighted
-  header: Header
-  nav_menu: Nav menu
   breadcrumb: Breadcrumb
+  header: Header
   sidebar_left: Sidebar Left
   content: Content
   footer: Footer
