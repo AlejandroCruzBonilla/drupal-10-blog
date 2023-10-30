@@ -18,7 +18,7 @@ export default {
 		"./templates/**/*.html.twig",
 		"./layouts/**/*.html.twig",
 		"./src/js/**/*.vue",
-		"./src/js/vue/libraries/primeVue/customTailwindPassThrough.js",
+		"./src/vue/libraries/primeVue/customTailwindPassThrough.js",
 		// "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"
 	],
 
@@ -26,7 +26,6 @@ export default {
 
 		screens: {
 			...defaultTheme.screens,
-			// 'xl': '1200px',
 			"2xl": "1440px",
 		},
 

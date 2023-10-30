@@ -1,9 +1,3 @@
-foto_blog.xs:
-  label: X-Small
-  mediaQuery: '(min-width: 480px)'
-  weight: 0
-  multipliers:
-    - 1x
 foto_blog.sm:
   label: Small
   mediaQuery: '(min-width: 640px)'
@@ -30,7 +24,19 @@ foto_blog.xl:
     - 1x
 foto_blog.2xl:
   label: 2X-Large
-  mediaQuery: '(min-width: 1400px)'
+  mediaQuery: '(min-width: 1440px)'
   weight: 5
+  multipliers:
+    - 1x
+foto_blog.3xl:
+  label: 3X-Large
+  mediaQuery: '(min-width: 1600)'
+  weight: 6
+  multipliers:
+    - 1x
+foto_blog.4xl:
+  label: 3X-Large
+  mediaQuery: '(min-width: 1800)'
+  weight: 7
   multipliers:
     - 1x

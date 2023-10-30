@@ -2,7 +2,7 @@ global-styling:
   version: 0.0.1
   css:
     base:
-      dist/main.css: {}
-
+      dist/main.css: { minified: true }
   js:
-    dist/main.js: {}
+    dist/main.js: { preprocess: false, minified: true }
+    dist/vue.js: { preprocess: false, minified: true }

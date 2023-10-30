@@ -3,7 +3,6 @@ import { usePassThrough } from "primevue/passthrough/index.esm.js";
 
 
 //Tailwind customization
-
 const CustomTailwindPassThrough = usePassThrough(
 	{
 		button: {

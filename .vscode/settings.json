@@ -1,5 +1,7 @@
 {
 	// "tailwindCSS.rootFontSize": 10
 	"tailwindCSS.rootFontSize": 16,
-	"css.customData": [".vscode/tailwind.json"]
+	"css.customData": [
+		".vscode/tailwind.json"
+	]
 }

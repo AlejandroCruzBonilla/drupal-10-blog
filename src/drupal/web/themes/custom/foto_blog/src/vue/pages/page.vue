@@ -4,4 +4,5 @@
 
 <script setup>
 console.log('VuePage');
+
 </script>

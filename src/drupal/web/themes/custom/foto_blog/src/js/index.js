@@ -1,1 +1,1 @@
-import './vue/app.js';
+console.log('alex')

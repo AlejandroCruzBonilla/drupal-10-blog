@@ -9,11 +9,7 @@ import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 import * as sass from 'sass'
 import { VueLoaderPlugin } from 'vue-loader';
 
-
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-
 const isProduction = process.env.NODE_ENV == 'production';
-// const isProduction = true;
 
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
@@ -23,46 +19,15 @@ const optimization =
 			minimize: true,
 			minimizer: [
 				new CssMinimizerPlugin(),
-				new TerserPlugin({
-					minify: TerserPlugin.uglifyJsMinify,
-				})
 			],
-			splitChunks:{
-				cacheGroups:{
-					vue:{
-						test: /[\\/]node_modules[\\/]vue[\\/]dist[\\/]/,
-						name: "vue",
-						chunks: "all",
-					},
-					fontAwesome:{
-						test: /[\\/]node_modules[\\/]@fortawesome[\\/]/,
-						name: "fontAwesome",
-						chunks: "all",
-					},
-					primeVue:{
-						test: /[\\/]node_modules[\\/]primevue[\\/]/,
-						name: "primevue",
-						chunks: "all",
-					},
-
-					// vendor: {
-					// 	name: "vendor",
-					// 	chunks: "all",
-					// 	minChunks: 2
-					// }
-				}
-			}
 		} : {}
 
 const config = {
-	entry: {
-		main: './src/index.js',
-		vue: './src/vue/app.js',
-	},
+	entry: './src/index.js',
 	output: {
-		clean: true,
+		filename: 'main.js',
 		path: path.resolve('./dist'),
-		filename: '[name].js',
+		clean: true,
 	},
 	optimization: {
 		...optimization
@@ -73,8 +38,7 @@ const config = {
 		new VueLoaderPlugin(),
 		new webpack.DefinePlugin({
 			__VUE_OPTIONS_API__: true,
-			// __VUE_PROD_DEVTOOLS__: !isProduction,
-			__VUE_PROD_DEVTOOLS__: true,
+			__VUE_PROD_DEVTOOLS__: !isProduction,
 		}),
 		new TerserPlugin({
 			terserOptions: {
@@ -83,10 +47,6 @@ const config = {
 				},
 			},
 			extractComments: false,
-		}),
-
-		new BundleAnalyzerPlugin({
-			generateStatsFile: true
 		}),
 		new BrowserSyncPlugin({
 			open: false,
@@ -106,10 +66,10 @@ const config = {
 	module: {
 
 		rules: [
-			// {
-			// 	test: /\.(js|jsx)$/i,
-			// 	loader: 'babel-loader',
-			// },
+			{
+				test: /\.(js|jsx)$/i,
+				loader: 'babel-loader',
+			},
 			{
 				test: /\.vue$/,
 				loader: 'vue-loader',
@@ -157,10 +117,7 @@ const config = {
 	},
 	resolve: {
 		alias: {
-			vue: isProduction
-				// ? "vue/dist/vue.esm-browser.prod"
-				? "vue/dist/vue.esm-bundler.js"
-				: "vue/dist/vue.esm-bundler.js",
+			vue: "vue/dist/vue.esm-bundler.js",
 		},
 	},
 };
