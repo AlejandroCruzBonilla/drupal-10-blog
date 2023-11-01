@@ -36,4 +36,9 @@ library.add(
 	faXmark,
 );
 
-export default FontAwesomeIcon;
+export default {
+	install(app) {
+		app.component('FontAwesomeIcon', FontAwesomeIcon);
+	}
+}
+

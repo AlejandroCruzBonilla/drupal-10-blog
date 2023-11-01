@@ -3,7 +3,10 @@
 
 .brand {
 	display: flex;
-	margin-right: 2rem;
+	align-items: center;
+	@screen lg {
+		margin-right: 2rem;					
+	}
 	&__logo {
 		width: 75px;
 		height: 75px;

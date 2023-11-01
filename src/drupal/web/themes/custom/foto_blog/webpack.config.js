@@ -13,7 +13,6 @@ import { VueLoaderPlugin } from 'vue-loader';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 const isProduction = process.env.NODE_ENV == 'production';
-// const isProduction = true;
 
 const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
 
@@ -29,9 +28,9 @@ const optimization =
 			],
 			splitChunks:{
 				cacheGroups:{
-					vue:{
+					vueVendor:{
 						test: /[\\/]node_modules[\\/]vue[\\/]dist[\\/]/,
-						name: "vue",
+						name: "vueVendor",
 						chunks: "all",
 					},
 					fontAwesome:{
@@ -40,16 +39,10 @@ const optimization =
 						chunks: "all",
 					},
 					primeVue:{
-						test: /[\\/]node_modules[\\/]primevue[\\/]/,
-						name: "primevue",
+						test: path.resolve("node_modules/primevue"),
+						name: "primeVue",
 						chunks: "all",
 					},
-
-					// vendor: {
-					// 	name: "vendor",
-					// 	chunks: "all",
-					// 	minChunks: 2
-					// }
 				}
 			}
 		} : {}
@@ -73,8 +66,7 @@ const config = {
 		new VueLoaderPlugin(),
 		new webpack.DefinePlugin({
 			__VUE_OPTIONS_API__: true,
-			// __VUE_PROD_DEVTOOLS__: !isProduction,
-			__VUE_PROD_DEVTOOLS__: true,
+			__VUE_PROD_DEVTOOLS__: !isProduction,
 		}),
 		new TerserPlugin({
 			terserOptions: {
@@ -84,9 +76,9 @@ const config = {
 			},
 			extractComments: false,
 		}),
-
 		new BundleAnalyzerPlugin({
-			generateStatsFile: true
+			generateStatsFile: true,
+			openAnalyzer: false,
 		}),
 		new BrowserSyncPlugin({
 			open: false,
@@ -158,8 +150,8 @@ const config = {
 	resolve: {
 		alias: {
 			vue: isProduction
-				// ? "vue/dist/vue.esm-browser.prod"
-				? "vue/dist/vue.esm-bundler.js"
+				? "vue/dist/vue.esm-browser.prod"
+				// ? "vue/dist/vue.esm-bundler.js"
 				: "vue/dist/vue.esm-bundler.js",
 		},
 	},

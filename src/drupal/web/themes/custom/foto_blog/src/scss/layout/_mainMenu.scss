@@ -1,0 +1,14 @@
+@use '../base/mixins' as m;
+
+.nav {
+	display: flex;
+	&__links {
+		display: flex;
+		align-items: center;
+	}
+	&__link {
+		display: inline-block;
+		padding: 1rem;
+		margin: 0.5rem;
+	}
+}

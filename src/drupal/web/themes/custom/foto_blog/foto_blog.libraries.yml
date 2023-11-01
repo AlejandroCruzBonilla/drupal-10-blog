@@ -4,5 +4,8 @@ global-styling:
     base:
       dist/main.css: { minified: true }
   js:
-    dist/main.js: { preprocess: false, minified: true }
-    dist/vue.js: { preprocess: false, minified: true }
+    dist/main.js: { preprocess: false }
+    dist/vue.js: { preprocess: false  }
+
+  dependencies:
+    - core/once
