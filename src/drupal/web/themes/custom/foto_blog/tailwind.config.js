@@ -19,6 +19,7 @@ export default {
 		"./layouts/**/*.html.twig",
 		"./src/js/**/*.vue",
 		"./src/vue/libraries/primeVue/customTailwindPassThrough.js",
+		"./src/vue/libraries/primeVue/passthroughTailwind.js",
 		// "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"
 	],
 

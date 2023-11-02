@@ -1,8 +1,7 @@
 /**
  * @file
  */
-// ((Drupal, $) => {
-((Drupal) => {
+((Drupal, $) => {
 
 	const initVue = () => {
 		return new Promise(async (resolve, reject) => {
@@ -25,7 +24,7 @@
 					delimiters: ['${', '}'],
 					mounted: () => {
 						console.log("Vue mounted");
-						// if ($) $.holdReady(false);
+						if ($) $.holdReady(false);
 					}
 				});
 
@@ -46,7 +45,7 @@
 		});
 	}
 
-	// if ($) $.holdReady(true);
+	if ($) $.holdReady(true);
 	Drupal.behaviors.attachVue = {
 		attach: function (context, settings) {
 
@@ -54,11 +53,10 @@
 				initVue()
 					.catch(error => {
 						console.error(error);
-						// if ($) $.holdReady(false);
+						if ($) $.holdReady(false);
 					});
 			})
 		}
 	}
 
-})(Drupal);
-// })(Drupal, 'jQuery' in window ? jQuery : null);
+})(Drupal, 'jQuery' in window ? jQuery : null);

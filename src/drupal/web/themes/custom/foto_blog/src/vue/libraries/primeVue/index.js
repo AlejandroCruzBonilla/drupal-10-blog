@@ -7,7 +7,7 @@ export default {
 		const Button = defineAsyncComponent(() => import('primevue/button/Button.vue'));
 		const Sidebar = defineAsyncComponent(() => import('primevue/sidebar/Sidebar.vue'));
 
-		app.use(PrimeVue, { unstyled: true, pt: CustomTailwindPassThrough });
+		app.use(PrimeVue, { ripple: true, unstyled: true, pt: CustomTailwindPassThrough });
 		app.component('PvButton', Button);
 		app.component('PvSidebar', Sidebar);
 	}
