@@ -14,7 +14,8 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 const isProduction = process.env.NODE_ENV == 'production';
 
-const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
+// const stylesHandler = isProduction ? MiniCssExtractPlugin.loader : 'style-loader';
+const stylesHandler = MiniCssExtractPlugin.loader;
 
 const optimization =
 	isProduction ?
@@ -68,6 +69,7 @@ const config = {
 			__VUE_OPTIONS_API__: true,
 			__VUE_PROD_DEVTOOLS__: !isProduction,
 		}),
+		new MiniCssExtractPlugin({ filename: 'main.css' }),
 		new TerserPlugin({
 			terserOptions: {
 				format: {

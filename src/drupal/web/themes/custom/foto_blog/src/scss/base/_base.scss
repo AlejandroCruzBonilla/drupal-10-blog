@@ -7,10 +7,10 @@
     font-size: 16px;
 
     @include m.theme-mode(
-			c.$font-dark, 
-			c.$background-base-light,
-			c.$font-light, 
-			c.$background-base-dark
+			$color-light: c.$font-dark, 
+			$bg-light: c.$background-base-light,
+			$color-dark: c.$font-light, 
+			$bg-dark: c.$background-base-dark
 		)
   }
 
@@ -32,9 +32,10 @@
 		@apply text-lg;
   }
 
-  // a {
-  // 	color: theme('colors.emerald.500');
-  // }
+  a {
+		display: inline-block;
+  	// color: theme('colors.emerald.500');
+  }
 
   // a:hover {
   // 	color: theme('colors.emerald.400');

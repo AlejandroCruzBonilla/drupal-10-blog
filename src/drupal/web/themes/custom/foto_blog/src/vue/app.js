@@ -19,11 +19,15 @@
 				);
 
 				const Test = defineAsyncComponent(() => import('./common/components/test.vue'));
+				const NavMenu = defineAsyncComponent(() => import('./navigation/components/nav-menu.vue'));
+
+				// const NavMenu = await import('./navigation/components/nav-menu.vue')
 
 				const app = createApp({
 					delimiters: ['${', '}'],
 					mounted: () => {
 						console.log("Vue mounted");
+						document.querySelector('body').classList.remove('hidden');
 						if ($) $.holdReady(false);
 					}
 				});
@@ -37,6 +41,7 @@
 				})
 
 				app.component("Test", Test);
+				app.component("NavMenu", NavMenu);
 				app.mount("#vue-app");
 				resolve(true);
 			} catch (error) {
@@ -46,10 +51,12 @@
 	}
 
 	if ($) $.holdReady(true);
+
 	Drupal.behaviors.attachVue = {
 		attach: function (context, settings) {
-
-			once('attachVue', 'html').forEach((element) => {
+			once('attachVue', 'body').forEach((element) => {
+				console.log({element})
+				element.classList.add('hidden');
 				initVue()
 					.catch(error => {
 						console.error(error);

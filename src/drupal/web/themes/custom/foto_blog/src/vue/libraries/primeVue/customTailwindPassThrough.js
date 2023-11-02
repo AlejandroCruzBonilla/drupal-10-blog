@@ -1,6 +1,6 @@
 import { usePassThrough } from "primevue/passthrough/index.esm.js";
 // import Tailwind from "primevue/passthrough/tailwind/index.esm.js";
-import { global, directives, button } from "./passthroughTailwind.js";
+import { global, directives, button, sidebar } from "./passthroughTailwind.js";
 
 //Tailwind customization
 const CustomTailwindPassThrough = usePassThrough(
@@ -9,6 +9,7 @@ const CustomTailwindPassThrough = usePassThrough(
 		global,
 		directives,
 		button,
+		sidebar,
 	},
 	{
 		mergeSections: true,

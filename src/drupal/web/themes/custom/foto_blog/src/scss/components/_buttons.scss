@@ -1,5 +1,55 @@
+@use "../base/colors" as c;
+@use "../base/mixins" as m;
+
 @layer components {
-	.btn {
-		@apply p-4 bg-slate-400;
-	}
+  .btn {
+    display: inline-flex;
+    text-align: center;
+    position: relative;
+    user-select: none;
+    overflow: hidden;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition-property: color, background-color;
+    transition-duration: 200ms;
+
+    &:focus {
+      @apply outline-none outline-offset-0;
+    }
+
+    &--primary {
+      border-width: 1px;
+      border-color: c.$primary;
+      @include m.theme-mode(
+        $color-light: c.$font-dark,
+        $bg-light: c.$primary,
+        $color-dark: c.$font-light,
+        $bg-dark: c.$primary
+      );
+      &:hover {
+        @include m.theme-mode(
+          $color-light: c.$font-light,
+          $bg-light: c.$primary-dark,
+          $color-dark: c.$font-dark,
+          $bg-dark: c.$primary-dark
+        );
+      }
+    }
+
+    &--primary-outline {
+      background-color: transparent;
+      border-width: 1px;
+      border-color: c.$primary;
+      color: c.$primary;
+      &:hover {
+        @include m.theme-mode(
+          $color-light: c.$font-light,
+          $bg-light: c.$primary,
+          $color-dark: c.$font-dark,
+          $bg-dark: c.$primary
+        );
+      }
+    }
+  }
 }

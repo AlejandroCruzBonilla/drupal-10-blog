@@ -25,23 +25,29 @@
   @see https://twig.symfony.com/doc/3.x/tags/macro.html
 #}
 {{ menus.menu_links(items, attributes, 0) }}
+<nav-menu>
+	{{ menus.menu_links(items, attributes, 0, true) }}
+</nav-menu>
 
-{% macro menu_links(items, attributes, menu_level) %}
-  {% import _self as menus %}
-  {% if items %}
-    {% if menu_level == 0 %}
-      <ul{{ attributes }} class="nav__links">
-    {% else %}
-      <ul class="{{"nav__links nav__links--level-" ~ (menu_level)}}">
-    {% endif %}
-    {% for item in items %}
-      <li{{ item.attributes }} class="nav__wrapper-link">
-        {{ link(item.title, item.url, { 'class':['nav__link']} ) }}
-        {% if item.below %}
-          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
-        {% endif %}
-      </li>
-    {% endfor %}
-    </ul>
-  {% endif %}
+{% macro menu_links(items, attributes, menu_level, mobile = false) %}
+	{% import _self as menus %}
+	{% if items %}
+		{% set link_list_classes = [
+				"nav__links",
+				"nav__links--level-" ~ (menu_level)
+			] 
+		%}
+
+		<ul{{attributes.addClass(link_list_classes)}}>
+			{% for item in items %}
+				<li{{item.attributes}}
+					class="nav__wrapper-link">
+					{{ link(item.title, item.url, { 'class':['nav__link']} ) }}
+					{% if item.below %}
+						{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
 {% endmacro %}
