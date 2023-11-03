@@ -526,6 +526,12 @@ video {
 .container {
   width: 100%;
 }
+@media (min-width: 480px) {
+
+  .container {
+    max-width: 480px;
+  }
+}
 @media (min-width: 640px) {
 
   .container {
@@ -2475,6 +2481,12 @@ video {
   justify-content: space-between;
   width: 100%;
 }
+@media (min-width: 480px) {
+
+  .header__wrapper {
+    max-width: 480px;
+  }
+}
 @media (min-width: 640px) {
 
   .header__wrapper {
@@ -2597,6 +2609,12 @@ video {
 }
 .page .main {
   width: 100%;
+}
+@media (min-width: 480px) {
+
+  .page .main {
+    max-width: 480px;
+  }
 }
 @media (min-width: 640px) {
 

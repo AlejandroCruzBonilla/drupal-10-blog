@@ -26,6 +26,7 @@ export default {
 	theme: {
 
 		screens: {
+			"xs": "480px",
 			...defaultTheme.screens,
 			"2xl": "1440px",
 		},

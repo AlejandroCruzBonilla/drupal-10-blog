@@ -3,3 +3,4 @@
 !.gitignore
 !.htaccess
 !/translations
+!/translations/*

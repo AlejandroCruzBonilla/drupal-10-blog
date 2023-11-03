@@ -78,10 +78,10 @@ const config = {
 			},
 			extractComments: false,
 		}),
-		new BundleAnalyzerPlugin({
-			generateStatsFile: true,
-			openAnalyzer: false,
-		}),
+		// new BundleAnalyzerPlugin({
+		// 	generateStatsFile: true,
+		// 	openAnalyzer: false,
+		// }),
 		new BrowserSyncPlugin({
 			open: false,
 			host: "localhost",

@@ -15,29 +15,20 @@
   }
 
   h1 {
-    // font-size: theme("fontSize.6xl");
     @apply text-6xl;
   }
   h2 {
-		// font-size: theme("fontSize.5xl");
 		@apply text-5xl;
   }
   h3 {
-		// font-size: theme("fontSize.4xl");
 		@apply text-4xl;
   }
 	
   body {
-		// font-size: theme("fontSize.lg");
 		@apply text-lg;
   }
 
   a {
 		display: inline-block;
-  	// color: theme('colors.emerald.500');
   }
-
-  // a:hover {
-  // 	color: theme('colors.emerald.400');
-  // }
 }

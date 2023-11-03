@@ -27,7 +27,7 @@
 					delimiters: ['${', '}'],
 					mounted: () => {
 						console.log("Vue mounted");
-						document.querySelector('body').classList.remove('hidden');
+						// document.querySelector('body').classList.remove('hidden');
 						if ($) $.holdReady(false);
 					}
 				});
@@ -55,7 +55,7 @@
 	Drupal.behaviors.attachVue = {
 		attach: function (context, settings) {
 			once('attachVue', 'body').forEach((element) => {
-				element.classList.add('hidden');
+				// element.classList.add('hidden');
 				initVue()
 					.catch(error => {
 						console.error(error);

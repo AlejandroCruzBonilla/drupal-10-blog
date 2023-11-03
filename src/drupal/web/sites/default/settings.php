@@ -862,3 +862,15 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 }
 
 $settings['config_sync_directory'] = '../config/sync';
+
+$databases['default']['default'] = array (
+  'database' => 'drupal-10-blog-db',
+  'username' => 'admin',
+  'password' => 'admin',
+  'prefix' => '',
+  'host' => 'drupal-10-blog-db',
+  'port' => '5432',
+  'namespace' => 'Drupal\\pgsql\\Driver\\Database\\pgsql',
+  'driver' => 'pgsql',
+  'autoload' => 'core/modules/pgsql/src/Driver/Database/pgsql/',
+);

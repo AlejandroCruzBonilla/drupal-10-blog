@@ -52,33 +52,34 @@
 <div
 	class="page"
 	id="vue-app">
-	{# ! For admin Links #}
-	{{ page.admin }}
-	{{ page.highlighted }}
-
 	{{ page.header }}
+	{{ page.highlighted }}
 
 	<main
 		class="main"
 		role="main">
 		<div
 			class="main__wrapper">
+			{% if user.hasRole('administrator') or user.hasRole('content_editor') %}
+				{# ! For admin Links #}
+				{{ page.admin }}
+			{% endif %}
 			{{ page.breadcrumb }}
+
 			{% if page.content %}
 				{{ page.content }}
 			{% endif %}
 		</div>
 	</main>
+
+	{% if page.footer %}
+		<footer
+			class="footer"
+			role="contentinfo">
+			<div
+				class="footer__wrapper">
+				{{ page.footer_one }}
+			</div>
+		</footer>
+	{% endif %}
 </div>
-
-
-{% if page.footer %}
-	<footer
-		class="footer"
-		role="contentinfo">
-		<div
-			class="footer__wrapper">
-			{{ page.footer_one }}
-		</div>
-	</footer>
-{% endif %}</div>

@@ -2,10 +2,18 @@ global-styling:
   version: 0.0.1
   css:
     base:
-      dist/main.css: { minified: true }
+      dist/main.css: { 
+        preprocess: false,
+        minified: true, 
+        attributes: {
+          preload: true
+        } 
+      }
   js:
     dist/main.js: { preprocess: false }
-    dist/vue.js: { preprocess: false  }
+    dist/vue.js: { preprocess: false }
+    # dist/vue.js: { preprocess: false, attributes: { defer: true }  }
 
   dependencies:
     - core/once
+    - core/drupal
