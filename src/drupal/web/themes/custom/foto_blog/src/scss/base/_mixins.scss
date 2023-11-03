@@ -25,3 +25,20 @@
     background-color: $bg-dark;
   }
 }
+
+@mixin containerPadding {
+	padding-left: 1.75rem;
+	padding-right: 1.75rem;
+	@screen md{
+		padding-left: 2.5rem;
+		padding-right: 2.5rem;
+	}
+	@screen lg{
+		padding-left: 3.5rem;
+		padding-right: 3.5rem;
+	}
+	@screen xl{
+		padding-left: 4.5rem;
+		padding-right: 4.5rem;
+	}
+}

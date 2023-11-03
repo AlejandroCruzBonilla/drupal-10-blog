@@ -24,32 +24,31 @@
   We call a macro which calls itself to render the full tree.
   @see https://twig.symfony.com/doc/3.x/tags/macro.html
 #}
-<div
-	class="hidden lg:block">
-	{{ menus.menu_links(items, attributes, 0) }}
+<div class="nav-main__desktop">
+	{{ menus.menu_links(items, attributes) }}
 </div>
 <nav-menu>
 	<template
 		#sidebar-header>
-		{{ drupal_entity("block","foto_blog_site_branding") }}
+		{{ drupal_block("system_branding_block") }}
 	</template>
-	{{ menus.menu_links(items, attributes, 0, true) }}
+	{{ menus.menu_links(items, attributes) }}
 </nav-menu>
 
-{% macro menu_links(items, attributes, menu_level, mobile = false) %}
+{% macro menu_links(items, attributes) %}
 	{% import _self as menus %}
 	{% if items %}
 		{% set link_list_classes = [
-				"nav__links",
-				"nav__links--level-" ~ (menu_level)
+				"nav-main__links",
+				"nav-main__links--level-" ~ (menu_level)
 			] 
 		%}
 
 		<ul{{attributes.addClass(link_list_classes)}}>
 			{% for item in items %}
 				<li{{item.attributes}}
-					class="nav__wrapper-link">
-					{{ link(item.title, item.url, { 'class':['nav__link'], 'title': item.title} ) }}
+					class="nav-main__wrapper-link">
+					{{ link(item.title, item.url, { 'class':['nav-main__link'], 'title': item.title} ) }}
 					{% if item.below %}
 						{{ menus.menu_links(item.below, attributes, menu_level + 1) }}
 					{% endif %}

@@ -9,7 +9,7 @@ const toggleMenu = () => {
 </script>
 
 <template>
-	<div class="lg:hidden flex items-center">
+	<div class="nav-main__mobile">
 		<pv-button
 			outlined
 			@click="toggleMenu"

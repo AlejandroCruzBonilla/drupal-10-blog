@@ -34,9 +34,10 @@
 #}
 {% set heading_id = attributes.id ~ '-menu'|clean_id %}
 <nav
-	class="nav-main"
 	role="navigation"
-	aria-labelledby="{{ heading_id }}" {{ attributes|without('role', 'aria-labelledby','class') }}>
+	class="nav-social-footer"
+	aria-labelledby="{{ heading_id }}" {{ attributes|without('role', 'aria-labelledby', 'class') }}>
+
 	{# Menu. #}
 	{% block content %}
 		{{ content }}

@@ -34,15 +34,3 @@ foto_blog.2xl:
   weight: 6
   multipliers:
     - 1x
-foto_blog.3xl:
-  label: 3X-Large
-  mediaQuery: '(min-width: 1600px)'
-  weight: 7
-  multipliers:
-    - 1x
-foto_blog.4xl:
-  label: 4X-Large
-  mediaQuery: '(min-width: 1800px)'
-  weight: 8
-  multipliers:
-    - 1x

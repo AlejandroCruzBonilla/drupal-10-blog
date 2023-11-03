@@ -32,11 +32,6 @@ export default {
 		},
 
 		extend: {
-			screens: {
-				"3xl": "1600px",
-				"4xl": "1800px",
-			},
-
 			colors: {
 				primary: {
 					light: colors.cyan[400],

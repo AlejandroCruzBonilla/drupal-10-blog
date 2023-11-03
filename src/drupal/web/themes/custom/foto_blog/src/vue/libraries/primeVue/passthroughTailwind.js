@@ -533,7 +533,7 @@ export const sidebar = {
 		]
 	}),
 	header: {
-		class: ['flex items-center justify-between', 'p-4']
+		class: ['flex items-center justify-between py-4 px-4 xs:px-8']
 	},
 	closeButton: {
 		class: [
