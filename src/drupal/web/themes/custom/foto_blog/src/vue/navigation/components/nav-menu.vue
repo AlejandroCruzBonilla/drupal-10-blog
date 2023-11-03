@@ -9,13 +9,12 @@ const toggleMenu = () => {
 </script>
 
 <template>
-	<div class="flex items-center">
+	<div class="lg:hidden flex items-center">
 		<pv-button
 			outlined
 			@click="toggleMenu"
 		>
 			<font-awesome-icon
-				size="xl"
 				:icon="visible
 					? 'fa-solid fa-xmark'
 					: 'fa-solid fa-grip-lines'"
@@ -27,5 +26,9 @@ const toggleMenu = () => {
 		position="top"
 		v-model:visible="visible"
 	>
+		<template #header>
+			<slot name="sidebar-header"></slot>
+		</template>
 		<slot></slot>
-	</pv-sidebar></template>
+	</pv-sidebar>
+</template>

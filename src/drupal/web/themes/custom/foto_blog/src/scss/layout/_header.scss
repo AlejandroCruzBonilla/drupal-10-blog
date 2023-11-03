@@ -1,14 +1,18 @@
+@use '../base/variables' as v;
 @use "../base/colors" as c;
 @use "../base/mixins" as m;
 
 .header {
+	margin-bottom: 1rem;
   @include m.theme-mode(
 		$bg-light: c.$background-light,
 		$bg-dark: c.$background-dark,
   );
   &__wrapper {
-    @apply container px-16 py-4;
-    margin-inline: auto;
+		padding: 1rem v.$padding-x;
+		margin-inline: auto;
     display: flex;
+		justify-content: space-between;
+    @apply container;
   }
 }

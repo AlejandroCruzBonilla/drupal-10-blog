@@ -1,8 +1,9 @@
+@use '../base/variables' as v;
 @use '../base/colors' as c;
 @use '../base/mixins' as m;
 
 .page {
-  .layout {
+  .main {
     @apply container;
     margin-inline: auto;
 
@@ -12,7 +13,7 @@
 		);
 		
     &__wrapper {
-			@apply px-16 py-12;
+			padding: 3rem v.$padding-x;
     }
   }
 }

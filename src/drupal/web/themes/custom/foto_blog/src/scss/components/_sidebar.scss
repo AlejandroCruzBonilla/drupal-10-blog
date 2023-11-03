@@ -1,0 +1,21 @@
+@use '../base/variables' as v;
+@use '../base/colors' as c;
+@use '../base/mixins' as m;
+
+
+.sidebar{
+	display: flex;
+	flex-direction: column;
+	pointer-events: auto;
+	position: relative;
+	transition-property: transform;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
+	@include m.theme-mode(
+		$color-light: c.$font-dark,
+		$bg-light: c.$background-light,
+		$color-dark: c.$font-light,
+		$bg-dark: c.$background-dark
+	);
+	// @apply container;
+}

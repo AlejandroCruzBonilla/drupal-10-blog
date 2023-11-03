@@ -20,6 +20,9 @@
 				@include m.dark-mode{
 					fill: c.$font-light;
 				}
+				&:hover{
+					fill: c.$primary
+				}
 			}
 		}
 	}
@@ -27,5 +30,14 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+	}
+	&__name {
+		color: c.$primary;
+	}
+	&__slogan {
+		padding-right: 3vw;
+		@screen sm {
+			padding-right: unset;
+		}
 	}
 }

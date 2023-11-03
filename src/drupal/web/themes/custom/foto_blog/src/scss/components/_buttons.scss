@@ -14,10 +14,6 @@
     transition-property: color, background-color;
     transition-duration: 200ms;
 
-    &:focus {
-      @apply outline-none outline-offset-0;
-    }
-
     &--primary {
       border-width: 1px;
       border-color: c.$primary;

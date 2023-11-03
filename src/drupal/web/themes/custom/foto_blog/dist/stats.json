@@ -1,8 +1,8 @@
 {
-  "hash": "61fc456e8dd709265578",
+  "hash": "dc80e6b0b68fc169fa6b",
   "version": "5.89.0",
-  "time": 479,
-  "builtAt": 1698909288737,
+  "time": 391,
+  "builtAt": 1698972869005,
   "publicPath": "auto",
   "outputPath": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/dist",
   "assetsByChunkName": {
@@ -74,14 +74,14 @@
     {
       "type": "asset",
       "name": "primevueLibrary.js",
-      "size": 409066,
+      "size": 408588,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "javascriptModule": false,
         "minimized": true,
-        "size": 409066
+        "size": 408588
       },
       "chunkNames": [
         "primevueLibrary"
@@ -174,12 +174,12 @@
     {
       "type": "asset",
       "name": "main.css",
-      "size": 80322,
+      "size": 81199,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
-        "size": 80322
+        "size": 81199
       },
       "chunkNames": [
         "main"
@@ -222,14 +222,14 @@
     {
       "type": "asset",
       "name": "src_vue_navigation_components_nav-menu_vue.js",
-      "size": 13947,
-      "emitted": true,
+      "size": 14311,
+      "emitted": false,
       "comparedForEmit": false,
-      "cached": false,
+      "cached": true,
       "info": {
         "javascriptModule": false,
         "minimized": true,
-        "size": 13947
+        "size": 14311
       },
       "chunkNames": [],
       "chunkIdHints": [],
@@ -268,14 +268,14 @@
     {
       "type": "asset",
       "name": "vue.js",
-      "size": 10279,
+      "size": 10195,
       "emitted": false,
       "comparedForEmit": false,
       "cached": true,
       "info": {
         "javascriptModule": false,
         "minimized": true,
-        "size": 10279
+        "size": 10195
       },
       "chunkNames": [
         "vue"
@@ -455,10 +455,10 @@
       "initial": true,
       "entry": true,
       "recorded": false,
-      "size": 80027,
+      "size": 80904,
       "sizes": {
         "javascript": 121,
-        "css/mini-extract": 79632,
+        "css/mini-extract": 80509,
         "runtime": 274
       },
       "names": [
@@ -473,7 +473,7 @@
         "main.js"
       ],
       "auxiliaryFiles": [],
-      "hash": "f3213bd1fd362bc483eb",
+      "hash": "a00ff9086f42d4606d0d",
       "childrenByOrder": {},
       "id": "main",
       "siblings": [],
@@ -663,9 +663,9 @@
         {
           "type": "module",
           "moduleType": "css/mini-extract",
-          "size": 79632,
+          "size": 80509,
           "sizes": {
-            "css/mini-extract": 79632
+            "css/mini-extract": 80509
           },
           "built": false,
           "codeGenerated": false,
@@ -777,9 +777,9 @@
       "initial": false,
       "entry": false,
       "recorded": false,
-      "size": 145532,
+      "size": 145342,
       "sizes": {
-        "javascript": 145532
+        "javascript": 145342
       },
       "names": [
         "primevueLibrary"
@@ -792,7 +792,7 @@
         "primevueLibrary.js"
       ],
       "auxiliaryFiles": [],
-      "hash": "e7f101f7101adbdccdaf",
+      "hash": "5eec7551bca4731aae8a",
       "childrenByOrder": {},
       "id": "primevueLibrary",
       "siblings": [
@@ -959,9 +959,9 @@
           "type": "module",
           "moduleType": "javascript/esm",
           "layer": null,
-          "size": 144528,
+          "size": 144338,
           "sizes": {
-            "javascript": 144528
+            "javascript": 144338
           },
           "built": false,
           "codeGenerated": false,
@@ -1233,8 +1233,8 @@
           "optional": false,
           "orphan": false,
           "dependent": true,
-          "issuer": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/common/components/test.vue",
-          "issuerName": "./src/vue/common/components/test.vue",
+          "issuer": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/primevue/sidebar/Sidebar.vue",
+          "issuerName": "./node_modules/primevue/sidebar/Sidebar.vue",
           "issuerPath": [
             {
               "identifier": "javascript/esm|/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/app.js",
@@ -1242,16 +1242,21 @@
               "id": "./src/vue/app.js"
             },
             {
-              "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/common/components/test.vue",
-              "name": "./src/vue/common/components/test.vue",
-              "id": "./src/vue/common/components/test.vue"
+              "identifier": "javascript/esm|/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/libraries/primeVue/index.js",
+              "name": "./src/vue/libraries/primeVue/index.js",
+              "id": "./src/vue/libraries/primeVue/index.js"
+            },
+            {
+              "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/primevue/sidebar/Sidebar.vue",
+              "name": "./node_modules/primevue/sidebar/Sidebar.vue",
+              "id": "./node_modules/primevue/sidebar/Sidebar.vue"
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": "./node_modules/vue-loader/dist/exportHelper.js",
-          "issuerId": "./src/vue/common/components/test.vue",
+          "issuerId": "./node_modules/primevue/sidebar/Sidebar.vue",
           "chunks": [
             "src_vue_common_components_test_vue",
             "src_vue_navigation_components_nav-menu_vue",
@@ -1911,13 +1916,13 @@
       ]
     },
     {
-      "rendered": true,
+      "rendered": false,
       "initial": false,
       "entry": false,
       "recorded": false,
-      "size": 3533,
+      "size": 3611,
       "sizes": {
-        "javascript": 3533
+        "javascript": 3611
       },
       "names": [],
       "idHints": [],
@@ -1928,7 +1933,7 @@
         "src_vue_navigation_components_nav-menu_vue.js"
       ],
       "auxiliaryFiles": [],
-      "hash": "eae096cd3b7272a489ed",
+      "hash": "2b9be9c70979afe20fbc",
       "childrenByOrder": {},
       "id": "src_vue_navigation_components_nav-menu_vue",
       "siblings": [
@@ -1962,8 +1967,8 @@
           "optional": false,
           "orphan": false,
           "dependent": true,
-          "issuer": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/common/components/test.vue",
-          "issuerName": "./src/vue/common/components/test.vue",
+          "issuer": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/primevue/sidebar/Sidebar.vue",
+          "issuerName": "./node_modules/primevue/sidebar/Sidebar.vue",
           "issuerPath": [
             {
               "identifier": "javascript/esm|/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/app.js",
@@ -1971,16 +1976,21 @@
               "id": "./src/vue/app.js"
             },
             {
-              "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/common/components/test.vue",
-              "name": "./src/vue/common/components/test.vue",
-              "id": "./src/vue/common/components/test.vue"
+              "identifier": "javascript/esm|/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/libraries/primeVue/index.js",
+              "name": "./src/vue/libraries/primeVue/index.js",
+              "id": "./src/vue/libraries/primeVue/index.js"
+            },
+            {
+              "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/primevue/sidebar/Sidebar.vue",
+              "name": "./node_modules/primevue/sidebar/Sidebar.vue",
+              "id": "./node_modules/primevue/sidebar/Sidebar.vue"
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": "./node_modules/vue-loader/dist/exportHelper.js",
-          "issuerId": "./src/vue/common/components/test.vue",
+          "issuerId": "./node_modules/primevue/sidebar/Sidebar.vue",
           "chunks": [
             "src_vue_common_components_test_vue",
             "src_vue_navigation_components_nav-menu_vue",
@@ -2173,10 +2183,10 @@
           "sizes": {
             "javascript": 380
           },
-          "built": true,
-          "codeGenerated": true,
+          "built": false,
+          "codeGenerated": false,
           "buildTimeExecuted": false,
-          "cached": false,
+          "cached": true,
           "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=script&setup=true&lang=js",
           "name": "./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=script&setup=true&lang=js",
           "nameForCondition": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue",
@@ -2285,14 +2295,14 @@
           "type": "module",
           "moduleType": "javascript/auto",
           "layer": null,
-          "size": 1500,
+          "size": 1578,
           "sizes": {
-            "javascript": 1500
+            "javascript": 1578
           },
-          "built": true,
-          "codeGenerated": true,
+          "built": false,
+          "codeGenerated": false,
           "buildTimeExecuted": false,
-          "cached": false,
+          "cached": true,
           "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
           "name": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
           "nameForCondition": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue",
@@ -2377,10 +2387,10 @@
           "sizes": {
             "javascript": 803
           },
-          "built": true,
+          "built": false,
           "codeGenerated": false,
           "buildTimeExecuted": false,
-          "cached": false,
+          "cached": true,
           "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue",
           "name": "./src/vue/navigation/components/nav-menu.vue",
           "nameForCondition": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue",
@@ -6999,8 +7009,8 @@
           "optional": false,
           "orphan": false,
           "dependent": false,
-          "issuer": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/common/components/test.vue",
-          "issuerName": "./src/vue/common/components/test.vue",
+          "issuer": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/primevue/sidebar/Sidebar.vue",
+          "issuerName": "./node_modules/primevue/sidebar/Sidebar.vue",
           "issuerPath": [
             {
               "identifier": "javascript/esm|/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/app.js",
@@ -7008,16 +7018,21 @@
               "id": "./src/vue/app.js"
             },
             {
-              "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/common/components/test.vue",
-              "name": "./src/vue/common/components/test.vue",
-              "id": "./src/vue/common/components/test.vue"
+              "identifier": "javascript/esm|/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/libraries/primeVue/index.js",
+              "name": "./src/vue/libraries/primeVue/index.js",
+              "id": "./src/vue/libraries/primeVue/index.js"
+            },
+            {
+              "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/primevue/sidebar/Sidebar.vue",
+              "name": "./node_modules/primevue/sidebar/Sidebar.vue",
+              "id": "./node_modules/primevue/sidebar/Sidebar.vue"
             }
           ],
           "failed": false,
           "errors": 0,
           "warnings": 0,
           "id": "./node_modules/vue-loader/dist/exportHelper.js",
-          "issuerId": "./src/vue/common/components/test.vue",
+          "issuerId": "./node_modules/primevue/sidebar/Sidebar.vue",
           "chunks": [
             "src_vue_common_components_test_vue",
             "src_vue_navigation_components_nav-menu_vue",
@@ -25570,7 +25585,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "vue",
-              "loc": "27:4-16",
+              "loc": "26:4-16",
               "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
               "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
             },
@@ -25584,7 +25599,7 @@
               "active": true,
               "explanation": "",
               "userRequest": "vue",
-              "loc": "32:15-23",
+              "loc": "31:14-22",
               "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
               "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
             },
@@ -25598,7 +25613,35 @@
               "active": true,
               "explanation": "",
               "userRequest": "vue",
-              "loc": "33:8-19",
+              "loc": "32:8-19",
+              "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
+            },
+            {
+              "moduleIdentifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "module": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "moduleName": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "resolvedModuleIdentifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "resolvedModule": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "vue",
+              "loc": "34:15-23",
+              "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
+            },
+            {
+              "moduleIdentifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "module": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "moduleName": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "resolvedModuleIdentifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "resolvedModule": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+              "type": "harmony import specifier",
+              "active": true,
+              "explanation": "",
+              "userRequest": "vue",
+              "loc": "35:8-19",
               "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
               "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
             },
@@ -25826,9 +25869,9 @@
       "initial": true,
       "entry": true,
       "recorded": false,
-      "size": 8691,
+      "size": 8664,
       "sizes": {
-        "javascript": 1632,
+        "javascript": 1605,
         "runtime": 7059
       },
       "names": [
@@ -25842,7 +25885,7 @@
         "vue.js"
       ],
       "auxiliaryFiles": [],
-      "hash": "978cc90b73571ac83b10",
+      "hash": "18d8c0579cf9f4021935",
       "childrenByOrder": {},
       "id": "vue",
       "siblings": [],
@@ -25861,9 +25904,9 @@
           "type": "module",
           "moduleType": "javascript/esm",
           "layer": null,
-          "size": 1632,
+          "size": 1605,
           "sizes": {
-            "javascript": 1632
+            "javascript": 1605
           },
           "built": false,
           "codeGenerated": false,
@@ -26381,9 +26424,9 @@
       "type": "module",
       "moduleType": "javascript/esm",
       "layer": null,
-      "size": 1632,
+      "size": 1605,
       "sizes": {
-        "javascript": 1632
+        "javascript": 1605
       },
       "built": false,
       "codeGenerated": false,
@@ -28817,7 +28860,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "vue",
-          "loc": "27:4-16",
+          "loc": "26:4-16",
           "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
           "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
         },
@@ -28831,7 +28874,7 @@
           "active": true,
           "explanation": "",
           "userRequest": "vue",
-          "loc": "32:15-23",
+          "loc": "31:14-22",
           "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
           "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
         },
@@ -28845,7 +28888,35 @@
           "active": true,
           "explanation": "",
           "userRequest": "vue",
-          "loc": "33:8-19",
+          "loc": "32:8-19",
+          "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
+        },
+        {
+          "moduleIdentifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "module": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "moduleName": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "resolvedModuleIdentifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "resolvedModule": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "vue",
+          "loc": "34:15-23",
+          "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
+        },
+        {
+          "moduleIdentifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "module": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "moduleName": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "resolvedModuleIdentifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "resolvedModule": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
+          "type": "harmony import specifier",
+          "active": true,
+          "explanation": "",
+          "userRequest": "vue",
+          "loc": "35:8-19",
           "moduleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
           "resolvedModuleId": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e"
         },
@@ -29221,10 +29292,10 @@
       "sizes": {
         "javascript": 803
       },
-      "built": true,
+      "built": false,
       "codeGenerated": false,
       "buildTimeExecuted": false,
-      "cached": false,
+      "cached": true,
       "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue",
       "name": "./src/vue/navigation/components/nav-menu.vue",
       "nameForCondition": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue",
@@ -29279,9 +29350,9 @@
     {
       "type": "module",
       "moduleType": "css/mini-extract",
-      "size": 79632,
+      "size": 80509,
       "sizes": {
-        "css/mini-extract": 79632
+        "css/mini-extract": 80509
       },
       "built": false,
       "codeGenerated": false,
@@ -41829,8 +41900,8 @@
       "cacheable": true,
       "optional": false,
       "orphan": false,
-      "issuer": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/common/components/test.vue",
-      "issuerName": "./src/vue/common/components/test.vue",
+      "issuer": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/primevue/sidebar/Sidebar.vue",
+      "issuerName": "./node_modules/primevue/sidebar/Sidebar.vue",
       "issuerPath": [
         {
           "identifier": "javascript/esm|/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/app.js",
@@ -41838,16 +41909,21 @@
           "id": "./src/vue/app.js"
         },
         {
-          "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/common/components/test.vue",
-          "name": "./src/vue/common/components/test.vue",
-          "id": "./src/vue/common/components/test.vue"
+          "identifier": "javascript/esm|/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/libraries/primeVue/index.js",
+          "name": "./src/vue/libraries/primeVue/index.js",
+          "id": "./src/vue/libraries/primeVue/index.js"
+        },
+        {
+          "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/primevue/sidebar/Sidebar.vue",
+          "name": "./node_modules/primevue/sidebar/Sidebar.vue",
+          "id": "./node_modules/primevue/sidebar/Sidebar.vue"
         }
       ],
       "failed": false,
       "errors": 0,
       "warnings": 0,
       "id": "./node_modules/vue-loader/dist/exportHelper.js",
-      "issuerId": "./src/vue/common/components/test.vue",
+      "issuerId": "./node_modules/primevue/sidebar/Sidebar.vue",
       "chunks": [
         "src_vue_common_components_test_vue",
         "src_vue_navigation_components_nav-menu_vue",
@@ -45009,9 +45085,9 @@
       "type": "module",
       "moduleType": "javascript/esm",
       "layer": null,
-      "size": 144528,
+      "size": 144338,
       "sizes": {
-        "javascript": 144528
+        "javascript": 144338
       },
       "built": false,
       "codeGenerated": false,
@@ -45424,14 +45500,14 @@
       "type": "module",
       "moduleType": "javascript/auto",
       "layer": null,
-      "size": 1500,
+      "size": 1578,
       "sizes": {
-        "javascript": 1500
+        "javascript": 1578
       },
-      "built": true,
-      "codeGenerated": true,
+      "built": false,
+      "codeGenerated": false,
       "buildTimeExecuted": false,
-      "cached": false,
+      "cached": true,
       "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
       "name": "./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[1]!./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=template&id=68d29d2e",
       "nameForCondition": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue",
@@ -45515,10 +45591,10 @@
       "sizes": {
         "javascript": 380
       },
-      "built": true,
-      "codeGenerated": true,
+      "built": false,
+      "codeGenerated": false,
       "buildTimeExecuted": false,
-      "cached": false,
+      "cached": true,
       "identifier": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue?vue&type=script&setup=true&lang=js",
       "name": "./node_modules/vue-loader/dist/index.js??ruleSet[1].rules[3].use[0]!./src/vue/navigation/components/nav-menu.vue?vue&type=script&setup=true&lang=js",
       "nameForCondition": "/mnt/carpetaUsuario/Programacion/ProyectosPersonales/Apache-Drupal10-blog/src/drupal/web/themes/custom/foto_blog/src/vue/navigation/components/nav-menu.vue",
@@ -50764,9 +50840,9 @@
       "type": "module",
       "moduleType": "javascript/auto",
       "layer": null,
-      "size": 111903,
+      "size": 115672,
       "sizes": {
-        "javascript": 111903
+        "javascript": 115672
       },
       "built": true,
       "codeGenerated": false,
@@ -51582,7 +51658,7 @@
       "assets": [
         {
           "name": "main.css",
-          "size": 80322
+          "size": 81199
         },
         {
           "name": "main.js",
@@ -51590,7 +51666,7 @@
         }
       ],
       "filteredAssets": 0,
-      "assetsSize": 82969,
+      "assetsSize": 83846,
       "auxiliaryAssets": [],
       "filteredAuxiliaryAssets": 0,
       "auxiliaryAssetsSize": 0,
@@ -51606,11 +51682,11 @@
       "assets": [
         {
           "name": "vue.js",
-          "size": 10279
+          "size": 10195
         }
       ],
       "filteredAssets": 0,
-      "assetsSize": 10279,
+      "assetsSize": 10195,
       "auxiliaryAssets": [],
       "filteredAuxiliaryAssets": 0,
       "auxiliaryAssetsSize": 0,
@@ -51628,7 +51704,7 @@
       "assets": [
         {
           "name": "main.css",
-          "size": 80322
+          "size": 81199
         },
         {
           "name": "main.js",
@@ -51636,7 +51712,7 @@
         }
       ],
       "filteredAssets": 0,
-      "assetsSize": 82969,
+      "assetsSize": 83846,
       "auxiliaryAssets": [],
       "filteredAuxiliaryAssets": 0,
       "auxiliaryAssetsSize": 0,
@@ -51652,11 +51728,11 @@
       "assets": [
         {
           "name": "vue.js",
-          "size": 10279
+          "size": 10195
         }
       ],
       "filteredAssets": 0,
-      "assetsSize": 10279,
+      "assetsSize": 10195,
       "auxiliaryAssets": [],
       "filteredAuxiliaryAssets": 0,
       "auxiliaryAssetsSize": 0,
@@ -51712,11 +51788,11 @@
         },
         {
           "name": "primevueLibrary.js",
-          "size": 409066
+          "size": 408588
         }
       ],
       "filteredAssets": 0,
-      "assetsSize": 2034360,
+      "assetsSize": 2033882,
       "auxiliaryAssets": [],
       "filteredAuxiliaryAssets": 0,
       "auxiliaryAssetsSize": 0,

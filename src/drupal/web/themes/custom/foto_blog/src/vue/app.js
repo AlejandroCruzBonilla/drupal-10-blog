@@ -55,7 +55,6 @@
 	Drupal.behaviors.attachVue = {
 		attach: function (context, settings) {
 			once('attachVue', 'body').forEach((element) => {
-				console.log({element})
 				element.classList.add('hidden');
 				initVue()
 					.catch(error => {

@@ -582,10 +582,6 @@ video {
     transition-property: color, background-color;
     transition-duration: 200ms;
   }
-.btn:focus {
-  outline: 2px solid transparent;
-  outline-offset: 0px;
-}
 .btn--primary {
     border-width: 1px;
     border-color: #06b6d4;
@@ -984,9 +980,6 @@ video {
 .h-4 {
   height: 1rem;
 }
-.h-40 {
-  height: 10rem;
-}
 .h-44 {
   height: 11rem;
 }
@@ -1040,6 +1033,9 @@ video {
 }
 .h-\[calc\(100\%\+18px\)\] {
   height: calc(100% + 18px);
+}
+.h-auto {
+  height: auto;
 }
 .h-full {
   height: 100%;
@@ -2355,9 +2351,6 @@ video {
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
-.outline {
-  outline-style: solid;
-}
 .outline-offset-0 {
   outline-offset: 0px;
 }
@@ -2439,7 +2432,30 @@ video {
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 /* @forward 'fonts'; */
-/* @forward 'variables'; */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  position: relative;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+@media (prefers-color-scheme: light) {
+  .sidebar {
+    color: #292524;
+    background-color: #f5f5f4;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .sidebar {
+    color: #e7e5e4;
+    background-color: #1c1917;
+  }
+}
+.header {
+  margin-bottom: 1rem;
+}
 @media (prefers-color-scheme: light) {
   .header {
     color: inherit;
@@ -2453,6 +2469,10 @@ video {
   }
 }
 .header__wrapper {
+  padding: 1rem 1.75rem;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
 }
 @media (min-width: 640px) {
@@ -2496,14 +2516,6 @@ video {
   .header__wrapper {
     max-width: 1800px;
   }
-}
-.header__wrapper {
-  padding-left: 4rem;
-  padding-right: 4rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  margin-inline: auto;
-  display: flex;
 }
 .brand {
   display: flex;
@@ -2532,88 +2544,119 @@ video {
     fill: #e7e5e4;
   }
 }
+.brand__logo svg path:hover {
+  fill: #06b6d4;
+}
 .brand__wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+.brand__name {
+  color: #06b6d4;
+}
+.brand__slogan {
+  padding-right: 3vw;
+}
+@media (min-width: 640px) {
+  .brand__slogan {
+    padding-right: unset;
+  }
+}
 .nav {
   display: flex;
+  align-items: center;
 }
 .nav__links {
   display: flex;
   align-items: center;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+@media (min-width: 1024px) {
+  .nav__links {
+    flex-direction: row;
+    gap: 1.2rem;
+  }
 }
 .nav__link {
-  display: inline-block;
-  padding: 1rem;
-  margin: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
 }
-.page .layout {
+.nav__link::before {
+  display: block;
+  content: attr(title);
+  font-weight: 600;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.nav__link.is-active, .nav__link:hover {
+  color: #06b6d4;
+  font-weight: 600;
+}
+.page .main {
   width: 100%;
 }
 @media (min-width: 640px) {
 
-  .page .layout {
+  .page .main {
     max-width: 640px;
   }
 }
 @media (min-width: 768px) {
 
-  .page .layout {
+  .page .main {
     max-width: 768px;
   }
 }
 @media (min-width: 1024px) {
 
-  .page .layout {
+  .page .main {
     max-width: 1024px;
   }
 }
 @media (min-width: 1280px) {
 
-  .page .layout {
+  .page .main {
     max-width: 1280px;
   }
 }
 @media (min-width: 1440px) {
 
-  .page .layout {
+  .page .main {
     max-width: 1440px;
   }
 }
 @media (min-width: 1600px) {
 
-  .page .layout {
+  .page .main {
     max-width: 1600px;
   }
 }
 @media (min-width: 1800px) {
 
-  .page .layout {
+  .page .main {
     max-width: 1800px;
   }
 }
-.page .layout {
+.page .main {
   margin-inline: auto;
 }
 @media (prefers-color-scheme: light) {
-  .page .layout {
+  .page .main {
     color: inherit;
     background-color: #f5f5f4;
   }
 }
 @media (prefers-color-scheme: dark) {
-  .page .layout {
+  .page .main {
     color: inherit;
     background-color: #1c1917;
   }
 }
-.page .layout__wrapper {
-  padding-left: 4rem;
-  padding-right: 4rem;
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+.page .main__wrapper {
+  padding: 3rem 1.75rem;
 }
 .before\:absolute::before {
   content: var(--tw-content);
@@ -3683,6 +3726,16 @@ video {
 
   .md\:w-full {
     width: 100%;
+  }
+}
+@media (min-width: 1024px) {
+
+  .lg\:block {
+    display: block;
+  }
+
+  .lg\:hidden {
+    display: none;
   }
 }
 .\[\&\:\:-webkit-scrollbar\]\:hidden::-webkit-scrollbar {

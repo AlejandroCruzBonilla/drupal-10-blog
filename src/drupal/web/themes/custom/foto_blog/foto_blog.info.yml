@@ -12,7 +12,9 @@ regions:
   highlighted: Highlighted
   breadcrumb: Breadcrumb
   header: Header
-  sidebar_left: Sidebar Left
   content: Content
   footer: Footer
   admin: Admin tasks
+
+dependencies:
+  - drupal:twig_tweak

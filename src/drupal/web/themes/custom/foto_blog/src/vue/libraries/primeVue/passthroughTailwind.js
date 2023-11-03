@@ -524,23 +524,21 @@ export const overlaypanel = {
 export const sidebar = {
 	root: ({ props }) => ({
 		class: [
-			'flex flex-col pointer-events-auto relative transition-transform duration-300',
-			'bg-white text-gray-700 border-0 shadow-lg',
+			'sidebar',
 			{
 				'!transition-none !transform-none !w-screen !h-screen !max-h-full !top-0 !left-0': props.position == 'full',
 				'h-full w-80': props.position == 'left' || props.position == 'right',
-				'h-40 w-full': props.position == 'top' || props.position == 'bottom'
+				'h-auto w-full': props.position == 'top' || props.position == 'bottom'
 			},
-			'dark:border dark:border-blue-900/40 dark:bg-gray-900 dark:text-white/80'
 		]
 	}),
 	header: {
-		class: ['flex items-center justify-end', 'p-5']
+		class: ['flex items-center justify-between', 'p-4']
 	},
 	closeButton: {
 		class: [
 			'flex items-center justify-center overflow-hidden relative',
-			'w-8 h-8 text-gray-500 border-0 bg-transparent rounded-full transition duration-200 ease-in-out mr-2 last:mr-0',
+			'w-8 h-8 text-gray-500 border-0 bg-transparent rounded-md transition duration-200 ease-in-out mr-2 last:mr-0',
 			'hover:text-gray-700 hover:border-transparent hover:bg-gray-200',
 			'focus:outline-none focus:outline-offset-0 focus:shadow-[0_0_0_0.2rem_rgba(191,219,254,1)]', // focus
 			'dark:hover:text-white/80 dark:hover:text-white/80 dark:hover:border-transparent dark:hover:bg-gray-800/80 dark:focus:shadow-[inset_0_0_0_0.2rem_rgba(147,197,253,0.5)]'

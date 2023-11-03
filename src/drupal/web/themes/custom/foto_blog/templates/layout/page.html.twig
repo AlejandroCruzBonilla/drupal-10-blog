@@ -56,59 +56,29 @@
 	{{ page.admin }}
 	{{ page.highlighted }}
 
-
-	{# <test>
-		Hola
-	</test>
-	<nav-menu></nav-menu>
-	<font-awesome-icon
-		width="18px"
-		icon="fa-solid fa-user"></font-awesome-icon> #}
-	{# <pv-button>Boton</pv-button> #}
 	{{ page.header }}
-	<div
-		class="layout">
+
+	<main
+		class="main"
+		role="main">
 		<div
-			class="layout__wrapper">
-			{% if page.sidebar_left %}
-				<aside
-					class="sidebar sidebar--left"
-					role="complementary">
-					{{ page.sidebar_left }}
-				</aside>
+			class="main__wrapper">
+			{{ page.breadcrumb }}
+			{% if page.content %}
+				{{ page.content }}
 			{% endif %}
-
-			<main
-				class="main"
-				role="main">
-				{# link is in html.html.twig #}
-				<a
-					id="main-content"
-					tabindex="-1"></a>
-
-				{{ page.breadcrumb }}
-
-				{% if page.content %}
-					<div
-						class="content">
-						{{ page.content }}
-					</div>
-				{% endif %}
-
-			</main>
 		</div>
-	</div>
-
-	{% if page.footer %}
-		<footer
-			class="footer"
-			role="contentinfo">
-			<div
-				class="footer__wrapper">
-				{{ page.footer_one }}
-			</div>
-		</footer>
-	{% endif %}
-
-
+	</main>
 </div>
+
+
+{% if page.footer %}
+	<footer
+		class="footer"
+		role="contentinfo">
+		<div
+			class="footer__wrapper">
+			{{ page.footer_one }}
+		</div>
+	</footer>
+{% endif %}</div>
