@@ -3,16 +3,12 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import {
-	faFacebookF,
-	faInstagram,
 	faLinkedin,
-	faTiktok,
 	faTwitter,
+	faGithub,
 } from '@fortawesome/free-brands-svg-icons';
 
 import {
-	faArrowRightFromBracket,
-	faEnvelope,
 	faGripLines,
 	faPhone,
 	faUser,
@@ -22,15 +18,11 @@ import {
 
 
 library.add(
-	faArrowRightFromBracket,
-	faEnvelope,
-	faFacebookF,
 	faGripLines,
-	faInstagram,
 	faLinkedin,
 	faPhone,
-	faTiktok,
 	faTwitter,
+	faGithub,
 	faUser,
 	faCircleUser,
 	faXmark,

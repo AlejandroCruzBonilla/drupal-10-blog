@@ -18,3 +18,4 @@ regions:
 
 dependencies:
   - drupal:twig_tweak
+  - drupal:menu_item_extras

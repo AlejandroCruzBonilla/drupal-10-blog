@@ -32,24 +32,30 @@
 	{% import _self as menus %}
 	{% if items %}
 		{% set link_list_classes = [
-				"nav-social-footer__links",
+				"social-footer__links",
 			] 
 		%}
-
 		<ul{{attributes.addClass(link_list_classes)}}>
 			{% for item in items %}
+
+
 				<li{{item.attributes}}
-					class="nav-social-footer__wrapper-link">
+					class="social-footer__wrapper-link">
+
+					<font-awesome-icon
+						class="social-footer__icon"
+						icon="{{ item.content.field_class_icon|render|striptags|trim }}"></font-awesome-icon>
+
 					{{ 
-						link(
-							item.title, 
-							item.url,
-							{ 
-								'class':['nav-social-footer__link'],
-								'title': item.title
-							}
-						) 
-					}}
+							link(
+								item.title, 
+								item.url,
+								{ 
+									'class':['social-footer__link'],
+									'title': item.title
+								}
+							) 
+						}}
 
 				</li>
 			{% endfor %}

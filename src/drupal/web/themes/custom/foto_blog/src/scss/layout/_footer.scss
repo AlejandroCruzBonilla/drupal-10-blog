@@ -1,24 +1,31 @@
-@use '../base/colors' as c;
+@use "../base/colors" as c;
 @use "../base/mixins" as m;
 
 .footer {
-	@include m.theme-mode(
-		$bg-light: c.$background-light,
-		$bg-dark: c.$background-dark,
+  padding-bottom: 2rem;
+  @include m.theme-mode(
+    $bg-light: c.$background-light,
+    $bg-dark: c.$background-dark
   );
-	&__wrapper{
-		margin-inline: auto;
-		padding-top: 0.5rem;
-		padding-bottom: 0.5rem;
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		row-gap: 1.5rem;
-		@screen md {
-			flex-direction: row;
-			justify-content: space-between;
-		}
-		@include m.containerPadding;
-    @apply container;
+	@screen lg {
+		padding-bottom: 1rem;
 	}
+  &__divider {
+    @apply container mx-auto py-4;
+    @include m.containerPadding;
+  }
+  &__wrapper {
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 1rem;
+    @screen md {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    @include m.containerPadding;
+    @apply container;
+  }
 }

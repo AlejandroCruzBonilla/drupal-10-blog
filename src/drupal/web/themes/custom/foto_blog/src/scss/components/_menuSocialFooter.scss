@@ -1,7 +1,7 @@
 @use "../base/colors" as c;
 @use "../base/mixins" as m;
 
-.nav-social-footer {
+.social-footer {
   display: flex;
   align-items: center;
 
@@ -10,27 +10,34 @@
     align-items: center;
     flex-direction: column;
     row-gap: 1rem;
-    @screen lg {
+    @screen md {
       flex-direction: row;
       gap: 1rem;
     }
   }
+  &__wrapper-link {
+    display: grid;
+    grid-template-columns: 2.5rem 6rem;
+    align-items: center;
+		&:hover {
+      color: c.$primary;
+      font-weight: 600;
+    }
+  }
+  &__icon {
+    width: 80%;
+    height: 80%;
+    margin-inline: auto;
+  }
   &__link {
-    padding: 0.5rem;
-		text-align: center;
+    padding: 0.4rem;
     &::before {
-			display: block;
+      display: block;
       content: attr(title);
       font-weight: 600;
       height: 0;
       overflow: hidden;
       visibility: hidden;
-    }
-
-    &.is-active,
-    &:hover {
-      color: c.$primary;
-      font-weight: 600;
     }
   }
 }
