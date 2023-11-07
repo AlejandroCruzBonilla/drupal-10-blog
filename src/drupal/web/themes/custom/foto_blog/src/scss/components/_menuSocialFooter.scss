@@ -8,26 +8,31 @@
   &__links {
     display: flex;
     align-items: center;
-    flex-direction: column;
-    row-gap: 1rem;
-    @screen md {
-      flex-direction: row;
-      gap: 1rem;
-    }
+		gap: 1rem;
   }
+
   &__link {
-    padding: 0.4rem;
-    display: grid;
-    grid-template-columns: 2.5rem 5rem;
-    align-items: center;
+		display: grid;
+		grid-template-columns: 2.5rem;
+		@screen md{
+			column-gap: 0.3rem;		
+			grid-template-columns: auto 4.7rem;
+			align-items: center;
+		}
     &:hover {
       color: c.$primary;
       font-weight: 600;
     }
   }
   &__icon {
-    width: 90%;
-    height: 90%;
+    width: 40px;
+    height: 40px;
     margin-inline: auto;
   }
+	&__link-title {
+		display: none;
+		@screen md {
+			display: inline-block;
+		}
+	}
 }
