@@ -38,25 +38,21 @@
 		<ul{{attributes.addClass(link_list_classes)}}>
 			{% for item in items %}
 
-
 				<li{{item.attributes}}
 					class="social-footer__wrapper-link">
+					<a
+						target="__blank"
+						href="{{item.url}}" class="social-footer__link">
 
-					<font-awesome-icon
-						class="social-footer__icon"
-						icon="{{ item.content.field_class_icon|render|striptags|trim }}"></font-awesome-icon>
+						<font-awesome-icon
+							class="social-footer__icon"
+							icon="{{ item.content.field_class_icon|render|striptags|trim }}"></font-awesome-icon>
+						<span
+							class="social-footer__link-title">
+							{{ item.title }}
+						</span>
 
-					{{ 
-							link(
-								item.title, 
-								item.url,
-								{ 
-									'class':['social-footer__link'],
-									'title': item.title
-								}
-							) 
-						}}
-
+					</a>
 				</li>
 			{% endfor %}
 		</ul>

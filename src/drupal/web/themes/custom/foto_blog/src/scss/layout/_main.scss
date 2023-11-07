@@ -5,6 +5,7 @@
   .main {
     @apply container;
     margin-inline: auto;
+		min-height: 100svh;
 
 		@include m.theme-mode(
 			$bg-light: c.$background-light,

@@ -1,0 +1,11 @@
+.articles-page {
+	.articles-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+		grid-auto-rows: 250px auto auto auto auto;
+		gap: 1.5rem;
+		@screen lg {
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		}
+	}
+}

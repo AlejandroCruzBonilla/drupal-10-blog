@@ -30,9 +30,12 @@
  * @see template_preprocess_views_view()
  */
 #}
+
+{# dom_id ? 'js-view-dom-id-' ~ dom_id, #}
+
 {%
   set classes = [
-    dom_id ? 'js-view-dom-id-' ~ dom_id,
+    'articles-page',
   ]
 %}
 <div{{ attributes.addClass(classes) }}>

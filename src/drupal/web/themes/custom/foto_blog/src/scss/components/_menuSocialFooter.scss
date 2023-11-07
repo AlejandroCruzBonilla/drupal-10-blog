@@ -15,29 +15,19 @@
       gap: 1rem;
     }
   }
-  &__wrapper-link {
+  &__link {
+    padding: 0.4rem;
     display: grid;
-    grid-template-columns: 2.5rem 6rem;
+    grid-template-columns: 2.5rem 5rem;
     align-items: center;
-		&:hover {
+    &:hover {
       color: c.$primary;
       font-weight: 600;
     }
   }
   &__icon {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     margin-inline: auto;
-  }
-  &__link {
-    padding: 0.4rem;
-    &::before {
-      display: block;
-      content: attr(title);
-      font-weight: 600;
-      height: 0;
-      overflow: hidden;
-      visibility: hidden;
-    }
   }
 }

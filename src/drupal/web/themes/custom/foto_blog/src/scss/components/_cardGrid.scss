@@ -1,0 +1,51 @@
+@use "../base/colors" as c;
+
+.article-card-grid {
+  display: grid;
+	grid-template-rows: 250px auto 1fr auto auto ;
+  grid-template-rows: subgrid;
+  grid-row: span 5;
+  row-gap: 1.5rem;
+
+  border-radius: 6px;
+	background-color: theme('colors.stone.800');
+	
+	@screen sm {
+		row-gap: 1.5rem;
+	}
+
+  &__image {
+    img {
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+			height: 100%;
+			object-fit: cover;
+    }
+  }
+
+  &__title,
+  &__body,
+  &__tags,
+  &__links {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+		@screen sm {
+			padding-left: 1rem;
+			padding-right: 1rem;
+		}
+  }
+	&__body {
+		display: none;
+		@screen sm {
+			display: block;
+		}
+	}
+  &__links {
+    padding-bottom: 1rem;
+    a {
+      @apply btn btn--primary-outline;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

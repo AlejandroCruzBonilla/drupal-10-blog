@@ -34,23 +34,22 @@
 	{% endif %}
 
 	{% if site_name or site_slogan %}
-	<div class="brand__wrapper">
 
-		{% if site_name %}
-		<div class="brand__name">
-			<a
-				href="{{ path('<front>') }}"
-				rel="home"
-			>{{ site_name }}</a>
-		</div>
-		{% endif %}
-
-		{% if site_slogan %}
-		<div class="brand__slogan">
-			{{ site_slogan }}
-		</div>
-		{% endif %}
+	{% if site_name %}
+	<div class="brand__name">
+		<a
+			href="{{ path('<front>') }}"
+			rel="home"
+		>{{ site_name }}</a>
 	</div>
+	{% endif %}
+
+	{% if site_slogan %}
+	<div class="brand__slogan">
+		{{ site_slogan }}
+	</div>
+	{% endif %}
+
 	{% endif %}
 
 </div>

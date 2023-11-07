@@ -1,0 +1,48 @@
+@use "../base/colors" as c;
+@use "../base/mixins" as m;
+
+.nav-main {
+  display: flex;
+  align-items: center;
+	&__desktop {
+		display: none;
+		@screen lg {
+			display:block;
+		}
+	}
+	&__mobile {
+		display: flex;
+		align-items: center;
+		@screen lg {
+			display:none;
+		}
+	}
+  &__links {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 1rem;
+    @screen lg {
+      flex-direction: row;
+      gap: 0.7rem;
+    }
+  }
+  &__link {
+    padding: 0.5rem 0;
+		text-align: center;
+    &::before {
+			display: block;
+      content: attr(title);
+      font-weight: 600;
+      height: 0;
+      overflow: hidden;
+      visibility: hidden;
+    }
+
+    &.is-active,
+    &:hover {
+      color: c.$primary;
+      font-weight: 600;
+    }
+  }
+}
