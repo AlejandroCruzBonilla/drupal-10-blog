@@ -7,8 +7,9 @@
 		padding-bottom: 1rem;
 	}
   &__divider {
-    @apply container mx-auto py-4;
+    @apply container mx-auto;
 		hr {
+			height: 2px;
 			@include m.light-mode{
 				border-color: c.$background-dark;
 			}
@@ -20,6 +21,7 @@
 
   }
   &__wrapper {
+		padding: 1rem;
     margin-inline: auto;
     display: flex;
     flex-direction: column;
