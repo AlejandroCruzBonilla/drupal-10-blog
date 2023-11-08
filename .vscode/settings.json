@@ -3,5 +3,8 @@
 	"tailwindCSS.rootFontSize": 16,
 	"css.customData": [
 		".vscode/tailwind.json"
-	]
+	],
+	"files.associations": {
+		"*.html": "twig"
+	}
 }

@@ -8,8 +8,8 @@
 		min-height: 100svh;
 
 		@include m.theme-mode(
-			$bg-light: c.$background-light,
-			$bg-dark: c.$background-dark,
+			$bg-light: theme('colors.stone.200'),
+			$bg-dark: theme('colors.stone.800')
 		);
 		
     &__wrapper {

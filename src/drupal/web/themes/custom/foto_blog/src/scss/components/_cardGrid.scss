@@ -8,12 +8,19 @@
   grid-row: span 5;
   row-gap: 1.5rem;
   border-radius: 6px;
-	@apply shadow-xl;
+	@apply shadow-md;
 
 	@include m.theme-mode(
-		$bg-light: theme('colors.stone.50'),
-		$bg-dark: theme('colors.stone.800')
+		$bg-light: c.$background-light,
+		$bg-dark: c.$background-dark
 	);
+
+	@include m.light-mode{
+		@apply shadow-stone-400;
+	}
+	@include m.dark-mode{
+		@apply shadow-stone-700;
+	}
 
 
 	@screen sm {

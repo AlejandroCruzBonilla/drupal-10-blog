@@ -27,18 +27,14 @@
 }
 
 @mixin containerPadding {
-	padding-left: 1.75rem;
-	padding-right: 1.75rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 	@screen md{
-		padding-left: 2.5rem;
-		padding-right: 2.5rem;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
 	}
 	@screen lg{
 		padding-left: 4rem;
 		padding-right: 4rem;
-	}
-	@screen xl{
-		padding-left: 5rem;
-		padding-right: 5rem;
 	}
 }

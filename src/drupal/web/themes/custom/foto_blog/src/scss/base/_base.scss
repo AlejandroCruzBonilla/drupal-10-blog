@@ -8,9 +8,9 @@
 
     @include m.theme-mode(
 			$color-light: c.$font-dark, 
-			$bg-light: c.$background-light,
+			$bg-light:  theme('colors.stone.200'),
 			$color-dark: c.$font-light, 
-			$bg-dark: c.$background-dark
+			$bg-dark:  theme('colors.stone.800')
 		)
   }
 

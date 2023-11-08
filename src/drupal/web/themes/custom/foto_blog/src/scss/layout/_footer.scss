@@ -3,16 +3,21 @@
 
 .footer {
   padding-bottom: 2rem;
-  @include m.theme-mode(
-    $bg-light: c.$background-light,
-    $bg-dark: c.$background-dark
-  );
 	@screen lg {
 		padding-bottom: 1rem;
 	}
   &__divider {
     @apply container mx-auto py-4;
+		hr {
+			@include m.light-mode{
+				border-color: c.$background-dark;
+			}
+			@include m.dark-mode{
+				border-color: c.$background-light;
+			}
+		}
     @include m.containerPadding;
+
   }
   &__wrapper {
     margin-inline: auto;
