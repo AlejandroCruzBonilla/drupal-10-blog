@@ -7,38 +7,41 @@
     font-size: 16px;
 
     @include m.theme-mode(
-			$color-light: c.$font-dark, 
-			$bg-light:  theme('colors.stone.200'),
-			$color-dark: c.$font-light, 
-			$bg-dark:  theme('colors.stone.800')
-		)
+      $color-light: c.$font-dark,
+      $bg-light: theme("colors.stone.200"),
+      $color-dark: c.$font-light,
+      $bg-dark: theme("colors.stone.800")
+    );
   }
 
   h1 {
-		padding: 1.3rem 0;
-    @apply text-4xl ;
-		@screen md{
-			@apply text-5xl;
-		}
+    padding: 1.3rem 0;
+    @apply text-4xl;
+    @screen md {
+      @apply text-5xl;
+    }
   }
   h2 {
-		@apply text-3xl;
-		@screen md{
-			@apply text-4xl;
-		}
+    @apply text-3xl;
+    @screen md {
+      @apply text-4xl;
+    }
   }
   h3 {
-		@apply text-2xl;
-		@screen md{
-			@apply text-3xl;
-		}
+    @apply text-2xl;
+    @screen md {
+      @apply text-3xl;
+    }
   }
-	
+
   body {
-		@apply text-lg;
+    @apply text-lg;
   }
 
   a {
-		display: inline-block;
+    display: inline-block;
+  }
+  p {
+    margin: 1rem 0;
   }
 }

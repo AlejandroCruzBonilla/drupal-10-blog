@@ -70,7 +70,7 @@
 
 {# {% if display_submitted %}
 	<div
-		class="card-grid__subtitle">
+		class="card__subtitle">
 		{{ author_picture }}
 		<div{{author_attributes}}>
 			{% trans %}
@@ -86,13 +86,13 @@
 
 
 <article{{attributes}}
-	class="card-grid">
+	class="card">
 	<div
-		class="card-grid__image">
+		class="card__image">
 		{{ content.field_media_image }}
 	</div>
 	<div
-		class="card-grid__title">
+		class="card__title">
 		<h2{{title_attributes}}>
 			<a
 				href="{{ url }}" rel="bookmark">
@@ -100,21 +100,25 @@
 			</a>
 		</h2>
 	</div>
-	<div
-		class="card-grid__body">
-		<div{{content_attributes}}
-			class="card-grid__content">
-			{{ content.body }}
+	{% if content.body %}
+		<div
+			class="card__body">
+			<div{{content_attributes}}
+				class="card__content">
+				{{ content.body }}
+			</div>
 		</div>
-	</div>
+	{% endif %}
 	{% if content.field_tags %}
 		<div
-			class="card-grid__tags">
+			class="card__tags">
 			{{ content.field_tags }}
 		</div>
 	{% endif %}
+	{% if content.links %}
 	<div
-		class="card-grid__links">
+		class="card__links">
 		{{ content.links }}
 	</div>
+	{% endif %}
 </article>
