@@ -19,6 +19,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		font-weight: 600;
 	}
 
 	&__prev{
@@ -27,7 +28,6 @@
 	&__current { 
 		grid-column: 2/3;
 		color: c.$primary;
-		font-weight: 600;
 	}
 	&__next{
 		grid-column: 3/4;
