@@ -47,7 +47,7 @@
 		<div{{title_attributes.addClass(title_classes)}}>{{ label }}</div>
 	{% endif %}
 
-	<div class="flex gap-2">
+	<div class="flex gap-2 flex-wrap">
 		{% for item in items %}
 			<div class="btn btn--primary-outline text-xs py-2 px-3 rounded-full"{{item.attributes}}>
 			{{ item.content }}

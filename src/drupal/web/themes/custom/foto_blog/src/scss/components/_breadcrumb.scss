@@ -3,6 +3,11 @@
 .breadcrumb {
   display: flex;
   padding: 0.5rem 0;
+	&__item{
+		&:last-of-type{
+			color: c.$primary;
+		}
+	}
   &__link {
     text-align: center;
 		&:hover {
@@ -17,7 +22,5 @@
       overflow: hidden;
       visibility: hidden;
     }
-
- 
   }
 }

@@ -2478,6 +2478,9 @@ video {
   display: flex;
   padding: 0.5rem 0;
 }
+.breadcrumb__item:last-of-type {
+  color: #06b6d4;
+}
 .breadcrumb__link {
   text-align: center;
 }
