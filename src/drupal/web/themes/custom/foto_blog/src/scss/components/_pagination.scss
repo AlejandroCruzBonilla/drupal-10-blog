@@ -1,40 +1,37 @@
-@use '../base/colors' as c;
+@use "../base/colors" as c;
 
-.pagination{
-	padding: 1.5rem;
-	&__list {
-		display: grid;
-		grid-template-columns: 50px 50px 50px;
-		grid-template-rows: 50px;
-		gap: 0.7rem;
-		justify-content: center;
-		font-size: 3rem;
-	}
-
-	&__prev,
-	&__next,
-	&__current {
-		height: 100%;
+.pager {
+  padding: 1rem;
+	display: flex;
+	justify-content: center;
+  &__items {
+    display: flex;
+    justify-content: center;
+    font-size: 2.3rem;
+  }
+  &__item {
 		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		font-weight: 600;
-	}
-
-	&__prev{
-		grid-column: 1/2;
-	}
-	&__current { 
-		grid-column: 2/3;
-		color: c.$primary;
-	}
-	&__next{
-		grid-column: 3/4;
-	}
-
-	&__prev:hover,
-	&__next:hover {
-		color: c.$primary;
-	}
+		height: 100%;
+    span {
+			width: 37px;
+			height: 37px;
+      display: inline-flex;
+			justify-content: center;
+			align-items: center;
+    }
+    &--ellipsis {
+      display: none;
+      @screen sm {
+        display: inline-flex;
+      }
+    }
+		a:hover{
+			color: c.$primary;
+			font-weight: 600;
+		}
+		&.is-active{
+			font-weight: 600;
+			color: c.$primary;
+		}
+  }
 }

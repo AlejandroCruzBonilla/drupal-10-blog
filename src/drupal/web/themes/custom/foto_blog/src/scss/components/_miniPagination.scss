@@ -1,0 +1,40 @@
+@use '../base/colors' as c;
+
+.mini-pagination{
+	padding: 1.5rem;
+	&__list {
+		display: grid;
+		grid-template-columns: 50px 50px 50px;
+		grid-template-rows: 50px;
+		gap: 0.7rem;
+		justify-content: center;
+		font-size: 3rem;
+	}
+
+	&__prev,
+	&__next,
+	&__current {
+		height: 100%;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 600;
+	}
+
+	&__prev{
+		grid-column: 1/2;
+	}
+	&__current { 
+		grid-column: 2/3;
+		color: c.$primary;
+	}
+	&__next{
+		grid-column: 3/4;
+	}
+
+	&__prev:hover,
+	&__next:hover {
+		color: c.$primary;
+	}
+}

@@ -586,6 +586,7 @@ video {
 }
 .btn {
     display: inline-flex;
+    align-items: center;
     text-align: center;
     position: relative;
     -webkit-user-select: none;
@@ -2475,6 +2476,7 @@ video {
 }
 .breadcrumb {
   display: flex;
+  padding: 0.5rem 0;
 }
 .breadcrumb__link {
   text-align: center;
@@ -2667,8 +2669,6 @@ video {
 .cards .card__image img {
   height: 100%;
   width: 100%;
-}
-.cards .card__image img {
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -2699,6 +2699,7 @@ video {
 }
 .cards .card__links a {
     display: inline-flex;
+    align-items: center;
     text-align: center;
     position: relative;
     -webkit-user-select: none;
@@ -2745,7 +2746,7 @@ video {
 }
 @media (min-width: 1280px) {
   .cards--cols {
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   }
 }
 @media (min-width: 768px) {
@@ -2769,10 +2770,10 @@ video {
     grid-row: span 2;
   }
 }
-.pagination {
+.mini-pagination {
   padding: 1.5rem;
 }
-.pagination__list {
+.mini-pagination__list {
   display: grid;
   grid-template-columns: 50px 50px 50px;
   grid-template-rows: 50px;
@@ -2780,7 +2781,7 @@ video {
   justify-content: center;
   font-size: 3rem;
 }
-.pagination__prev, .pagination__next, .pagination__current {
+.mini-pagination__prev, .mini-pagination__next, .mini-pagination__current {
   height: 100%;
   width: 100%;
   display: flex;
@@ -2788,17 +2789,54 @@ video {
   align-items: center;
   font-weight: 600;
 }
-.pagination__prev {
+.mini-pagination__prev {
   grid-column: 1/2;
 }
-.pagination__current {
+.mini-pagination__current {
   grid-column: 2/3;
   color: #06b6d4;
 }
-.pagination__next {
+.mini-pagination__next {
   grid-column: 3/4;
 }
-.pagination__prev:hover, .pagination__next:hover {
+.mini-pagination__prev:hover, .mini-pagination__next:hover {
+  color: #06b6d4;
+}
+.pager {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+}
+.pager__items {
+  display: flex;
+  justify-content: center;
+  font-size: 2.3rem;
+}
+.pager__item {
+  width: 100%;
+  height: 100%;
+}
+.pager__item span {
+  width: 37px;
+  height: 37px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.pager__item--ellipsis {
+  display: none;
+}
+@media (min-width: 640px) {
+  .pager__item--ellipsis {
+    display: inline-flex;
+  }
+}
+.pager__item a:hover {
+  color: #06b6d4;
+  font-weight: 600;
+}
+.pager__item.is-active {
+  font-weight: 600;
   color: #06b6d4;
 }
 @media (prefers-color-scheme: light) {

@@ -49,7 +49,8 @@
 
 	<div class="flex gap-2">
 		{% for item in items %}
-			<div class="btn btn--primary-outline text-xs py-2 px-3 rounded-full"{{item.attributes}}>{{ item.content }}
+			<div class="btn btn--primary-outline text-xs py-2 px-3 rounded-full"{{item.attributes}}>
+			{{ item.content }}
 			</div>
 		{% endfor %}
 	</div>
