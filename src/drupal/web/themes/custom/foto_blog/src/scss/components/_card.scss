@@ -51,9 +51,7 @@
 
     &__text {
       display: none;
-			p {
-				margin: 0;
-			}
+
       @screen sm {
         display: block;
       }

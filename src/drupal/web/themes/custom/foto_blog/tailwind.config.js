@@ -57,12 +57,12 @@ export default {
 			},
 		},
 
-		plugins: [
-			typography(),
-			forms({
-				strategy: "base", // only generate global styles
-				// strategy: "class", // only generate classes
-			}),
-		],
-	}
+	},
+	plugins: [
+		typography(),
+		forms({
+			strategy: "base", // only generate global styles
+			// strategy: "class", // only generate classes
+		}),
+	],
 }

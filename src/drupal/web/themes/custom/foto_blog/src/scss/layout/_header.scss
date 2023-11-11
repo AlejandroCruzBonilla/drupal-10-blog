@@ -3,8 +3,10 @@
 
 .header {
   @include m.theme-mode(
-		$bg-light:  c.$background-light,
-		$bg-dark: c.$background-dark,
+		$color-light: c.$font-light,
+		$bg-light:  c.$background-dark,
+		$color-dark: c.$font-dark,
+		$bg-dark: c.$background-light,
   );
   &__wrapper {
 		margin-inline: auto;
@@ -15,4 +17,19 @@
 		@include m.containerPadding;
     @apply container;
   }
+	.brand{
+		svg{
+			path {
+				@include m.light-mode {
+          fill: c.$font-light;
+        }
+        @include m.dark-mode {
+          fill: c.$font-dark;
+        }
+				&:hover {
+          fill: c.$primary;
+        }
+			}
+		}
+	}
 }

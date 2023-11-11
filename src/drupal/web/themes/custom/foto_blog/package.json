@@ -41,8 +41,6 @@
   "license": "ISC",
   "type": "module",
   "scripts": {
-    "tw-dev": "tailwindcss -i src/css/libraries/index.css -o dist/tailwind/tailwind.css --watch",
-    "tw-build": "tailwindcss -i src/css/libraries/index.css -o dist/tailwind/tailwind.css --minify",
     "dev": "webpack --mode=development",
     "build": "webpack --mode=production --node-env=production",
     "watch": "webpack --watch",
