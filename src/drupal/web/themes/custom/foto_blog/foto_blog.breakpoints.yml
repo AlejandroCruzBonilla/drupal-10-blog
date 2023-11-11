@@ -1,36 +1,42 @@
+foto_blog.mobile:
+  label: Mobile
+  mediaQuery: '(max-width: 479px)'
+  weight: 1
+  multipliers:
+    - 1x
 foto_blog.xs:
   label: X-Small
   mediaQuery: '(min-width: 480px)'
-  weight: 1
+  weight: 2
   multipliers:
     - 1x
 foto_blog.sm:
   label: Small
   mediaQuery: '(min-width: 640px)'
-  weight: 2
+  weight: 3
   multipliers:
     - 1x
 foto_blog.md:
   label: Medium
   mediaQuery: '(min-width: 768px)'
-  weight: 3
+  weight: 4
   multipliers:
     - 1x
 foto_blog.lg:
   label: Large
   mediaQuery: '(min-width: 1024px)'
-  weight: 4
+  weight: 5
   multipliers:
     - 1x
 foto_blog.xl:
   label: X-Large
   mediaQuery: '(min-width: 1280px)'
-  weight: 5
+  weight: 6
   multipliers:
     - 1x
 foto_blog.2xl:
   label: 2X-Large
   mediaQuery: '(min-width: 1440px)'
-  weight: 6
+  weight: 7
   multipliers:
     - 1x
