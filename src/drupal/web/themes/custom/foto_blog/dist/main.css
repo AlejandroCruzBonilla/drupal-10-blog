@@ -1597,9 +1597,6 @@ select {
      -moz-appearance: none;
           appearance: none;
 }
-.grid-cols-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
 .flex-row {
   flex-direction: row;
 }
@@ -1638,9 +1635,6 @@ select {
 }
 .gap-2 {
   gap: 0.5rem;
-}
-.gap-5 {
-  gap: 1.25rem;
 }
 .self-center {
   align-self: center;
@@ -3006,6 +3000,13 @@ select {
 .pager__item.is-active {
   font-weight: 600;
   color: #06b6d4;
+}
+.gallery__wrapper {
+  display: grid;
+  gap: 1rem;
+}
+.gallery--default .gallery__wrapper {
+  grid-template-columns: 1fr;
 }
 @media (prefers-color-scheme: light) {
   .header {

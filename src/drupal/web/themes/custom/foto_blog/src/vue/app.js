@@ -56,11 +56,11 @@
 		attach: function (context, settings) {
 			once('attachVue', 'body').forEach((element) => {
 				// element.classList.add('hidden');
-				initVue()
-					.catch(error => {
-						console.error(error);
-						if ($) $.holdReady(false);
-					});
+				// initVue()
+				// 	.catch(error => {
+				// 		console.error(error);
+				// 		if ($) $.holdReady(false);
+				// 	});
 			})
 		}
 	}

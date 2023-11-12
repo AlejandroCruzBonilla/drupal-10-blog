@@ -9,6 +9,7 @@ services:
     volumes:
       - ./src:/opt
       - ./php/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - ./php/memory_limit.ini:/usr/local/etc/php/conf.d/memory_limit.ini
 
   database:
     build: ./docker/db/

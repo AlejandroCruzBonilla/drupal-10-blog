@@ -1,0 +1,9 @@
+<?php
+
+function foto_blog_preprocess_paragraph__photo_gallery(&$variables){
+	$paragraph = $variables['paragraph'];
+	// $parentBundle = $paragraph->getParentEntity()->bundle();
+	vardumper($paragraph->toArray());
+	// var_dump($paragraph->toArray());
+	exit;
+}

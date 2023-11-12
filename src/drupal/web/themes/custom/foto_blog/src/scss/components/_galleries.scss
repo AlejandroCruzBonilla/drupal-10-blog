@@ -1,0 +1,13 @@
+.gallery {
+	&__wrapper{
+		display: grid;
+		gap: 1rem;
+	}
+}
+
+
+.gallery--default {
+	.gallery__wrapper {
+		grid-template-columns: 1fr;
+	}
+}

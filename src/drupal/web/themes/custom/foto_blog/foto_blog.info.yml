@@ -18,4 +18,5 @@ regions:
 
 dependencies:
   - drupal:twig_tweak
+  - drupal:paragraphs
   - drupal:menu_item_extras

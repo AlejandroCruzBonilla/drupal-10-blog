@@ -33,34 +33,15 @@
  * - field_type: The type of the field.
  * - label_display: The display settings for the label.
  *
- *
- *
- *
- *
- *
- *
- *
- *
- * item.content['#media'].field_media_image.entity.uri.value
- *
- * item.content['#media'].field_media_image.entity|file_uri
- *
- * item.content['#media'].field_media_image.entity|file_uri|image_style('sm_640') 
- *
- * file_url(item.content['#media'].field_media_image.entity.uri.value)
- *
- *
- *
  * @see template_preprocess_field()
  */
 #}
 
-<div{{attributes}}>
-	<div>
-		{% for item in items %}
-			<div{{item.attributes}}>
-			{{ item.content }}
-			</div>
-		{% endfor %}
-	</div>
+
+
+<div {{attributes|without('class')}} class="gallery__wrapper">
+	{% for item in items %}
+		<div{{item.attributes}}>{{ item.content }}</div>
+	{% endfor %}
 </div>
+
